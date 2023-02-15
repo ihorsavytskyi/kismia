@@ -5,11 +5,11 @@ const data = {
             authors: [
                 {
                     name: 'Лиля',
-                    imgSrc: "./src/images/users/lilia.png"
+                    imgSrc: "/images/users/lilia.png"
                 },
                 {
                     name: "Игорь",
-                    imgSrc: "./src/images/users/ihor.png"
+                    imgSrc: "/images/users/ihor.png"
                 }
             ],
             publishDate: "2023-01-22",
@@ -20,11 +20,11 @@ const data = {
             authors: [
                 {
                     name: "Анна",
-                    imgSrc: "./src/images/users/hanna.png"
+                    imgSrc: "images/users/hanna.png"
                 },
                 {
                     name: "Андрей",
-                    imgSrc: "./src/images/users/andrey.png"
+                    imgSrc: "images/users/andrey.png"
                 }
             ],
             publishDate: "2022-01-05",
@@ -35,11 +35,11 @@ const data = {
             authors: [
                 {
                     name: "Аля",
-                    imgSrc: "./src/images/users/mihail.png"
+                    imgSrc: "images/users/mihail.png"
                 },
                 {
                     name: "Михаил",
-                    imgSrc: "./src/images/users/mihail.png"
+                    imgSrc: "/images/users/mihail.png"
                 }
             ],
             publishDate: "2022-12-05",
@@ -50,11 +50,11 @@ const data = {
             authors: [
                 {
                     name: "Екатерина",
-                    imgSrc: "./src/images/users/ekaterina.png"
+                    imgSrc: "images/users/ekaterina.png"
                 },
                 {
                     name: "Олег",
-                    imgSrc: "./src/images/users/oleh.png"
+                    imgSrc: "images/users/oleh.png"
                 }
             ],
             publishDate: "2022-11-05",
@@ -65,11 +65,11 @@ const data = {
             authors: [
                 {
                     name: "Ирина",
-                    imgSrc: "./src/images/users/irina.png"
+                    imgSrc: "images/users/irina.png"
                 },
                 {
                     name: "Александр",
-                    imgSrc: "./src/images/users/olexandr.png"
+                    imgSrc: "images/users/olexandr.png"
                 }
             ],
             publishDate: "2022-10-05",
@@ -80,11 +80,11 @@ const data = {
             authors: [
                 {
                     name: "Маша",
-                    imgSrc: "./src/images/users/masha.png"
+                    imgSrc: "images/users/masha.png"
                 },
                 {
                     name: "Иван",
-                    imgSrc: "./src/images/users/ivan.png"
+                    imgSrc: "images/users/ivan.png"
                 }
             ],
             publishDate: "2022-09-22",

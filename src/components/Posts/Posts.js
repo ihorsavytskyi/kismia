@@ -4,11 +4,10 @@ import Post from "../Post/Post";
 const Posts = () => {
 
     const posts = data.posts
-    console.log(posts)
 
     return (
         <div className="posts">
-            {posts.map(post =>
+            {posts && posts.map(post =>
                 <Post key={post._id} post={post}/>
             )}
         </div>
