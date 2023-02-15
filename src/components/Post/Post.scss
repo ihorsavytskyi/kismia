@@ -1,18 +1,22 @@
-@import '../../styles/utils/_variables.scss';
+@use './src/styles/utils/variables';
+@use './src/styles/utils/functions';
 
 .post {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
   background: #2F303E;
   box-shadow: 3px 3px 12px #242530;
   border-radius: 10px;
-  padding: 20px;
 }
 
 .post-header {
-
+  display: flex;
 }
 
 .users-avatars {
-
+  display: flex;
 }
 
 .users-avatar-item {
@@ -20,34 +24,36 @@
   height: 32px;
   border: 2px solid #2F303E;
   border-radius: 50%;
+  box-sizing: border-box;
 }
 
 .users-avatar-item:last-child {
-  left: 29px;
-  top: 0px;
+  position: absolute;
 }
 
 .users-names {
-  font-family: 'Roboto', sans-serif;;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  color: #ffffff;
+  /*check font size*/
+  font: normal 500 12px/14px variables.$roboto;
+  color: variables.$white;
+  margin-bottom: 3px;
 }
 
 .publish-date {
-  font-family: 'Roboto', sans-serif;;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  color: $gray;
+  font: normal 400 12px/14px variables.$roboto;
+  color: variables.$gray;
 }
 
 .post-body {
+
+  .post-text {
+    font-family: variables.$roboto;
+    font-style: normal;
+    font-size: functions.calcFluidFontSize(10, 16, 320, 480);
+    line-height: 1.36;
+    //font: italic 400 14px/19px variables.$roboto;
+    color: variables.$gray;
+    margin: 0;
+  }
 }
 
-.post-text {
-  color: $white;
-}
+

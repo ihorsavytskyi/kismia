@@ -1,9 +1,10 @@
 import React from "react";
 import headerBg from "../../images/bg.png"
+import style from "./Header.module.scss"
 const Header = () => {
     return (
         <header>
-            <img src={headerBg} alt="Headline background"/>
+            <img className={style.image} src={headerBg} alt="Headline background"/>
         </header>
     )
 }

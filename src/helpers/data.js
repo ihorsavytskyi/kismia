@@ -5,11 +5,11 @@ const data = {
             authors: [
                 {
                     name: 'Лиля',
-                    imgSrc: "/images/users/lilia.png"
+                    imgSrc: "images/users/lilia.png"
                 },
                 {
                     name: "Игорь",
-                    imgSrc: "/images/users/ihor.png"
+                    imgSrc: "images/users/ihor.png"
                 }
             ],
             publishDate: "2023-01-22",
@@ -24,7 +24,7 @@ const data = {
                 },
                 {
                     name: "Андрей",
-                    imgSrc: "images/users/andrey.png"
+                    imgSrc: "assets/users/andrey.png"
                 }
             ],
             publishDate: "2022-01-05",
@@ -35,11 +35,11 @@ const data = {
             authors: [
                 {
                     name: "Аля",
-                    imgSrc: "images/users/mihail.png"
+                    imgSrc: "images/users/aletvina.png"
                 },
                 {
                     name: "Михаил",
-                    imgSrc: "/images/users/mihail.png"
+                    imgSrc: "images/users/mihail.png"
                 }
             ],
             publishDate: "2022-12-05",

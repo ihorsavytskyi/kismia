@@ -11,8 +11,11 @@ const Post = ({ post }) => {
                         <img key={author.name} src={author.imgSrc} className="users-avatar-item" alt="User avatar"/>
                     )}
                 </div>
-                <div className="users-names">User names</div>
-                <div className="publish-date">{post.publishDate}</div>
+                <div className="post-details">
+                    <div className="users-names">User names</div>
+                    <div className="publish-date">{post.publishDate}</div>
+                </div>
+
             </div>
             <div className="post-body">
                 <p className="post-text">{post.postText}</p>
