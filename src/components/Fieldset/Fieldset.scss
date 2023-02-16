@@ -1,0 +1,16 @@
+@use './src/styles/utils/variables';
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+legend {
+  font: normal 700 14px/16px variables.$roboto;
+  color: variables.$white;
+  margin-bottom: 6px;
+}

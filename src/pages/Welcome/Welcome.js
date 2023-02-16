@@ -36,11 +36,11 @@ const Welcome = () => {
                 </HeadlineContainer>
                 <Section alignment={"column"}>
                     {/*make component headline*/}
-                    <h1>Наибольшая база анкет для знакомств</h1>
+                    <h1>НАйбільша база анкет для знайомств</h1>
                 </Section>
                 <Section alignment={"column"}>
-                    <Button icon={maleIcon} text={"Я мужчина"} handleClick={handleClick}/>
-                    <Button icon={femaleIcon} text={"Я женщина"} handleClick={handleClick}/>
+                    <Button icon={maleIcon} text={"Я чоловік"} handleClick={handleClick}/>
+                    <Button icon={femaleIcon} text={"Я жінка"} handleClick={handleClick}/>
                 </Section>
                 <Section alignment={"column"} gap={20}>
                     <Posts/>

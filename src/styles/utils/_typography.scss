@@ -1,60 +1,43 @@
+@use './src/styles/utils/variables';
+/* identical to box height */
 
-
-.headline {
-  font-family: $jost;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 26px;
-  /* identical to box height */
-
+@mixin title {
+  font: normal 700 18px/26px variables.$jost;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: $black;
+  margin: 0;
+  text-align: center;
+  color: variables.$white;
 }
 
-.label {
-  font-family: $roboto;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  color: $black;
+.subtitle {
+  font: normal 700 16px/19px variables.$roboto;
+  color: variables.$white;
+  text-align: center;
 }
 
-.body-text {
-  font-family: $roboto;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  color: $black;
+label {
+  font: normal 700 14px/16px variables.$roboto;
+  color: variables.$black;
+}
+
+.text {
+  font: normal 400 14px/16px variables.$roboto;
+  color: variables.$black;
 }
 
 .button {
-  font-family: 'Jost', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 23px;
+  font: normal 500 16px/23px variables.$jost;
   letter-spacing: 0.02em;
-  color: $black;
+  color: variables.$black;
 }
 
 .choose-button {
-  font-family: $roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: $black;
+  font: normal 500 14px/16px variables.$roboto;
+  color: variables.$black;
 }
 
 .error {
-  font-family: $roboto;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  color: $black;
+  font: normal 400 12px/16px variables.$roboto;
+  color: variables.$black;
 }

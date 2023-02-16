@@ -10,82 +10,85 @@ import headerBg from "../../images/bg.png";
 import "./Registration.scss"
 import Button from "../../components/Button/Button";
 import Fieldset from "../../components/Fieldset/Fieldset";
-const useValidation = (value, validations) => {
-    const [isEmpty, setEmpty] = useState(true)
-    const [minLengthError, setMinLengthError] = useState(false)
-    const [maxLengthError, setMaxLengthError] = useState(false)
-    const [isMatchesRegExp, setMatchesRegExpError] = useState(false)
-    const [inputValid, setInputValid] = useState(false)
+import Container from "../../components/Container/Container";
 
-    useEffect(() => {
 
-        for (const validation in validations) {
-            switch(validation) {
-                case 'isEmpty':
-                    value ? setEmpty(false) : setEmpty(true)
-                    break;
-                case 'minLength':
-                    value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false)
-                    break;
-                case 'maxLength':
-                    value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false)
-                    break;
-                case 'pattern':
-                    value.match(validations[validation]) == null ? setMatchesRegExpError(true) : setMatchesRegExpError(false)
-                    break;
-            }
-        }
-
-    }, [value])
-
-    useEffect(() => {
-        if(isEmpty || minLengthError || maxLengthError || isMatchesRegExp) {
-            setInputValid(false)
-        } else {
-            setInputValid(true)
-        }
-    }, [isEmpty, minLengthError, maxLengthError, isMatchesRegExp])
-
-    return {
-        isEmpty,
-        minLengthError,
-        maxLengthError,
-        isMatchesRegExp,
-        inputValid
-    }
-}
-
-const useInput = (initialValue, validations) => {
-    const [value, setValue] = useState(initialValue)
-    const [isDirty, setDirty] = useState(false)
-    const valid = useValidation(value, validations)
-
-    const onChange = (e) => {
-        setValue(e.target.value)
-    }
-
-    const onBlur = (e) => {
-        setDirty(true)
-    }
-
-    return {
-        value,
-        onChange,
-        onBlur,
-        isDirty,
-        ...valid
-    }
-}
+// const useValidation = (value, validations) => {
+//     const [isEmpty, setEmpty] = useState(true)
+//     const [minLengthError, setMinLengthError] = useState(false)
+//     const [maxLengthError, setMaxLengthError] = useState(false)
+//     const [isMatchesRegExp, setMatchesRegExpError] = useState(false)
+//     const [inputValid, setInputValid] = useState(false)
+//
+//     useEffect(() => {
+//
+//         for (const validation in validations) {
+//             switch(validation) {
+//                 case 'isEmpty':
+//                     value ? setEmpty(false) : setEmpty(true)
+//                     break;
+//                 case 'minLength':
+//                     value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false)
+//                     break;
+//                 case 'maxLength':
+//                     value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false)
+//                     break;
+//                 case 'pattern':
+//                     value.match(validations[validation]) == null ? setMatchesRegExpError(true) : setMatchesRegExpError(false)
+//                     break;
+//             }
+//         }
+//
+//     }, [value])
+//
+//     useEffect(() => {
+//         if(isEmpty || minLengthError || maxLengthError || isMatchesRegExp) {
+//             setInputValid(false)
+//         } else {
+//             setInputValid(true)
+//         }
+//     }, [isEmpty, minLengthError, maxLengthError, isMatchesRegExp])
+//
+//     return {
+//         isEmpty,
+//         minLengthError,
+//         maxLengthError,
+//         isMatchesRegExp,
+//         inputValid
+//     }
+// }
+//
+// const useInput = (initialValue, validations) => {
+//     const [value, setValue] = useState(initialValue)
+//     const [isDirty, setDirty] = useState(false)
+//     const valid = useValidation(value, validations)
+//
+//     const onChange = (e) => {
+//         setValue(e.target.value)
+//     }
+//
+//     const onBlur = (e) => {
+//         setDirty(true)
+//     }
+//
+//     return {
+//         value,
+//         onChange,
+//         onBlur,
+//         isDirty,
+//         ...valid
+//     }
+// }
 const Registration = () => {
 
-    const name = useInput('', {
-        isEmpty: true,
-        minlength: 2,
-        maxLength: 80,
-        pattern: '^[a-zA-Z ]*$'
-    })
-
-    console.log(name)
+    // const name = useInput('', {
+    //     isEmpty: true,
+    //     minlength: 2,
+    //     maxLength: 80,
+    //     pattern: '^[a-zA-Z ]*$'
+    // })
+    //
+    // console.log(name)
 
     return (
         <MainContainer pageName={"fast-register"}>
@@ -93,12 +96,12 @@ const Registration = () => {
                 <img className="image" src={headerBg} alt="Headline background"/>
             </HeadlineContainer>
             <Section>
-                <h1>Создать анкету</h1>
+                <h1 className="title">Створити анкету</h1>
             </Section>
             <Section>
                 <Text
                     textAlign={"center"}
-                    content={"Бистрая регистрация, чтоби перейти к общению"}/>
+                    content={"Швидка реєстрація, для того щоб перейти до спілкування"}/>
             </Section>
             <Section>
                 <form className="flex flex-col w-4/5 mx-auto mt-5">
@@ -106,27 +109,36 @@ const Registration = () => {
                         <Input attr={{
                           type: "text",
                           name: "name",
-                          label: "Имя:",
-                          placeholder: "Укажите имя"
+                          label: "Ім'я:",
+                          placeholder: "Зазначте ім'я",
+                          error: "Ім'я має містити лише символи"
                         }}/>
                     </FormField>
                     <FormField>
-                        <Fieldset legend={"Дата рождения:"} error={true}>
-                            <FormSubField attr={{
-                               name: "dayOfBirthday",
-                               label: "",
-                               placeholder: "ДД"}}
-                            />
-                            <FormSubField attr={{
-                                name: "monthOfBirthday",
-                                label: "",
-                                placeholder: "MM"}}
-                            />
-                            <FormSubField attr={{
-                                name: "yearOfBirthday",
-                                label: "",
-                                placeholder: "ГГГГ"}}
-                            />
+                        <Fieldset legend={"Дата народження:"} error={true}>
+                            <Container classes={["flex","row","space-between"]}>
+                                <FormSubField flex={[1, 0, "auto"]}>
+                                    <Select attr={{
+                                        name: "dayOfBirthday",
+                                        label: "",
+                                        placeholder: "ДД"}}
+                                    />
+                                </FormSubField>
+                                <FormSubField flex={[1, 0, "auto"]}>
+                                    <Select attr={{
+                                        name: "monthOfBirthday",
+                                        label: "",
+                                        placeholder: "MM"}}
+                                    />
+                                </FormSubField>
+                                <FormSubField flex={[1.12, 0, "auto"]}>
+                                    <Select attr={{
+                                        name: "yearOfBirthday",
+                                        label: "",
+                                        placeholder: "РРРР"}}
+                                    />
+                                </FormSubField>
+                            </Container>
                         </Fieldset>
                     </FormField>
                     <FormField>
@@ -134,17 +146,30 @@ const Registration = () => {
                             type: "password",
                             name: "password",
                             label: "Придумайте пароль:",
-                            placeholder: "Минимум 8 символов"
+                            placeholder: "Мінімум 8 символів",
+                            error: "Пароль має бути задовжки 8 символів",
+                            autoComplete: "off"
                         }}/>
                     </FormField>
-
                     <FormField>
-
+                        <Input attr={{
+                            type: "email",
+                            name: "email",
+                            label: "Email:",
+                            placeholder: "Email користувача",
+                            error: "Некоректно зазначено email користувача"
+                        }}/>
                     </FormField>
-                    <Button></Button>
-                    <FormField>
-
-                    </FormField>
+                    {/*<Button type={"submit"} text={"Створити анкету"}>Створити анкету</Button>*/}
+                    {/*<FormField>*/}
+                    {/*    <Input attr={{*/}
+                    {/*        type: "checkbox",*/}
+                    {/*        name: "consent",*/}
+                    {/*        label: "Реєструючись, я підтверджую, що мені виповнилося 18 років. Я приймаю умови ліцензійної угоди, політики конфіденційності та обробки персональних даних.",*/}
+                    {/*        placeholder: "",*/}
+                    {/*        error: ""*/}
+                    {/*    }}/>*/}
+                    {/*</FormField>*/}
                 </form>
             </Section>
         </MainContainer>
