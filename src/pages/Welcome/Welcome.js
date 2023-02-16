@@ -8,6 +8,9 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import "./Welcome.scss";
 import Section from "../../components/Section/Section";
+import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer";
+// import Image from "../../components/Image/Image";
+import headerBg from "../../images/bg.png"
 
 const Welcome = () => {
 
@@ -22,13 +25,19 @@ const Welcome = () => {
                 "gander": value
             }
         ))
-        navigate("/quiz")
+        navigate("/kismia/quiz")
     }
 
     return (
         <>
-            <MainContainer>
-                <h1>Наибольшая база анкет для знакомств</h1>
+            <MainContainer pageName={"welcome-page"}>
+                <HeadlineContainer>
+                    <img className="image" src={headerBg} alt="Headline background"/>
+                </HeadlineContainer>
+                <Section alignment={"column"}>
+                    {/*make component headline*/}
+                    <h1>Наибольшая база анкет для знакомств</h1>
+                </Section>
                 <Section alignment={"column"}>
                     <Button icon={maleIcon} text={"Я мужчина"} handleClick={handleClick}/>
                     <Button icon={femaleIcon} text={"Я женщина"} handleClick={handleClick}/>

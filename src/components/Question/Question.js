@@ -17,7 +17,7 @@ const Question = ({ question }) => {
             }
         ])
 
-        if((currentQuestion + 1) === questions.length) navigate("/registration")
+        if((currentQuestion + 1) === questions.length) navigate("/kismia/registration")
     })
 
     return (

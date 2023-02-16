@@ -5,11 +5,11 @@ const data = {
             authors: [
                 {
                     name: 'Лиля',
-                    imgSrc: "images/users/lilia.png"
+                    imgSrc: "/kismia/images/users/lilia.png"
                 },
                 {
                     name: "Игорь",
-                    imgSrc: "images/users/ihor.png"
+                    imgSrc: "/kismia/images/users/ihor.png"
                 }
             ],
             publishDate: "2023-01-22",
@@ -20,11 +20,11 @@ const data = {
             authors: [
                 {
                     name: "Анна",
-                    imgSrc: "images/users/hanna.png"
+                    imgSrc: "/kismia/images/users/hanna.png"
                 },
                 {
                     name: "Андрей",
-                    imgSrc: "assets/users/andrey.png"
+                    imgSrc: "/kismia/images/users/andrey.png"
                 }
             ],
             publishDate: "2022-01-05",
@@ -35,11 +35,11 @@ const data = {
             authors: [
                 {
                     name: "Аля",
-                    imgSrc: "images/users/aletvina.png"
+                    imgSrc: "/kismia/images/users/aletvina.png"
                 },
                 {
                     name: "Михаил",
-                    imgSrc: "images/users/mihail.png"
+                    imgSrc: "/kismia/images/users/mihail.png"
                 }
             ],
             publishDate: "2022-12-05",
@@ -50,11 +50,11 @@ const data = {
             authors: [
                 {
                     name: "Екатерина",
-                    imgSrc: "images/users/ekaterina.png"
+                    imgSrc: "/kismia/images/users/ekaterina.png"
                 },
                 {
                     name: "Олег",
-                    imgSrc: "images/users/oleh.png"
+                    imgSrc: "/kismia/images/users/oleh.png"
                 }
             ],
             publishDate: "2022-11-05",
@@ -65,11 +65,11 @@ const data = {
             authors: [
                 {
                     name: "Ирина",
-                    imgSrc: "images/users/irina.png"
+                    imgSrc: "/kismia/images/users/irina.png"
                 },
                 {
                     name: "Александр",
-                    imgSrc: "images/users/olexandr.png"
+                    imgSrc: "/kismia/images/users/olexandr.png"
                 }
             ],
             publishDate: "2022-10-05",
@@ -80,11 +80,11 @@ const data = {
             authors: [
                 {
                     name: "Маша",
-                    imgSrc: "images/users/masha.png"
+                    imgSrc: "/kismia/images/users/masha.png"
                 },
                 {
                     name: "Иван",
-                    imgSrc: "images/users/ivan.png"
+                    imgSrc: "/kismia/images/users/ivan.png"
                 }
             ],
             publishDate: "2022-09-22",

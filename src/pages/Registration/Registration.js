@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import MainContainer from "../../components/MainContainer/MainContainer";
 import Text from "../../components/Text/Text";
 import Section from "../../components/Section/Section";
-import FormField from "../../components/FormField/FormField"
+import { FormField, FormSubField} from "../../components/FormField/FormField"
+import Select from "../../components/Select/Select";
 import Input from "../../components/Input/Input";
-
+import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer";
+import headerBg from "../../images/bg.png";
+import "./Registration.scss"
+import Button from "../../components/Button/Button";
+import Fieldset from "../../components/Fieldset/Fieldset";
 const useValidation = (value, validations) => {
     const [isEmpty, setEmpty] = useState(true)
     const [minLengthError, setMinLengthError] = useState(false)
@@ -83,8 +88,13 @@ const Registration = () => {
     console.log(name)
 
     return (
-        <MainContainer>
-            <h1>Создать анкету</h1>
+        <MainContainer pageName={"fast-register"}>
+            <HeadlineContainer>
+                <img className="image" src={headerBg} alt="Headline background"/>
+            </HeadlineContainer>
+            <Section>
+                <h1>Создать анкету</h1>
+            </Section>
             <Section>
                 <Text
                     textAlign={"center"}
@@ -99,6 +109,41 @@ const Registration = () => {
                           label: "Имя:",
                           placeholder: "Укажите имя"
                         }}/>
+                    </FormField>
+                    <FormField>
+                        <Fieldset legend={"Дата рождения:"} error={true}>
+                            <FormSubField attr={{
+                               name: "dayOfBirthday",
+                               label: "",
+                               placeholder: "ДД"}}
+                            />
+                            <FormSubField attr={{
+                                name: "monthOfBirthday",
+                                label: "",
+                                placeholder: "MM"}}
+                            />
+                            <FormSubField attr={{
+                                name: "yearOfBirthday",
+                                label: "",
+                                placeholder: "ГГГГ"}}
+                            />
+                        </Fieldset>
+                    </FormField>
+                    <FormField>
+                        <Input attr={{
+                            type: "password",
+                            name: "password",
+                            label: "Придумайте пароль:",
+                            placeholder: "Минимум 8 символов"
+                        }}/>
+                    </FormField>
+
+                    <FormField>
+
+                    </FormField>
+                    <Button></Button>
+                    <FormField>
+
                     </FormField>
                 </form>
             </Section>

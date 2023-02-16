@@ -7,5 +7,15 @@ const FormField = ({ children }) => {
     )
 }
 
-export default FormField
+const FormSubField = ({ children }) => {
+    return (
+        <div className="form-subfield">
+            { children }
+        </div>
+    )
+}
 
+export {
+    FormField,
+    FormSubField
+}
