@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/kismia/static/css/main.d7a62417.css",
+    "main.js": "/kismia/static/js/main.7e0ac786.js",
+    "static/media/bg.png": "/kismia/static/media/bg.c7b77e1c37186f2828ee.png",
+    "static/media/f_icon.svg": "/kismia/static/media/f_icon.971b66559c57fcd24f0bcb1a39f16305.svg",
+    "static/media/m_icon.svg": "/kismia/static/media/m_icon.053b80f90453e6dc7f58ab131f499452.svg",
+    "index.html": "/kismia/index.html",
+    "main.d7a62417.css.map": "/kismia/static/css/main.d7a62417.css.map",
+    "main.7e0ac786.js.map": "/kismia/static/js/main.7e0ac786.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7a62417.css",
+    "static/js/main.7e0ac786.js"
+  ]
+}
