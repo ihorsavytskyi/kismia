@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/kismia/static/css/main.d7a62417.css",
-    "main.js": "/kismia/static/js/main.fea5eefd.js",
+    "main.css": "/kismia/static/css/main.750983ed.css",
+    "main.js": "/kismia/static/js/main.13611086.js",
     "static/media/bg.png": "/kismia/static/media/bg.c7b77e1c37186f2828ee.png",
     "static/media/f_icon.svg": "/kismia/static/media/f_icon.6b08f637e1276ba823b1e698a6d4a572.svg",
     "static/media/m_icon.svg": "/kismia/static/media/m_icon.2b055d56b056f8049cc1dfd8de1de67e.svg",
     "index.html": "/kismia/index.html",
-    "main.d7a62417.css.map": "/kismia/static/css/main.d7a62417.css.map",
-    "main.fea5eefd.js.map": "/kismia/static/js/main.fea5eefd.js.map"
+    "main.750983ed.css.map": "/kismia/static/css/main.750983ed.css.map",
+    "main.13611086.js.map": "/kismia/static/js/main.13611086.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7a62417.css",
-    "static/js/main.fea5eefd.js"
+    "static/css/main.750983ed.css",
+    "static/js/main.13611086.js"
   ]
 }
