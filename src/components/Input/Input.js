@@ -6,14 +6,10 @@ const Input = ({ attr }) => {
 
     const inputField = useInput('', {
         isEmpty: true,
-        minlength: 2,
+        minLength: 2,
         maxLength: 80,
         pattern: '^[a-zA-Z ]*$'
     })
-
-    console.log(inputField)
-
-    console.log(attr.name)
 
     return (
         <label>
@@ -27,7 +23,7 @@ const Input = ({ attr }) => {
                 value={inputField.value}
                 autoComplete={attr.autoComplete}
                 placeholder={attr.placeholder}/>
-            {!!attr.error && <span className="error">{attr.error}</span>}
+            {!inputField.inputValid && <span className="error">{attr.error}</span>}
         </label>
     )
 }

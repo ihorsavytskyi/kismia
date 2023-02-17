@@ -11,10 +11,6 @@ const Select = ({ attr }) => {
         pattern: '^[a-zA-Z ]*$'
     })
 
-    console.log(inputField)
-
-    console.log(attr.name)
-
     return (
         <label className="select-label">
             <select

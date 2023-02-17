@@ -1,5 +1,5 @@
 import React, {createContext, useState} from "react";
-import data  from "../../helpers/data"
+import data  from "../../data/data"
 import Question from "../Question/Question";
 
 export const QuizContext = createContext([])

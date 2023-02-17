@@ -13,6 +13,7 @@ export const useValidation = (value, validations) => {
             switch(validation) {
                 case 'isEmpty':
                     value ? setEmpty(false) : setEmpty(true)
+                    console.log(value)
                     break;
                 case 'minLength':
                     value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false)
@@ -21,6 +22,7 @@ export const useValidation = (value, validations) => {
                     value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false)
                     break;
                 case 'pattern':
+                    let regExp = new RegExp(validations[validation])
                     value.match(validations[validation]) == null ? setMatchesRegExpError(true) : setMatchesRegExpError(false)
                     break;
             }
@@ -29,6 +31,9 @@ export const useValidation = (value, validations) => {
     }, [value])
 
     useEffect(() => {
+
+        console.log(isEmpty, minLengthError, maxLengthError, isMatchesRegExp)
+
         if(isEmpty || minLengthError || maxLengthError || isMatchesRegExp) {
             setInputValid(false)
         } else {

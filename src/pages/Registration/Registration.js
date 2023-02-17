@@ -160,16 +160,16 @@ const Registration = () => {
                             error: "Некоректно зазначено email користувача"
                         }}/>
                     </FormField>
-                    {/*<Button type={"submit"} text={"Створити анкету"}>Створити анкету</Button>*/}
-                    {/*<FormField>*/}
-                    {/*    <Input attr={{*/}
-                    {/*        type: "checkbox",*/}
-                    {/*        name: "consent",*/}
-                    {/*        label: "Реєструючись, я підтверджую, що мені виповнилося 18 років. Я приймаю умови ліцензійної угоди, політики конфіденційності та обробки персональних даних.",*/}
-                    {/*        placeholder: "",*/}
-                    {/*        error: ""*/}
-                    {/*    }}/>*/}
-                    {/*</FormField>*/}
+                    <Button type={"submit"} text={"Створити анкету"}>Створити анкету</Button>
+                    <FormField>
+                        <Input attr={{
+                            type: "checkbox",
+                            name: "consent",
+                            label: "Реєструючись, я підтверджую, що мені виповнилося 18 років. Я приймаю умови ліцензійної угоди, політики конфіденційності та обробки персональних даних.",
+                            placeholder: "",
+                            error: ""
+                        }}/>
+                    </FormField>
                 </form>
             </Section>
         </MainContainer>

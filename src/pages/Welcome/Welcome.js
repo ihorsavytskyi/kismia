@@ -3,7 +3,7 @@ import MainContainer from "../../components/MainContainer/MainContainer";
 import Posts from "../../components/Posts/Posts";
 import maleIcon from "../../images/icons/m_icon.svg"
 import femaleIcon from "../../images/icons/f_icon.svg"
-import { useData } from "../../helpers/DataContext";
+import { useData } from "../../context/DataContext";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import "./Welcome.scss";

@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../../helpers/data"
+import data from "../../data/data"
 import Post from "../Post/Post";
 const Posts = () => {
 
