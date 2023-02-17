@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useValidation } from "./useValidation"
 export const useInput = (initialValue, validations) => {
     const [value, setValue] = useState(initialValue)

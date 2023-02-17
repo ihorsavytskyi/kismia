@@ -34,7 +34,7 @@ label {
 
 input {
   /*check font size*/
-  font: normal 400 14px/16px variables.$roboto;
+  font: normal 400 14px/1.14 variables.$roboto;
   color: rgba(170, 178, 189, 0.5);
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@ input {
 
 .error {
   /*check font size*/
-  font: normal 400 12px/14px variables.$roboto;
+  font: normal 400 12px/1.14 variables.$roboto;
   color: variables.$error-input-color;
 }
 

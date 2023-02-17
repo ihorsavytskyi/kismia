@@ -1,23 +1,34 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
+import {useInput} from "../../hooks/useInput";
+import {FormContext} from "../../pages/Registration/Registration";
 import "./Select.scss"
-import { useInput } from "../../hooks/useInput";
 
 const Select = ({ attr }) => {
 
-    const inputField = useInput('', {
-        isEmpty: true,
-        minlength: 2,
-        maxLength: 80,
-        pattern: '^[a-zA-Z ]*$'
+    const { setFieldsValue } = useContext(FormContext)
+
+    const selectField = useInput('', {
+        isEmpty: true
     })
+
+    useEffect(() => {
+        setFieldsValue(prev => (
+            {
+                ...prev,
+                [attr.name]: selectField.value
+            }
+        ))
+    }, [selectField.value])
 
     return (
         <label className="select-label">
             <select
                 className="select-field"
-                name={attr.name}>
-                { attr.placeholder }
-                <option value={attr.placeholder}>{attr.placeholder}</option>
+                name={attr.name}
+                onBlur={e => selectField.onBlur(e)}
+                onChange={e => selectField.onChange(e)}
+                value={selectField.value}>
+                {attr.options}
             </select>
         </label>
     )

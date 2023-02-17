@@ -36,13 +36,13 @@
 
 .users-names {
   /*check font size*/
-  font: normal 500 12px/14px variables.$roboto;
+  font: normal 500 12px/1.17 variables.$roboto;
   color: variables.$white;
   margin-bottom: 3px;
 }
 
 .publish-date {
-  font: normal 400 12px/14px variables.$roboto;
+  font: normal 400 12px/1.17 variables.$roboto;
   color: variables.$gray;
 }
 
@@ -51,8 +51,8 @@
   .post-text {
     font-family: variables.$roboto;
     font-style: normal;
-    font-size: functions.calcFluidFontSize(10, 16, 320, 480);
-    line-height: 1.36;
+    font: normal 400 14px/1.36 variables.$roboto;
+    //font-size: functions.calcFluidFontSize(10, 16, 320, 480);
     //font: italic 400 14px/19px variables.$roboto;
     color: variables.$gray;
     margin: 0;

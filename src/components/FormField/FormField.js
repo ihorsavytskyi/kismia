@@ -11,12 +11,10 @@ const FormField = ({ children }) => {
 
 const FormSubField = ({ children, ...props }) => {
 
-    // console.log(getSplitString(props.flex, false, " "))
-
     return (
         <div
             className="form-subfield"
-            style={{flex: props.flex.join(" ")}}>
+            style={{flex: getSplitString(props.flex, " ")}}>
             { children }
         </div>
     )
