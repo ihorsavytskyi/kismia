@@ -237,87 +237,30 @@ const data = {
     ],
     validationRules: {
         name: {
-            required: {
-                value: true,
-                errorMessage: "Поле обязательно к заполнению"
-            },
-            pattern: {
-                value: "^[a-zA-Z ]*$",
-                errorMessage: "Поле содержит недопустимые символы"
-            },
-            minLength: {
-                value: 2,
-                errorMessage: "Минимально допустимое 2 символа"
-            },
-            maxLength: {
-                value: 80,
-                errorMessage: "Максимально допустимо 80 символов"
-            }
+            isEmpty: true,
+            minLength: 2,
+            maxLength: 80,
+            pattern: "^[a-zA-Z ]*$",
+        },
+        dayOfBirth: {
+            isEmpty: true
+        },
+        monthOfBirth: {
+            isEmpty: true
+        },
+        yearOfBirth: {
+            isEmpty: true
         },
         password: {
-            required: {
-                value: true,
-                errorMessage: "Поле обязательно к заполнению"
-            },
-            minLength: {
-                value: 8,
-                errorMessage: "Минимальное количество символов не должо быть меньше "
-            }
+            isEmpty: true,
+            minLength: 8,
         },
         email: {
-            required: {
-                value: true,
-                errorMessage: "Поле обязательно к заполнению"
-            },
-            pattern: {
-                value: "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$",
-                errorMessage: "Некорректно указан email"
-            }
-        },
-        dayOfBirthday: {
-            required: {
-                value: true,
-                errorMessage: "Поле обязательно к заполнению"
-            },
-            minLength: {
-                value: 0,
-                errorMessage: "Минимально допустимое значение 1"
-            },
-            maxLength: {
-                value: 31,
-                errorMessage: "Превышено максимально допустимое значение"
-            }
-        },
-        monthOfBirthday: {
-            required: {
-                value: true,
-                errorMessage: "Поле обязательно к заполнению"
-            },
-            Number: {
-                value: true,
-                errorMessage: "Не может быть символьно значение"
-            },
-            minLength: {
-                value: 0,
-                errorMessage: "Минимально допустимое значение 1"
-            },
-            maxLength: {
-                value: 12,
-                errorMessage: "Превышено максимально допустимое значение"
-            }
-        },
-        yearOfBirthday: {
-            required: {
-                value: true,
-                errorMessage: "Поле обязательно к заполнению"
-            },
-            minLength: {
-                value: 8,
-                errorMessage: ""
-            }
+            isEmpty: true,
+            pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$",
         },
         consent: {
-            required: true
+            isEmpty: true
         }
     }
 }

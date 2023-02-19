@@ -1,0 +1,11 @@
+.headline {
+  width: 100vw;
+  max-width: 580px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+}

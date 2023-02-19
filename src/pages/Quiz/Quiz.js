@@ -5,16 +5,15 @@ import Section from "../../components/Section/Section";
 import Text from "../../components/Text/Text";
 import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer";
 import headerBg from "../../images/bg.png";
+import "./Quiz.scss"
 const Quiz = () => {
     return (
         <MainContainer pageName={"quiz-page"}>
             <HeadlineContainer>
                 <img className="image" src={headerBg} alt="Headline background"/>
             </HeadlineContainer>
-            <Section>
+            <Section classes={["column"]}>
                 <Questions />
-            </Section>
-            <Section>
                 <Text
                     textAlign={"center"}
                     content={"З метою підібрати Вам ідеальну пару, Ви маєте відповісти на декілька питань"}/>

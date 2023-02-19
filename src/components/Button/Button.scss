@@ -48,4 +48,8 @@
   & + .button {
     margin-top: 14px;
   }
+
+  &[type='submit'] {
+    margin-bottom: 10px;
+  }
 }

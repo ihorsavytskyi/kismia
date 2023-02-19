@@ -6,6 +6,7 @@ export const useValidation = (value, validations) => {
     const [maxLengthError, setMaxLengthError] = useState(false)
     const [isMatchesRegExp, setMatchesRegExpError] = useState(false)
     const [inputValid, setInputValid] = useState(false)
+    const [inputError, setInputError] = useState([])
 
     useEffect(() => {
 
@@ -29,6 +30,7 @@ export const useValidation = (value, validations) => {
             }
         }
 
+
     }, [value])
 
     useEffect(() => {
@@ -40,11 +42,13 @@ export const useValidation = (value, validations) => {
         }
     }, [isEmpty, minLengthError, maxLengthError, isMatchesRegExp])
 
+
     return {
         isEmpty,
         minLengthError,
         maxLengthError,
         isMatchesRegExp,
-        inputValid
+        inputValid,
+        inputError
     }
 }

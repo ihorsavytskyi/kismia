@@ -1,26 +1,33 @@
 @use './src/styles/utils/variables';
 @use './src/styles/utils/mixins';
 
-h1 {
-  font: normal 700 18px/26px variables.$jost;
-  text-align: center;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: variables.$white;
-  margin: 0;
-}
+.welcome-page {
+  .headline {
+    height: 54vh;
+    margin-bottom: -9vh;
+  }
 
-.headline {
-  width: 100vw;
-  height: 295px;
+  section {
+    &.title {
+      margin: 0 0 1vh
+    }
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: bottom;
+    &.posts {
+      margin: 5.6vh 0 0;
+    }
+  }
+
+  h1 {
+    font: normal 700 18px/26px variables.$jost;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: variables.$white;
+    margin: 0;
   }
 }
+
+
 
 .container {
   display: flex;
@@ -30,3 +37,11 @@ h1 {
     gap: 12px;
   }
 }
+
+
+//320px - 295 + 11 = 306
+//
+//
+//569
+//
+//   52 / 2  36 -> 6

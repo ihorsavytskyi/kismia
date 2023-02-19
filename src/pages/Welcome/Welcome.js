@@ -34,15 +34,14 @@ const Welcome = () => {
                 <HeadlineContainer>
                     <img className="image" src={headerBg} alt="Headline background"/>
                 </HeadlineContainer>
-                <Section alignment={"column"}>
-                    {/*make component headline*/}
-                    <h1>НАйбільша база анкет для знайомств</h1>
+                <Section classes={["column", "title"]}>
+                    <h1>Нaйбільша база анкет для знайомств</h1>
                 </Section>
-                <Section alignment={"column"}>
+                <Section classes={["column"]}>
                     <Button icon={maleIcon} text={"Я чоловік"} handleClick={handleClick}/>
                     <Button icon={femaleIcon} text={"Я жінка"} handleClick={handleClick}/>
                 </Section>
-                <Section alignment={"column"} gap={20}>
+                <Section classes={["column", "posts"]}>
                     <Posts/>
                 </Section>
 

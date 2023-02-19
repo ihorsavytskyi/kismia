@@ -51,21 +51,19 @@ const Registration = () => {
     const dateOfBirth = useUserAge(fieldsValue.dayOfBirth, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth)
 
     return (
-        <MainContainer pageName={"fast-register"}>
+        <MainContainer pageName={"fast-register-page"}>
             <HeadlineContainer>
                 <img className="image" src={headerBg} alt="Headline background"/>
             </HeadlineContainer>
-            <Section>
+            <Section classes={["column", "title"]}>
                 <h1 className="title">Створити анкету</h1>
-            </Section>
-            <Section>
                 <Text
                     textAlign={"center"}
                     content={"Швидка реєстрація, для того щоб перейти до спілкування"}/>
             </Section>
-            <Section>
+            <Section classes={["column", "register-form"]}>
                 <FormContext.Provider value={{ fieldsValue, setFieldsValue }}>
-                    <form className="flex flex-col w-4/5 mx-auto mt-5">
+                    <form className="register-form" action="/kismia/registration" method="GET">
                         <FormField>
                             <Input attr={{
                                 type: "text",
@@ -129,9 +127,7 @@ const Registration = () => {
                             <Input attr={{
                                 type: "checkbox",
                                 name: "consent",
-                                label: "Реєструючись, я підтверджую, що мені виповнилося 18 років. Я приймаю умови ліцензійної угоди, політики конфіденційності та обробки персональних даних.",
-                                placeholder: "",
-                                error: ""
+                                label: "Реєструючись, я підтверджую, що мені виповнилося 18 років. Я приймаю умови ліцензійної угоди, політики конфіденційності та обробки персональних даних."
                             }}/>
                         </FormField>
                     </form>
