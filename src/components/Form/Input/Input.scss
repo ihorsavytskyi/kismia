@@ -1,4 +1,4 @@
-@use './src/styles/utils/variables';
+@use '../../../styles/utils/variables';
 
 @mixin focus {
   color: variables.$main-bg;
@@ -14,14 +14,14 @@
 
 @mixin correct {
   color: variables.$main-bg;
-  background: variables.$correct-input-bg url("./correct-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
+  background: variables.$correct-input-bg url("correct-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
   border: 1px solid variables.$correct-input-color;
   box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
 }
 
 @mixin error {
   color: variables.$main-bg;
-  background: variables.$error-input-bg url("./incorrect-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
+  background: variables.$error-input-bg url("incorrect-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
   border: 1px solid variables.$error-input-color;
   box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
 }
@@ -121,7 +121,7 @@ label {
     }
 
     &:checked::after {
-      background: #242530 url("./checked-icon.svg") center / 9px no-repeat;
+      background: #242530 url("checked-icon.svg") center / 9px no-repeat;
     }
 
     &:hover {

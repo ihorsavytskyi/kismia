@@ -1,5 +1,9 @@
 @use './src/styles/utils/variables';
+@use './src/styles/utils/functions';
 /* identical to box height */
+html {
+  font-size: 10px;
+}
 
 @mixin title {
   font: normal 700 18px/26px variables.$jost;

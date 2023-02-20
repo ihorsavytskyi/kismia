@@ -10,32 +10,54 @@ export const useValidation = (value, validations) => {
 
     useEffect(() => {
 
+        const fieldsError = []
+
         for (const validation in validations) {
             switch(validation) {
                 case 'isEmpty':
-                    value ? setEmpty(false) : setEmpty(true)
+                    if(value) {
+                        setEmpty(false)
+                    } else {
+                        setEmpty(true)
+                        fieldsError.push("Поле не может быть пустым")
+                    }
                     break;
                 case 'minLength':
-                    value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false)
+                    if(value.length < validations[validation]) {
+                        setMinLengthError(true)
+                        fieldsError.push(`Поле должно содержать более ${validations[validation]} символов`)
+                    } else {
+                        setMinLengthError(false)
+                    }
                     break;
                 case 'maxLength':
-                    value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false)
+                    if(value.length > validations[validation]) {
+                        setMaxLengthError(true)
+                        fieldsError.push(`Поле не должно содержать более ${validations[validation]} символов`)
+                    } else {
+                        setMaxLengthError(false)
+                    }
                     break;
                 case 'pattern':
                     let regExp = new RegExp(validations[validation])
-                    value.match(regExp) == null ? setMatchesRegExpError(true) : setMatchesRegExpError(false)
+                    if(value.match(regExp) == null) {
+                        setMatchesRegExpError(true)
+                        fieldsError.push("Введенное значение содержит недопустимые символы")
+                    } else {
+                        setMatchesRegExpError(false)
+                    }
                     break;
                 default:
                     break;
             }
         }
 
+        setInputError(fieldsError)
+        console.log(inputError)
 
     }, [value])
 
     useEffect(() => {
-
-        console.log(isEmpty, minLengthError, maxLengthError, isMatchesRegExp)
 
         if(isEmpty || minLengthError || maxLengthError || isMatchesRegExp) {
             setInputValid(false)

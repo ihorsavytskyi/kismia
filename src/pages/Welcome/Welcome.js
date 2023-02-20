@@ -17,9 +17,7 @@ const Welcome = () => {
     const navigate = useNavigate()
     const { data, setValues } = useData()
 
-    console.log(data)
     const handleClick = (value) => {
-        console.log(value)
         setValues(value => (
             {
                 "gander": value

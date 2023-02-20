@@ -3,58 +3,23 @@ import MainContainer from "../../components/Layout/MainContainer/MainContainer";
 import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer";
 import headerBg from "../../images/bg.png";
 import Section from "../../components/Section/Section";
-import { FormField, FormSubField} from "../../components/FormField/FormField"
+import { FormField, FormSubField} from "../../components/Form/FormField/FormField"
 import Text from "../../components/Text/Text";
-import Select from "../../components/Select/Select";
-import Input from "../../components/Input/Input";
+import Select from "../../components/Form/Select/Select";
+import Input from "../../components/Form/Input/Input";
 import Button from "../../components/Button/Button";
-import Fieldset from "../../components/Fieldset/Fieldset";
+import Fieldset from "../../components/Form/Fieldset/Fieldset";
 import Container from "../../components/Container/Container";
-import {getCurrentYear, getUserAge} from "../../utils/getDate";
+import {getCurrentYear} from "../../utils/getDate";
 import getDropDownList from "../../utils/getDropDownList";
 import {useDaysInMonth} from "../../hooks/useDaysInMonth";
+import useUserAge from "../../hooks/useUserAge";
 
 import "./Registration.scss"
 
 export const FormContext = createContext({})
 
-const useUserAge = (day, month, year, numberOfFullYears) => {
-    const [isUserAgeValid, setUserAgeValid]  = useState(null)
-
-    useEffect(() => {
-
-        if(!!day && !!month && !!year) {
-            setUserAgeValid(getUserAge(day, month, year, numberOfFullYears))
-        }
-    }, [day, month, year])
-
-    return {
-        isUserAgeValid
-    }
-}
-
 const Registration = () => {
-
-    // const [fieldsValue, setFieldsValue] = useState({
-    //             name: {
-    //                 value: '',
-    //                 isValid: false
-    //             },
-    //             dayOfBirth: '',
-    //             monthOfBirth: '',
-    //             yearOfBirth: '',
-    //             password: {
-    //                 value: '',
-    //                 isValid: false
-    //             },
-    //             email: {
-    //                 value: '',
-    //                 isValid: false
-    //             },
-    //             consent: {
-    //                 value: ''
-    //             }
-    // })
 
     const [fieldsValue, setFieldsValue] = useState(() => ({
         name: '',
@@ -71,7 +36,7 @@ const Registration = () => {
         dayOfBirth: '',
         monthOfBirth: '',
         yearOfBirth: '',
-        dateOfBirth: '',
+        dateOfBirth: true,
         password: '',
         email: ''
     }))
@@ -79,8 +44,6 @@ const Registration = () => {
     const [isFormValid, setFormValid] = useState(false)
 
     useEffect(() => {
-        console.log(Object.values(isFieldsValid))
-        console.log(Object.values(isFieldsValid).every(el => el === true))
 
         if(Object.values(isFieldsValid).every(el => el === true)) {
             setFormValid(true)
@@ -90,7 +53,6 @@ const Registration = () => {
 
     const dayInMonth = useDaysInMonth(31, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth)
     const dateOfBirth = useUserAge(fieldsValue.dayOfBirth, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth, 16)
-
 
     return (
         <MainContainer pageName={"registration-page"}>
@@ -116,7 +78,7 @@ const Registration = () => {
                             }}/>
                         </FormField>
                         <FormField>
-                            <Fieldset legend={"Дата рождения:"} error={dateOfBirth.isUserAgeValid}>
+                            <Fieldset legend={"Дата рождения:"} id={"dateOfBirth"} error={dateOfBirth.isUserAgeValid}>
                                 <Container classes={["flex","row","space-between"]}>
                                     <FormSubField flex={[1, 0, "auto"]}>
                                         <Select

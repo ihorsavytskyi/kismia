@@ -1,21 +1,10 @@
-import React from "react";
-import "./Post.scss"
-
+import React, {useState} from "react";
 import {getSplitString} from "../../utils/getSplitString";
 import {getDate} from "../../utils/getDate";
-
-const usePostText = () => {
-
-
-    return {
-
-    }
-}
-
+import "./Post.scss"
 
 const Post = ({ post }) => {
 
-    const postText = usePostText(post.postText)
 
     return (
         <div className="post">
@@ -34,7 +23,9 @@ const Post = ({ post }) => {
 
             </div>
             <div className="post-body">
-                <p className="post-text">{getShortPostText(post.postText)}</p>
+                <ReadMore>
+                    {post.postText}
+                </ReadMore>
             </div>
         </div>
     )
@@ -50,13 +41,29 @@ const getAuthorAvatars = (authors) => {
     )
 }
 
-const getShortPostText = (text) => {
-    console.log(text.length)
-    if(text.length > 267) {
-        return text.slice(0, 275).concat("...")
+const ReadMore = ({ children }) => {
+
+    const text = children
+    const [isReadMore, setIsReadMore] = useState(true)
+
+    const toggleReadMore = () => {
+        setIsReadMore(!isReadMore)
     }
 
-    return text
+    if(text.length < 267) {
+        return (
+            <p className="post-text">{text}</p>
+        )
+    } else {
+        return (
+            <p className="post-text">
+                {isReadMore ?  text.slice(0, 267).concat("...") : text}
+                <span onClick={toggleReadMore} className="read-more-toggle">
+                    {isReadMore ? "Читать полностью" : "Свернуть"}
+                </span>
+            </p>
+        )
+    }
 }
 
 export default Post

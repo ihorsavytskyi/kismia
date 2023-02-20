@@ -1,10 +1,10 @@
 import React, {useEffect, useContext} from "react";
 import "./Input.scss"
-import { useInput } from "../../hooks/useInput";
+import { useInput } from "../../../hooks/useInput";
 import classNames from "classnames";
-import data from "../../data/data"
+import data from "../../../data/data"
 
-import {FormContext} from "../../pages/Registration/Registration";
+import {FormContext} from "../../../pages/Registration/Registration";
 const Input = ({ attr }) => {
 
     const { setFieldsValue, setFieldsValid } = useContext(FormContext)
@@ -33,13 +33,6 @@ const Input = ({ attr }) => {
 
     }, [inputField.inputValid])
 
-    // useEffect(() => {
-    //     setFieldsValue(() => (
-    //         fieldsValue[attr.name] = inputField.value
-    //     ))
-    //
-    // }, [inputField.value])
-
     return (
         <>
             {attr.type === "checkbox" && (
@@ -49,7 +42,6 @@ const Input = ({ attr }) => {
                             className="icon-checkbox"
                             type={attr.type}
                             name={attr.name}
-                            onBlur={e => inputField.onBlur(e)}
                             onChange={e => inputField.onChange(e)}
                             value={inputField.value}/>
                         <span>{!!attr.label && attr.label}</span>
@@ -73,7 +65,7 @@ const Input = ({ attr }) => {
                             value={inputField.value}
                             autoComplete={attr.autoComplete}
                             placeholder={attr.placeholder}/>
-                        {!inputField.inputValid && <span className="error">{attr.error}</span>}
+                        {(!inputField.inputValid && inputField.isDirty) && <span className="error">{inputField.inputError[inputField.inputError.length - 1]}</span>}
                     </label>
                 </div>
             )}

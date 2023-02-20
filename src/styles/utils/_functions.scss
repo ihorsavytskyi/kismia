@@ -6,6 +6,8 @@
 
   @return calc( #{$k} * 100vw + #{$b} );
 }
+
+
 .fluid-font-size {
-  font-size: calcFluidFontSize(16, 48, 480, 1280);
+  font-size: calcFluidFontSize(10, 15, 320, 480);
 }

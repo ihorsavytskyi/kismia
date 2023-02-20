@@ -13,6 +13,6 @@ export const getDayInMonth = (month, year) => {
 }
 
 export const getUserAge = (day, month, year, numberOfFullYears) => {
-    return moment().add(-numberOfFullYears, "years") < moment(`${day}-${month}-${year}`, "MM-DD-YYYY")
+    return moment().add(-numberOfFullYears, "years") > moment(`${day}-${month}-${year}`, "MM-DD-YYYY")
 }
 

@@ -69,6 +69,14 @@
     color: variables.$gray;
     margin: 0;
   }
+
+  .read-more-toggle {
+    font: normal 400 14px/1.36 variables.$roboto;
+    color: variables.$orange;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 5px;
+  }
 }
 
 
