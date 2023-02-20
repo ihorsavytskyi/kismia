@@ -2,14 +2,16 @@ import React, {useContext, useEffect} from "react";
 import {useInput} from "../../hooks/useInput";
 import {FormContext} from "../../pages/Registration/Registration";
 import "./Select.scss"
+import data from "../../data/data";
+import classNames from "classnames";
+
 
 const Select = ({ attr }) => {
 
-    const { setFieldsValue } = useContext(FormContext)
+    const { setFieldsValue, setFieldsValid } = useContext(FormContext)
+    const validationRules = data.validationRules
 
-    const selectField = useInput('', {
-        isEmpty: true
-    })
+    const selectField = useInput('', validationRules[attr.name])
 
     useEffect(() => {
         setFieldsValue(prev => (
@@ -20,10 +22,25 @@ const Select = ({ attr }) => {
         ))
     }, [selectField.value])
 
+    useEffect(() => {
+        setFieldsValid(prev => (
+            {
+                ...prev,
+                [attr.name] : selectField.inputValid
+            }
+        ))
+
+    }, [selectField.inputValid])
+
     return (
         <label className="select-label">
             <select
-                className="select-field"
+                className={
+                    classNames("select-field", {
+                        correct: selectField.inputValid  && selectField.isDirty,
+                        incorrect: !selectField.inputValid && selectField.isDirty
+                    })
+                }
                 name={attr.name}
                 onBlur={e => selectField.onBlur(e)}
                 onChange={e => selectField.onChange(e)}

@@ -2,10 +2,24 @@
 
 @mixin focus {
   color: variables.$main-bg;
-  background: variables.$light-gray;
+  background: variables.$light-gray url("./dropdown-icon.svg") calc(100% - 15px) 20px/ 8px no-repeat;
   border: 1px solid #FFB45C;
   box-shadow: 0px 0px 4px rgba(70, 136, 235, 0.25);
   opacity: 1;
+}
+
+@mixin correct {
+  color: variables.$main-bg;
+  background: variables.$correct-input-bg url("./dropdown-icon.svg") calc(100% - 15px) 20px/ 8px no-repeat;
+  border: 1px solid variables.$correct-input-color;
+  box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
+}
+
+@mixin error {
+  color: variables.$main-bg;
+  background: variables.$error-input-bg url("./dropdown-icon.svg") calc(100% - 15px) 20px/ 8px no-repeat;
+  border: 1px solid variables.$error-input-color;
+  box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
 }
 
 label {
@@ -17,17 +31,26 @@ label {
 select {
   /*check font size*/
   font: normal 400 14px/1.14 variables.$roboto;
-  color: rgba(170, 178, 189, 0.5);
+  background: variables.$default-input-bg url("./dropdown-icon.svg") calc(100% - 15px) 20px/ 8px no-repeat;
+  color: variables.$placeholder;
   display: flex;
   align-items: center;
-  background: variables.$white;
   border: 1px solid rgba(170, 178, 189, 0.5);
   box-shadow: inset 1px 1px 5px rgba(208, 210, 217, 0.5);
   border-radius: 10px;
   padding: 14px 16px;
   outline: none;
+  appearance: none;
 
   &:focus {
     @include focus();
+  }
+
+  &.correct {
+    @include correct()
+  }
+
+  &.incorrect {
+    @include error()
   }
 }

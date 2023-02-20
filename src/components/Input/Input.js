@@ -7,27 +7,38 @@ import data from "../../data/data"
 import {FormContext} from "../../pages/Registration/Registration";
 const Input = ({ attr }) => {
 
-    const { setFieldsValue } = useContext(FormContext)
+    const { setFieldsValue, setFieldsValid } = useContext(FormContext)
     const validationRules = data.validationRules
 
-    // const inputField = useInput('', {
-    //     isEmpty: true,
-    //     minLength: 2,
-    //     maxLength: 80,
-    //     pattern: '^[a-zA-Z ]*$'
-    // })
-
     const inputField = useInput('', validationRules[attr.name])
+
 
     useEffect(() => {
         setFieldsValue(prev => (
             {
                 ...prev,
-                [attr.name]: inputField.value
+                [attr.name] : inputField.value
             }
         ))
 
     }, [inputField.value])
+
+    useEffect(() => {
+        setFieldsValid(prev => (
+            {
+                ...prev,
+                [attr.name] : inputField.inputValid
+            }
+        ))
+
+    }, [inputField.inputValid])
+
+    // useEffect(() => {
+    //     setFieldsValue(() => (
+    //         fieldsValue[attr.name] = inputField.value
+    //     ))
+    //
+    // }, [inputField.value])
 
     return (
         <>

@@ -8,21 +8,20 @@
 }
 
 @mixin hover {
-  color: rgba(170, 178, 189, 0.5);
-  background: variables.$white;
+  background-color: variables.$white;
   border: 1px solid rgba(170, 178, 189, 0.5);
 }
 
 @mixin correct {
   color: variables.$main-bg;
-  background: variables.$correct-input-bg;
+  background: variables.$correct-input-bg url("./correct-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
   border: 1px solid variables.$correct-input-color;
   box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
 }
 
 @mixin error {
   color: variables.$main-bg;
-  background: variables.$error-input-bg;
+  background: variables.$error-input-bg url("./incorrect-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
   border: 1px solid variables.$error-input-color;
   box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
 }
@@ -54,15 +53,13 @@ label {
     font: normal 400 14px/1.14 variables.$roboto;
     display: flex;
     align-items: center;
-    background: variables.$white;
+    background-color: variables.$default-input-bg;
+    color: variables.$main-bg;
     border: 1px solid rgba(170, 178, 189, 0.5);
     box-shadow: inset 1px 1px 5px rgba(208, 210, 217, 0.5);
     border-radius: 10px;
     padding: 14px 16px;
     outline: none;
-
-    background: #C7C8D0;
-    color: #8A8B95;
 
     &::placeholder {
       color: variables.$placeholder;

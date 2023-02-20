@@ -243,13 +243,16 @@ const data = {
             pattern: "^[a-zA-Z ]*$",
         },
         dayOfBirth: {
-            isEmpty: true
+            isEmpty: true,
+            pattern: "^\\d{1,2}$"
         },
         monthOfBirth: {
-            isEmpty: true
+            isEmpty: true,
+            pattern: "^\\d{1,2}$"
         },
         yearOfBirth: {
-            isEmpty: true
+            isEmpty: true,
+            pattern: "^\\d{1,4}$"
         },
         password: {
             isEmpty: true,

@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import "./Fieldset.scss"
+import {FormContext} from "../../pages/Registration/Registration";
 
 const Fieldset = ({ children, ...props}) => {
+    const { isFieldsValid, setFieldsValid } = useContext(FormContext)
+
     return (
         <fieldset >
             <legend className="fieldset-legend">{props.legend}</legend>

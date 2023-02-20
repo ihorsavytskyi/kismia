@@ -1,5 +1,5 @@
 import React from "react";
-import MainContainer from "../../components/MainContainer/MainContainer";
+import MainContainer from "../../components/Layout/MainContainer/MainContainer";
 import Questions from "../../components/Questions/Questions";
 import Section from "../../components/Section/Section";
 import Text from "../../components/Text/Text";
@@ -16,7 +16,7 @@ const Quiz = () => {
                 <Questions />
                 <Text
                     textAlign={"center"}
-                    content={"З метою підібрати Вам ідеальну пару, Ви маєте відповісти на декілька питань"}/>
+                    content={"Чтобы идеально подобрать для вас пару, ответьте на несколько вопросов"}/>
             </Section>
         </MainContainer>
     )

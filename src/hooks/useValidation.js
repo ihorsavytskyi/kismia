@@ -35,6 +35,8 @@ export const useValidation = (value, validations) => {
 
     useEffect(() => {
 
+        console.log(isEmpty, minLengthError, maxLengthError, isMatchesRegExp)
+
         if(isEmpty || minLengthError || maxLengthError || isMatchesRegExp) {
             setInputValid(false)
         } else {

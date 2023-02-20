@@ -1,7 +1,7 @@
 @use './src/styles/utils/variables';
 @use './src/styles/utils/mixins';
 
-.fast-register-page {
+.registration-page {
   .headline {
     height: 32.7vh;
     margin-bottom: -9vh;
@@ -9,11 +9,11 @@
 
   section {
     &.title {
-      margin: 0 0 1vh
+      margin: 0 0 1vh;
     }
 
-    &.posts {
-      margin: 5.6vh 0 0;
+    &.register-form {
+      padding: 0 24px;
     }
   }
 

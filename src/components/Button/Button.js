@@ -7,7 +7,8 @@ const Button = ({...props}) => {
             {
                 (!!props.type && props.type === "submit") ? (<button
                     className="button"
-                    type={props.type}>
+                    type={props.type}
+                    disabled={props.disabled}>
                     <span className="button-text">{props.text}</span>
                 </button>) : (<button
                     className="button"

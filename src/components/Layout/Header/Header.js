@@ -1,5 +1,5 @@
 import React from "react";
-import headerBg from "../../images/bg.png"
+import headerBg from "../../../images/bg.png"
 import style from "../HeadlineContainer/HeadlineContainer.module.scss"
 const Header = () => {
     return (

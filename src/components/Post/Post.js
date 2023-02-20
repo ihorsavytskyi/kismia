@@ -4,7 +4,18 @@ import "./Post.scss"
 import {getSplitString} from "../../utils/getSplitString";
 import {getDate} from "../../utils/getDate";
 
+const usePostText = () => {
+
+
+    return {
+
+    }
+}
+
+
 const Post = ({ post }) => {
+
+    const postText = usePostText(post.postText)
 
     return (
         <div className="post">
@@ -23,7 +34,7 @@ const Post = ({ post }) => {
 
             </div>
             <div className="post-body">
-                <p className="post-text">{post.postText}</p>
+                <p className="post-text">{getShortPostText(post.postText)}</p>
             </div>
         </div>
     )
@@ -37,6 +48,15 @@ const getAuthorAvatars = (authors) => {
             )}
         </>
     )
+}
+
+const getShortPostText = (text) => {
+    console.log(text.length)
+    if(text.length > 267) {
+        return text.slice(0, 275).concat("...")
+    }
+
+    return text
 }
 
 export default Post

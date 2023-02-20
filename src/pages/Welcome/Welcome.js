@@ -1,5 +1,5 @@
 import React from "react";
-import MainContainer from "../../components/MainContainer/MainContainer";
+import MainContainer from "../../components/Layout/MainContainer/MainContainer";
 import Posts from "../../components/Posts/Posts";
 import maleIcon from "../../images/icons/m_icon.svg"
 import femaleIcon from "../../images/icons/f_icon.svg"
@@ -35,11 +35,11 @@ const Welcome = () => {
                     <img className="image" src={headerBg} alt="Headline background"/>
                 </HeadlineContainer>
                 <Section classes={["column", "title"]}>
-                    <h1>Нaйбільша база анкет для знайомств</h1>
+                    <h1>Наибольшая база анкет для знакомств</h1>
                 </Section>
                 <Section classes={["column"]}>
-                    <Button icon={maleIcon} text={"Я чоловік"} handleClick={handleClick}/>
-                    <Button icon={femaleIcon} text={"Я жінка"} handleClick={handleClick}/>
+                    <Button icon={maleIcon} text={"Я мужчина"} handleClick={handleClick}/>
+                    <Button icon={femaleIcon} text={"Я женщина"} handleClick={handleClick}/>
                 </Section>
                 <Section classes={["column", "posts"]}>
                     <Posts/>
