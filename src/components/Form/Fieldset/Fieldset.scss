@@ -7,6 +7,11 @@ fieldset {
   display: flex;
   flex-direction: column;
   gap: 6px;
+
+  span.error {
+    font: normal 400 12px/1.16 variables.$roboto;
+    color: variables.$error-input-color;
+  }
 }
 
 legend {

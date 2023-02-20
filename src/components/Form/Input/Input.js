@@ -65,7 +65,7 @@ const Input = ({ attr }) => {
                             value={inputField.value}
                             autoComplete={attr.autoComplete}
                             placeholder={attr.placeholder}/>
-                        {(!inputField.inputValid && inputField.isDirty) && <span className="error">{inputField.inputError[inputField.inputError.length - 1]}</span>}
+                        {(!inputField.inputValid && inputField.isDirty) && <span className="error">{inputField.inputError[0]}</span>}
                     </label>
                 </div>
             )}

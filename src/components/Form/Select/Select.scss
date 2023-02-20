@@ -20,6 +20,7 @@
   background: variables.$error-input-bg url("dropdown-icon.svg") calc(100% - 15px) 20px/ 8px no-repeat;
   border: 1px solid variables.$error-input-color;
   box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
+  margin-bottom: 0;
 }
 
 label {
@@ -39,6 +40,7 @@ select {
   box-shadow: inset 1px 1px 5px rgba(208, 210, 217, 0.5);
   border-radius: 10px;
   padding: 14px 16px;
+  margin-bottom: 8px;
   outline: none;
   appearance: none;
 
