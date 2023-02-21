@@ -1,8 +1,7 @@
-import React, {createContext, useEffect, useState} from "react";
+import React, {createContext, useState} from "react";
 import MainContainer from "../../components/Layout/MainContainer/MainContainer";
 import Footer from "../../components/Layout/Footer/Footer";
 import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer";
-import headerBg from "../../images/bg.png";
 import Section from "../../components/Section/Section";
 import { FormField, FormSubField} from "../../components/Form/FormField/FormField"
 import Input from "../../components/Form/Input/Input";
@@ -10,17 +9,18 @@ import Text from "../../components/Text/Text";
 import Select from "../../components/Form/Select/Select";
 import Button from "../../components/Button/Button";
 import Fieldset from "../../components/Form/Fieldset/Fieldset";
-
 import Container from "../../components/Container/Container";
+
+import headerBg from "../../images/bg.png";
 
 import {getCurrentYear} from "../../utils/getDate";
 import getDropDownList from "../../utils/getDropDownList";
 
 import {useDaysInMonth} from "../../hooks/useDaysInMonth";
 import useUserAge from "../../hooks/useUserAge";
+import useForm from "../../hooks/useForm";
 
 import "./Registration.scss"
-
 
 export const FormContext = createContext({})
 
@@ -35,7 +35,6 @@ const Registration = () => {
         email: '',
         consent: null
     }))
-
     const [isFieldsValid, setFieldsValid] = useState(() => ({
         name: '',
         dayOfBirth: '',
@@ -46,16 +45,7 @@ const Registration = () => {
         email: ''
     }))
 
-    const [isFormValid, setFormValid] = useState(false)
-
-    useEffect(() => {
-
-        if(Object.values(isFieldsValid).every(el => el === true)) {
-            setFormValid(true)
-        }
-
-    }, [isFieldsValid])
-
+    const isFormValid = useForm(isFieldsValid)
     const dayInMonth = useDaysInMonth(31, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth)
     const dateOfBirth = useUserAge(fieldsValue.dayOfBirth, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth, 16)
 
@@ -72,7 +62,7 @@ const Registration = () => {
                         content={"Бистрая регистрация, чтоби перейти к общению"}/>
                 </Section>
                 <Section classes={["column", "register-form"]}>
-                    <FormContext.Provider value={{ fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid }}>
+                    <FormContext.Provider value={{ isFormValid, fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid }}>
                         <form className="register-form" action="/kismia/registration" method="GET">
                             <FormField>
                                 <Input attr={{
@@ -135,7 +125,8 @@ const Registration = () => {
                                     error: "Некорретно указана почта"
                                 }}/>
                             </FormField>
-                            <Button type={"submit"} text={"СОЗДАТЬ"} disabled={!isFormValid}/>
+                            {/*<Button type={"submit"} text={"СОЗДАТЬ"} disabled={!isFormValid}/>*/}
+                            <Button type={"submit"} text={"СОЗДАТЬ"}/>
                             <FormField>
                                 <Input attr={{
                                     type: "checkbox",

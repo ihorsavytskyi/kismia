@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {getSplitString} from "../../utils/getSplitString";
 import {getDate} from "../../utils/getDate";
 import ReadMore from "../ReadMore/ReadMore";

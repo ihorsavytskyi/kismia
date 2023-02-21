@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Button.scss"
+import {FormContext} from "../../pages/Registration/Registration";
 const Button = ({...props}) => {
+
+    const { isFormValid } = useContext(FormContext)
 
     return (
         <>
@@ -8,7 +11,7 @@ const Button = ({...props}) => {
                 (!!props.type && props.type === "submit") ? (<button
                     className="button"
                     type={props.type}
-                    disabled={props.disabled}>
+                    disabled={!isFormValid}>
                     <span className="button-text">{props.text}</span>
                 </button>) : (<button
                     className="button"

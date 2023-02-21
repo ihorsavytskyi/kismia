@@ -16,7 +16,7 @@ const ReadMore = ({ children }) => {
         )
     } else {
         return (
-            <p className={classNames("post-text", {hide: isReadMore})}>
+            <p className={classNames("post-text", {collapsed: isReadMore})}>
                 {isReadMore ?  text.slice(0, 267).concat("...") : text}
                 <span onClick={toggleReadMore} className="read-more-toggle">
                     {isReadMore ? "Читать полностью" : "Свернуть"}

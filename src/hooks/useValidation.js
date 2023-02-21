@@ -53,7 +53,6 @@ export const useValidation = (value, validations) => {
         }
 
         setInputError(fieldsError)
-        console.log(inputError)
 
     }, [value])
 
