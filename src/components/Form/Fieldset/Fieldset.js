@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import "./Fieldset.scss"
-import {FormContext} from "../../../pages/Registration/Registration";
+import {FormContext} from "../Form";
 
 const Fieldset = ({ children, legend, error, id}) => {
     const { isFieldsValid, setFieldsValid } = useContext(FormContext)

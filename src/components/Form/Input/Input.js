@@ -3,8 +3,8 @@ import "./Input.scss"
 import { useInput } from "../../../hooks/useInput";
 import classNames from "classnames";
 import data from "../../../data/data"
+import {FormContext} from "../Form";
 
-import {FormContext} from "../../../pages/Registration/Registration";
 const Input = ({ attr }) => {
 
     const { setFieldsValue, setFieldsValid } = useContext(FormContext)

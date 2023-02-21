@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import {useInput} from "../../../hooks/useInput";
-import {FormContext} from "../../../pages/Registration/Registration";
+import {FormContext} from "../Form";
 import "./Select.scss"
 import data from "../../../data/data";
 import classNames from "classnames";
