@@ -43,13 +43,13 @@ const Form = () => {
             <FormContext.Provider value={{ isFormValid, fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid }}>
                 <form className="register-form" action="/kismia/registration" method="GET">
                     <FormField>
-                        <Input attr={{
+                        <Input
+                            attr={{
                             type: "text",
                             name: "name",
                             label: "Имя:",
-                            placeholder: "Укажите имя",
-                            error: "Ім'я має містити лише символи"
-                        }}/>
+                            placeholder: "Укажите имя"}}
+                        />
                     </FormField>
                     <FormField>
                         <Fieldset legend={"Дата рождения:"} id={"dateOfBirth"} error={dateOfBirth.isUserAgeValid}>
@@ -85,28 +85,29 @@ const Form = () => {
                         </Fieldset>
                     </FormField>
                     <FormField>
-                        <Input attr={{
+                        <Input
+                            attr={{
                             type: "password",
                             name: "password",
                             label: "Придумайте пароль:",
                             placeholder: "Минимум 8 символов",
-                            error: "Пароль не может быть меньше 8 символов",
                             autoComplete: "off"
                         }}/>
                     </FormField>
                     <FormField>
-                        <Input attr={{
+                        <Input
+                            attr={{
                             type: "email",
                             name: "email",
                             label: "Email:",
-                            placeholder: "Введите свою почту",
-                            error: "Некорретно указана почта"
+                            placeholder: "Введите свою почту"
                         }}/>
                     </FormField>
                     {/*<Button type={"submit"} text={"СОЗДАТЬ"} disabled={!isFormValid}/>*/}
                     <Button type={"submit"} text={"СОЗДАТЬ"}/>
                     <FormField>
-                        <Input attr={{
+                        <Input
+                            attr={{
                             type: "checkbox",
                             name: "consent",
                             label: "Регистрируясь, я подтверждаю что мне исполнилось 18 лет. Я принимаю условия лицензионного соглашения, политики конфиденциальности, обработки персональных данных."

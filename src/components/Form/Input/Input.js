@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from "react";
+import React, {useEffect, useContext, useState, forwardRef} from "react";
 import "./Input.scss"
 import { useInput } from "../../../hooks/useInput";
 import classNames from "classnames";
