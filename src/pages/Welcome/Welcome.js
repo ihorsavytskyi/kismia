@@ -1,5 +1,6 @@
 import React from "react";
 import MainContainer from "../../components/Layout/MainContainer/MainContainer";
+import Footer from "../../components/Layout/Footer/Footer";
 import Posts from "../../components/Posts/Posts";
 import maleIcon from "../../images/icons/m_icon.svg"
 import femaleIcon from "../../images/icons/f_icon.svg"
@@ -44,7 +45,7 @@ const Welcome = () => {
                 </Section>
 
             </MainContainer>
-            {/*<Footer/>*/}
+            <Footer />
         </>
 
     )

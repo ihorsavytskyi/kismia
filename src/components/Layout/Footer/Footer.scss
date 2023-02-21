@@ -1,0 +1,24 @@
+@use '../../../styles/utils/variables';
+
+footer {
+  background: variables.$dark-gray;
+  box-shadow: inset 0px 2px 20px rgba(0, 0, 0, 0.45);
+  display: block;
+  padding: 14px 0;
+  margin: 42px 0 0;
+
+  .footer-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .footer-navigation-item {
+      font: normal 400 14px/1.14 variables.$roboto;
+      color: variables.$white;
+      text-align: center;
+      padding: 10px 0;
+      width: fit-content;
+      text-decoration: none;
+    }
+  }
+}

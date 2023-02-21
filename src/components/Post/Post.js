@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {getSplitString} from "../../utils/getSplitString";
 import {getDate} from "../../utils/getDate";
+import ReadMore from "../ReadMore/ReadMore";
 import "./Post.scss"
 
 const Post = ({ post }) => {
@@ -39,31 +40,6 @@ const getAuthorAvatars = (authors) => {
             )}
         </>
     )
-}
-
-const ReadMore = ({ children }) => {
-
-    const text = children
-    const [isReadMore, setIsReadMore] = useState(true)
-
-    const toggleReadMore = () => {
-        setIsReadMore(!isReadMore)
-    }
-
-    if(text.length < 267) {
-        return (
-            <p className="post-text">{text}</p>
-        )
-    } else {
-        return (
-            <p className="post-text">
-                {isReadMore ?  text.slice(0, 267).concat("...") : text}
-                <span onClick={toggleReadMore} className="read-more-toggle">
-                    {isReadMore ? "Читать полностью" : "Свернуть"}
-                </span>
-            </p>
-        )
-    }
 }
 
 export default Post

@@ -48,6 +48,7 @@ label {
 
   label {
     flex-direction: column;
+    position: relative;
   }
 
   input {
@@ -85,6 +86,33 @@ label {
 
     &:hover {
       @include hover();
+    }
+
+    &[name="password"] {
+      &.correct {
+        background: variables.$correct-input-bg;
+      }
+
+      &.incorrect {
+        background: variables.$error-input-bg;
+      }
+    }
+  }
+
+  .tip {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    top: 33px;
+    right: 15px;
+    position: absolute;
+    z-index: 5;
+    background: transparent url("hide_icon.svg") center/24px no-repeat;
+    transition: transform 0.2s ease;
+
+    &.show {
+      transform: rotate(180deg);
     }
   }
 }
