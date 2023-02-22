@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/kismia/static/css/main.410e61d6.css",
-    "main.js": "/kismia/static/js/main.8ccbd0d7.js",
-    "static/media/bg.png": "/kismia/static/media/bg.c7b77e1c37186f2828ee.png",
+    "main.css": "/kismia/static/css/main.6b5850f3.css",
+    "main.js": "/kismia/static/js/main.655b6207.js",
+    "static/media/bg.png": "/kismia/static/media/bg.68bb294fff5a0cafb6b6.png",
     "static/media/hide_icon.svg": "/kismia/static/media/hide_icon.5bee5ee2f60557204a12.svg",
     "static/media/f_icon.svg": "/kismia/static/media/f_icon.6b08f637e1276ba823b1e698a6d4a572.svg",
     "static/media/checked-icon.svg": "/kismia/static/media/checked-icon.0d9661f36c114488318c.svg",
@@ -12,11 +12,11 @@
     "static/media/correct-icon.svg": "/kismia/static/media/correct-icon.ae4e97351bc0226eed62.svg",
     "static/media/incorrect-icon.svg": "/kismia/static/media/incorrect-icon.6ecff3cbc4494d964300.svg",
     "static/media/dropdown-icon.svg": "/kismia/static/media/dropdown-icon.b0382936bee0803d43ee.svg",
-    "main.410e61d6.css.map": "/kismia/static/css/main.410e61d6.css.map",
-    "main.8ccbd0d7.js.map": "/kismia/static/js/main.8ccbd0d7.js.map"
+    "main.6b5850f3.css.map": "/kismia/static/css/main.6b5850f3.css.map",
+    "main.655b6207.js.map": "/kismia/static/js/main.655b6207.js.map"
   },
   "entrypoints": [
-    "static/css/main.410e61d6.css",
-    "static/js/main.8ccbd0d7.js"
+    "static/css/main.6b5850f3.css",
+    "static/js/main.655b6207.js"
   ]
 }
