@@ -1,21 +1,11 @@
 @use './src/styles/utils/variables';
 @use './src/styles/utils/mixins';
-//@use './src/styles/utils/functions';
-
-@mixin button-pressed {
-  background: #E3983F;
-}
-
-@mixin button-active {
-  background: #C4C4C4;
-  box-shadow: 0px 2px 8px rgba(230, 233, 238, 0.55);
-}
 
 .button {
   background: linear-gradient(180deg, #FFB45C 0%, #FFA438 100%);
   border: none;
   border-radius: 10px;
-  padding: 10px 0 11px;
+  padding: 13px 0 14px;
   outline: none;
   display: flex;
   justify-content: center;
@@ -23,11 +13,11 @@
   width: 100%;
 
   &:focus {
-    @include button-pressed;
+    @include mixins.button-pressed();
   }
 
   &:active {
-    @include button-active;
+    @include mixins.button-active();
   }
 
   .button-icon {
@@ -38,9 +28,7 @@
   }
 
   .button-text {
-    font: normal 500 16px/1.44 variables.$jost;
-    color: variables.$main-bg;
-    letter-spacing: 0.02em;
+    @include mixins.choose-button();
     position: relative;
     top: 1px;
   }
@@ -52,8 +40,13 @@
   &[type='submit'] {
     margin: 16px 0 10px;
 
+
     &[disabled] {
       background: variables.$default-input-bg;
+
+      .button-text {
+        letter-spacing: 0.02em;
+      }
     }
   }
 }

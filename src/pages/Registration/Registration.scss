@@ -8,21 +8,19 @@
   }
 
   section {
+    padding: 0 24px;
+
     &.title {
       margin: 0 0 1vh;
-    }
 
-    &.register-form {
-      padding: 0 24px;
+      .text {
+        margin: 0 auto 12px;
+      }
     }
   }
 
   h1 {
-    font: normal 700 18px/26px variables.$jost;
-    text-align: center;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: variables.$white;
+    @include mixins.title();
     margin: 0 0 4px;
   }
 }

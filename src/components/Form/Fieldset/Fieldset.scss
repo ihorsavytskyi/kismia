@@ -1,4 +1,5 @@
 @use '../../../styles/utils/variables';
+@use '../../../styles/utils/mixins';
 
 fieldset {
   margin: 0;
@@ -9,13 +10,11 @@ fieldset {
   gap: 6px;
 
   span.error {
-    font: normal 400 12px/1.16 variables.$roboto;
-    color: variables.$error-input-color;
+    @include mixins.error();
   }
 }
 
 legend {
-  font: normal 700 14px/1.14 variables.$roboto;
-  color: variables.$white;
+  @include mixins.label();
   margin-bottom: 6px;
 }

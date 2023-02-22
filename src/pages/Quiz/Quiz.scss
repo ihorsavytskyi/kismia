@@ -7,16 +7,12 @@
     margin-bottom: -3.3vh;
   }
 
-  h2 {
-    font: normal 700 16px/1.19 variables.$roboto;
-    text-align: center;
-    color: variables.$white;
-    margin: 0 0 16px;
-  }
-
   section {
-    &.title {
-      margin: 0 0 1vh
+    padding: 0 24px;
+
+    h2 {
+      margin: 0 0 16px;
+      @include mixins.subtitle();
     }
 
     &.column {
@@ -24,10 +20,11 @@
       flex-direction: column;
       justify-content: space-between;
       height: auto;
-      min-height: 59.6vh;
+    }
+
+    .question {
+      margin: 0 0 60px;
     }
   }
 }
-
-//569-44-65-121=  339 59.6
 

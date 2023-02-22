@@ -25,21 +25,3 @@ $error-input-bg: #D0C7C7;
 $correct-input-bg: #CAD0C7;
 $error-input-color: #FF5E5E;
 $correct-input-color: #599F39;
-
-/* effects */
-.button-shadow {
-  background: #C4C4C4;
-  box-shadow: 0px 2px 8px rgba(230, 233, 238, 0.55);
-}
-
-.drop-shadow {
-  background: #C4C4C4;
-  box-shadow: 0px 2px 8px rgba(151, 151, 151, 0.25);
-}
-
-.input {
-  background: #C4C4C4;
-  box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
-}
-
-

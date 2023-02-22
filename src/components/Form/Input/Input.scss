@@ -1,4 +1,5 @@
 @use '../../../styles/utils/variables';
+@use '../../../styles/utils/mixins';
 
 @mixin focus {
   color: variables.$main-bg;
@@ -16,15 +17,17 @@
   color: variables.$main-bg;
   background: variables.$correct-input-bg url("correct-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
   border: 1px solid variables.$correct-input-color;
-  box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
+
+  @include mixins.input-box-shadow();
 }
 
 @mixin error {
   color: variables.$main-bg;
   background: variables.$error-input-bg url("incorrect-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
   border: 1px solid variables.$error-input-color;
-  box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
   margin-bottom: 0;
+
+  @include mixins.input-box-shadow();
 }
 
 label {
@@ -33,12 +36,10 @@ label {
   box-sizing: border-box;
 
   span {
-    /*check font size*/
-    font: normal 700 14px/16px variables.$roboto;
-    color: variables.$white;
+    @include mixins.label();
 
     &.error {
-      font: normal 400 12px/1.16 variables.$roboto;
+      font: normal 400 1.2rem/1.16 variables.$roboto;
       color: variables.$error-input-color;
     }
   }
@@ -52,7 +53,7 @@ label {
   }
 
   input {
-    font: normal 400 14px/1.14 variables.$roboto;
+    font: normal 400 1.4rem/1.14 variables.$roboto;
     display: flex;
     align-items: center;
     background: variables.$default-input-bg;
@@ -160,7 +161,7 @@ label {
   }
 
   span {
-    font: normal 400 9px/1.33 variables.$sans;
+    font: normal 400 0.9rem/1.33 variables.$sans;
     color: variables.$gray
   }
 }

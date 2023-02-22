@@ -1,0 +1,64 @@
+@use './src/styles/utils/variables';
+
+@mixin title {
+  font: normal 700 1.8rem/1.44 variables.$jost;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+  color: variables.$white;
+}
+
+@mixin subtitle {
+  font: normal 700 1.6rem/1.19 variables.$roboto;
+  color: variables.$white;
+  text-align: center;
+}
+
+@mixin text {
+  font: normal 400 1.4rem/1.14 variables.$roboto;
+  color: variables.$small-text;
+}
+
+@mixin button {
+  font: normal 500 1.6rem/1.43 variables.$jost;
+  letter-spacing: 0.02em;
+  color: variables.$black;
+}
+
+@mixin choose-button {
+  font: normal 500 1.4rem/1.14 variables.$roboto;
+  color: variables.$black;
+}
+
+@mixin button-pressed {
+  background: #E3983F;
+}
+
+@mixin button-active {
+  background: #C4C4C4;
+  box-shadow: 0px 2px 8px rgba(230, 233, 238, 0.55);
+}
+
+@mixin label {
+  font: normal 700 1.4rem/1.14 variables.$roboto;
+  color: variables.$white;
+}
+
+@mixin error {
+  font: normal 400 1.2rem/1.33 variables.$roboto;
+  color: variables.$error-input-color;
+}
+
+/* effects */
+@mixin input-box-shadow {
+  box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
+}
+
+@mixin button-shadow {
+  box-shadow: 0px 2px 8px rgba(230, 233, 238, 0.55);
+}
+
+@mixin drop-shadow {
+  box-shadow: 0px 2px 8px rgba(151, 151, 151, 0.25);
+}
