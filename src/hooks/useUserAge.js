@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {getUserAge} from "../utils/getDate";
+import { useState, useEffect } from "react";
+import { getUserAge } from "../utils/getDate";
 
 const useUserAge = (day, month, year, numberOfFullYears) => {
     const [isUserAgeValid, setUserAgeValid]  = useState(true)
@@ -9,7 +9,7 @@ const useUserAge = (day, month, year, numberOfFullYears) => {
         if(!!day && !!month && !!year) {
             setUserAgeValid(getUserAge(day, month, year, numberOfFullYears))
         }
-    }, [day, month, year])
+    }, [day, month, year, numberOfFullYears])
 
     return {
         isUserAgeValid

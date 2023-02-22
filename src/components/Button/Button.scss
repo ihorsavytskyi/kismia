@@ -11,6 +11,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  cursor: pointer;
 
   &:focus {
     @include mixins.button-pressed();

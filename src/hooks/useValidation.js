@@ -62,7 +62,7 @@ export const useValidation = (value, validations) => {
 
         setInputError(fieldsError)
 
-    }, [value])
+    }, [value, validations])
 
     useEffect(() => {
 

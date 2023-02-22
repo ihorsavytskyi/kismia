@@ -3,7 +3,7 @@ import "./Fieldset.scss"
 import {FormContext} from "../Form";
 
 const Fieldset = ({ children, legend, error, id}) => {
-    const { isFieldsValid, setFieldsValid } = useContext(FormContext)
+    const { setFieldsValid } = useContext(FormContext)
 
     useEffect(() => {
         setFieldsValid(prev => ({...prev, [id]: error}))

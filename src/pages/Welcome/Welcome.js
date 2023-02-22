@@ -10,7 +10,6 @@ import Button from "../../components/Button/Button";
 import "./Welcome.scss";
 import Section from "../../components/Section/Section";
 import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer";
-// import Image from "../../components/Image/Image";
 import headerBg from "../../images/bg.png"
 
 const Welcome = () => {
