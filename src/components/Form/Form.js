@@ -41,7 +41,7 @@ const Form = () => {
     return (
         <>
             <FormContext.Provider value={{ isFormValid, fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid }}>
-                <form className="register-form" action="/kismia/registration" method="GET">
+                <form className="register-form" action="" method="">
                     <FormField>
                         <Input
                             attr={{
@@ -103,7 +103,6 @@ const Form = () => {
                             placeholder: "Введите свою почту"
                         }}/>
                     </FormField>
-                    {/*<Button type={"submit"} text={"СОЗДАТЬ"} disabled={!isFormValid}/>*/}
                     <Button type={"submit"} text={"СОЗДАТЬ"}/>
                     <FormField>
                         <Input

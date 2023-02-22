@@ -12,44 +12,52 @@ export const useValidation = (value, validations) => {
 
         const fieldsError = []
 
-        for (const validation in validations) {
-            switch(validation) {
-                case 'isEmpty':
-                    if(value) {
-                        setEmpty(false)
-                    } else {
-                        setEmpty(true)
-                        fieldsError.push("Поле не может быть пустым")
-                    }
-                    break;
-                case 'minLength':
-                    if(value.length < validations[validation]) {
-                        setMinLengthError(true)
-                        fieldsError.push(`Поле должно содержать более ${validations[validation]} символов`)
-                    } else {
-                        setMinLengthError(false)
-                    }
-                    break;
-                case 'maxLength':
-                    if(value.length > validations[validation]) {
-                        setMaxLengthError(true)
-                        fieldsError.push(`Поле не должно содержать более ${validations[validation]} символов`)
-                    } else {
-                        setMaxLengthError(false)
-                    }
-                    break;
-                case 'pattern':
-                    let regExp = new RegExp(validations[validation])
-                    if(value.match(regExp) == null) {
-                        setMatchesRegExpError(true)
-                        fieldsError.push("Введенное значение содержит недопустимые символы")
-                    } else {
-                        setMatchesRegExpError(false)
-                    }
-                    break;
-                default:
-                    break;
+        const interval = setTimeout(() => {
+
+            for (const validation in validations) {
+                switch(validation) {
+                    case 'isEmpty':
+                        if(value) {
+                            setEmpty(false)
+                        } else {
+                            setEmpty(true)
+                            fieldsError.push("Поле не может быть пустым")
+                        }
+                        break;
+                    case 'minLength':
+                        if(value.length < validations[validation]) {
+                            setMinLengthError(true)
+                            fieldsError.push(`Указанное значение не может быть меньше ${validations[validation]} символов`)
+                        } else {
+                            setMinLengthError(false)
+                        }
+                        break;
+                    case 'maxLength':
+                        if(value.length > validations[validation]) {
+                            setMaxLengthError(true)
+                            fieldsError.push(`Поле не должно содержать более ${validations[validation]} символов`)
+                        } else {
+                            setMaxLengthError(false)
+                        }
+                        break;
+                    case 'pattern':
+                        let regExp = new RegExp(validations[validation])
+                        if(value.match(regExp) == null) {
+                            setMatchesRegExpError(true)
+                            fieldsError.push("Введенное значение содержит недопустимые символы")
+                        } else {
+                            setMatchesRegExpError(false)
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
+
+        }, 700)
+
+        return () => {
+            clearTimeout(interval)
         }
 
         setInputError(fieldsError)
