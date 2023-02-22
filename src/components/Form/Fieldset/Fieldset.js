@@ -14,7 +14,7 @@ const Fieldset = ({ children, legend, error, id}) => {
         <fieldset >
             <legend className="fieldset-legend">{legend}</legend>
             { children }
-            {(!error && error !== null)  && <span className="error">Ваш вік не досяг 18 років</span>}
+            {(!error && error !== null)  && <span className="error">Вам не исполнилось 16 лет</span>}
         </fieldset>
     )
 }

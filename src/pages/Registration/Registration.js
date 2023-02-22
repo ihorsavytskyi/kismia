@@ -20,7 +20,7 @@ const Registration = () => {
                     <h1 className="title">Создать анкету</h1>
                     <Text
                         textAlign={"center"}
-                        content={"Бистрая регистрация, чтоби перейти к общению"}/>
+                        content={"Быстрая регистрация, чтоби перейти к общению"}/>
                 </Section>
                 <Section classes={["column", "register-form"]}>
                    <Form />
