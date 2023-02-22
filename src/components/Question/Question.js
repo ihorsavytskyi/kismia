@@ -1,29 +1,18 @@
 import React, {useContext, useEffect, useState} from "react";
 import Button from "../Button/Button";
 import {QuizContext} from "../Questions/Questions";
-import {useNavigate} from "react-router-dom";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 const Question = ({ question }) => {
 
-    const navigate = useNavigate()
-    const { currentQuestion, setCurrentQuestion, userAnswers, setUserAnswers, questions } = useContext(QuizContext)
-    const [totalQuestion, setTotalQuestion] = useState(null)
+    const { currentQuestion, setCurrentQuestion, userAnswers, setUserAnswers} = useContext(QuizContext)
+    const [ answers, setAnswers ] = useState([])
+    const [ isVisibleAnswers, setVisibleAnswers] = useState(false)
 
     useEffect(() => {
-        setTotalQuestion(questions.length)
-    }, [])
-
-    // useEffect(() => {
-    //     console.log("currentQuestion: ", currentQuestion)
-    //     console.log("totalQuestion: ", totalQuestion)
-    //     console.log("currentQuestion + 1: ", currentQuestion + 1)
-    //     console.log((currentQuestion + 1) === totalQuestion)
-    //
-    //     if(currentQuestion > totalQuestion) {
-    //         navigate("/kismia/registration")
-    //     }
-    //
-    // }, [currentQuestion])
+        setAnswers(question.answers)
+        setVisibleAnswers(!isVisibleAnswers)
+    }, [question])
 
     const handleClick = ((value) => {
         setCurrentQuestion(currentQuestion + 1)
@@ -33,18 +22,28 @@ const Question = ({ question }) => {
                 [question.question]: value
             }
         ])
-
-        // if((currentQuestion + 1) === questions.length) navigate("/kismia/registration")
-        if((currentQuestion + 1) === totalQuestion) navigate("/kismia/registration")
+        setVisibleAnswers(!isVisibleAnswers)
     })
 
     return (
         <div className="question">
             <h2>{question.question}</h2>
             <div className="answers">
-                {question.answers.map((answer, i) =>
-                    <Button key={i} text={answer} handleClick={() => handleClick(answer)}/>
-                )}
+                <TransitionGroup className="question" component={null}>
+                    {answers.map((answer, i) =>
+                        <CSSTransition
+                            key={i}
+                            in={isVisibleAnswers}
+                            timeout={5000}
+                            classNames={{
+                                enterActive: 'loading',
+                                enterDone: 'loaded',
+                                exit: 'hide'
+                            }}>
+                            <Button text={answer} handleClick={() => handleClick(answer)}/>
+                        </CSSTransition>
+                    )}
+                </TransitionGroup>
             </div>
         </div>
     )

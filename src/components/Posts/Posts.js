@@ -3,6 +3,7 @@ import data from "../../data/data"
 import Post from "../Post/Post";
 import Loader from "../Loader/Loader";
 import useInfiniteScroll from "../../hooks/useInfiniteScroll";
+import {TransitionGroup, CSSTransition} from "react-transition-group";
 
 const Posts = () => {
 
@@ -11,12 +12,22 @@ const Posts = () => {
 
     return (
         <div className="posts">
-            {listPosts && listPosts.map((post, index) =>
-                <Post
-                    key={post._id}
-                    post={post}
-                />
-            )}
+            <TransitionGroup className="post" component={null}>
+                {listPosts && listPosts.map((post, index) =>
+                    <CSSTransition
+                        key={post._id}
+                        timeout={100}
+                        classNames={{
+                            enter: 'init',
+                            enterActive: 'loaded'
+                        }}>
+                        <Post
+                            key={post._id}
+                            post={post}
+                        />
+                    </CSSTransition>
+                )}
+            </TransitionGroup>
             {!!isLoading && <Loader/>}
         </div>
     )

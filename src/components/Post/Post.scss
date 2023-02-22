@@ -12,6 +12,8 @@
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
+  transform: translateY(0);
+  transition: 1s all ease-out;
 
   &::after {
     content: '';
@@ -25,6 +27,14 @@
     background-size: 31px 100%;
     background-repeat: space;
   }
+
+  &.init {
+    transform: translateX(-100vw);
+  }
+
+  &.loaded {
+    transform: translateX(0);
+  }
 }
 
 .post-header {
@@ -37,8 +47,8 @@
 }
 
 .users-avatar-item {
-  width: 34px;
-  height: 34px;
+  width: 6vh;
+  height: 6vh;
   border-radius: 50%;
   box-sizing: border-box;
 }
@@ -49,23 +59,19 @@
 }
 
 .users-names {
-  /*check font size*/
-  //font: normal 500 functions.calcFluidFontSize(1.2, 1.8, 32, 48, rem)/1.17 variables.$roboto;
   font: normal 500 1.2rem/1.17 variables.$roboto;
   color: variables.$white;
   margin-bottom: 3px;
 }
 
 .publish-date {
-  //font: normal 400 functions.calcFluidFontSize(1.2, 1.8, 32, 48, rem)/1.17 variables.$roboto;
-  font: normal 400 12px/1.17 variables.$roboto;
+  font: normal 400 1.2rem/1.17 variables.$roboto;
   color: variables.$gray;
 }
 
 .post-body {
 
   .post-text {
-    //font: normal 400 functions.calcFluidFontSize(1.4, 2.1, 32, 48, rem)/1.36 variables.$roboto;
     font: normal 400 1.4rem/1.36 variables.$roboto;
     color: variables.$gray;
     margin: 0;
@@ -73,8 +79,7 @@
   }
 
   .read-more-toggle {
-    //font: normal 400 functions.calcFluidFontSize(1.4, 2.1, 32, 48, rem)/1.36 variables.$roboto;
-    font: normal 400 14px/1.36 variables.$roboto;
+    font: normal 400 1.4rem/1.36 variables.$roboto;
     color: variables.$orange;
     text-decoration: underline;
     cursor: pointer;

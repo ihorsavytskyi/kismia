@@ -54,13 +54,13 @@ export const useValidation = (value, validations) => {
                 }
             }
 
+            setInputError(fieldsError)
+
         }, 700)
 
         return () => {
             clearTimeout(interval)
         }
-
-        setInputError(fieldsError)
 
     }, [value, validations])
 
