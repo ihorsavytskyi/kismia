@@ -1,5 +1,5 @@
 import React, {createContext, useEffect, useReducer} from "react";
-import data  from "../data/data"
+import data from "../data/data"
 import {useNavigate} from "react-router-dom";
 
 const initialState = {
@@ -38,7 +38,6 @@ export const QuizProvider = ({ children }) => {
 
     useEffect(() => {
         if(state.isQuizFinished) {
-            console.log(state)
             navigate("/kismia/registration")
         }
 
