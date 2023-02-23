@@ -1,9 +1,9 @@
 import React from "react";
-import data from "../../data/data"
+import {TransitionGroup, CSSTransition} from "react-transition-group";
+import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 import Post from "../Post/Post";
 import Loader from "../Loader/Loader";
-import useInfiniteScroll from "../../hooks/useInfiniteScroll";
-import {TransitionGroup, CSSTransition} from "react-transition-group";
+import data from "../../data/data"
 
 const Posts = () => {
 

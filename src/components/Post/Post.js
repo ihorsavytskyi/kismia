@@ -4,8 +4,18 @@ import {getDate} from "../../utils/getDate";
 import ReadMore from "../ReadMore/ReadMore";
 import "./Post.scss"
 
-const Post = ({ post }) => {
 
+const getAuthorAvatars = (authors) => {
+    return (
+        <>
+            {authors.map(author =>
+                <img key={author.name} src={author.imgSrc} className="users-avatar-item" alt={author.name}/>
+            )}
+        </>
+    )
+}
+
+const Post = ({ post }) => {
 
     return (
         <div className="post">
@@ -29,16 +39,6 @@ const Post = ({ post }) => {
                 </ReadMore>
             </div>
         </div>
-    )
-}
-
-const getAuthorAvatars = (authors) => {
-    return (
-        <>
-            {authors.map(author =>
-                <img key={author.name} src={author.imgSrc} className="users-avatar-item" alt={author.name}/>
-            )}
-        </>
     )
 }
 

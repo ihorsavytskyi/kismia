@@ -1,5 +1,4 @@
-import React, {useRef, useState} from "react";
-import classNames from "classnames";
+import React, {useState} from "react";
 import {CSSTransition, SwitchTransition} from "react-transition-group";
 import "./ReadMore.scss"
 
@@ -8,19 +7,8 @@ const ReadMore = ({ children }) => {
     const text = children
     const [isReadMore, setIsReadMore] = useState(true)
 
-    const ShortText = ({text}) => {
-        return (
-            <p className="post-text">
-                {text.slice(0, 267).concat("...")}
-            </p>
-        )
-    }
-    const FullText = ({text}) => {
-        return (
-            <p className="post-text collapsed">
-                {text}
-            </p>
-        )
+    const getShortText = (text) => {
+        return text.slice(0, 267)
     }
 
     if(text.length < 267) {
@@ -33,13 +21,13 @@ const ReadMore = ({ children }) => {
                 <CSSTransition
                     key={isReadMore}
                     timeout={500}
-                    className="fade">
-                        <>
-                            {!isReadMore ? <FullText text={text}/> : <ShortText text={text}/>}
+                    className="post-text">
+                        <p className="post-text">
+                            {isReadMore ? getShortText(text).concat("...") : getShortText(text).concat(text.slice(267))}
                             <span onClick={() => setIsReadMore((isReadMore) => !isReadMore)} className="read-more-toggle">
                                 {isReadMore ? "Читать полностью" : "Свернуть"}
                             </span>
-                        </>
+                        </p>
                 </CSSTransition>
             </SwitchTransition>
         )
@@ -47,10 +35,3 @@ const ReadMore = ({ children }) => {
 }
 
 export default ReadMore
-
-// <p className={classNames("post-text", {collapsed: isReadMore})}>
-//     {isReadMore ?  text.slice(0, 267).concat("...") : text}
-//     <span onClick={toggleReadMore} className="read-more-toggle">
-//         {isReadMore ? "Читать полностью" : "Свернуть"}
-//     </span>
-// </p>

@@ -24,6 +24,7 @@ const Form = () => {
         email: '',
         consent: null
     }))
+
     const [isFieldsValid, setFieldsValid] = useState(() => ({
         name: '',
         dayOfBirth: '',
