@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import Answer from "../Answer/Answer";
 import {QuizContext} from "../../context/QuizContext";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
@@ -10,6 +10,10 @@ const Question = () => {
     const currentQuestion = !isQuizFinished && state.questions[state.currentQuestionIndex].question
     const currentQuestionAnswers = !isQuizFinished && state.answers
 
+    useEffect(() => {
+        console.log(state.currentQuestionIndex)
+    }, [state.currentQuestionIndex, state.answers])
+
     return (
         <>
             {!isQuizFinished &&
@@ -20,8 +24,8 @@ const Question = () => {
                             {currentQuestionAnswers.map((answer, i) =>
                                 <CSSTransition
                                     key={i}
-                                    // in={isVisibleAnswers}
-                                    timeout={5000}
+                                    in={true}
+                                    timeout={50000}
                                     classNames={{
                                         enterActive: 'loading',
                                         enterDone: 'loaded',
