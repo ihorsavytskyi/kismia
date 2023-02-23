@@ -1,4 +1,4 @@
-import React, {useState, createContext} from "react";
+import React, {useState, createContext, useReducer} from "react";
 import {FormField, FormSubField} from "./FormField/FormField";
 import Input from "./Input/Input";
 import Fieldset from "./Fieldset/Fieldset";
@@ -14,6 +14,8 @@ import useUserAge from "../../hooks/useUserAge";
 export const FormContext = createContext({})
 
 const Form = () => {
+
+    // const [state, dispatch] = useReducer(reducer, inititalState)
 
     const [fieldsValue, setFieldsValue] = useState(() => ({
         name: '',

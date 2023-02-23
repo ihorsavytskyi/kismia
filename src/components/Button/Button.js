@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import "./Button.scss"
 import {FormContext} from "../Form/Form";
-const Button = ({...props}) => {
+const Button = ({ ...props }) => {
 
     const { isFormValid } = useContext(FormContext)
 
