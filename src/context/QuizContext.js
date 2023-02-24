@@ -7,7 +7,8 @@ const initialState = {
     currentQuestionIndex: 0,
     answers: data.questions[0].answers,
     userAnswers: [],
-    isQuizFinished: false
+    isQuizFinished: false,
+    isQuestionVisible: true
 }
 
 const reducer = (state, action) => {

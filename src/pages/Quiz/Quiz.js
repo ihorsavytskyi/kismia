@@ -8,6 +8,7 @@ import {QuizProvider} from "../../context/QuizContext";
 import headerBg from "../../images/bg.png";
 import "./Quiz.scss"
 import {Transition} from "react-transition-group";
+import Questions from "../../components/Questions/Questions";
 
 // import {motion as m} from "framer-motion";
 const Quiz = () => {
@@ -23,9 +24,10 @@ const Quiz = () => {
                     <img className="image" src={headerBg} alt="Headline background"/>
                 </HeadlineContainer>
                 <Section classes={["column"]}>
-                    <Transition in={true} timeout={3000} >
-                        <Question />
-                    </Transition>
+                    {/*<Transition in={true} timeout={3000} >*/}
+                    {/*    <Question />*/}
+                    {/*</Transition>*/}
+                    <Questions />
                     <Text
                         textAlign={"center"}
                         content={"Чтобы идеально подобрать для вас пару, ответьте на несколько вопросов"}/>

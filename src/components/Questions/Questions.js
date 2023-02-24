@@ -1,35 +1,25 @@
-import React, {createContext, useEffect, useState} from "react";
+import React, {useContext, useEffect} from "react";
+import {QuizContext} from "../../context/QuizContext";
+import QuestionTest from "../Question/QuestionTest";
+import {TransitionGroup, CSSTransition} from "react-transition-group";
 
-import Question from "../Question/Question";
-import {useNavigate} from "react-router-dom";
-export const QuizContext = createContext([])
 const Questions = () => {
-
-    const navigate = useNavigate()
-    const questions = data.questions
-    const [currentQuestion, setCurrentQuestion] = useState(0)
-    const [userAnswers, setUserAnswers] = useState([])
-    const [totalQuestion, setTotalQuestion] = useState(questions.length)
+    const [state, dispatch] = useContext(QuizContext)
 
     useEffect(() => {
-        setTotalQuestion(questions.length)
+        console.log(state.questions)
+        state.questions.map((question, index) => {
+            console.log(question)
+        })
+
     }, [])
 
-    useEffect(() => {
-        if(currentQuestion === totalQuestion) {
-            navigate("/kismia/registration")
-        }
-
-    }, [currentQuestion])
-
     return (
-        <QuizContext.Provider value={{ currentQuestion, setCurrentQuestion, userAnswers, setUserAnswers, questions }}>
-            <div className="questions">
-                {(questions && currentQuestion < totalQuestion) &&
-                    <Question question={questions[currentQuestion]}/>
-                }
-            </div>
-        </QuizContext.Provider>
+        <div className="questions">
+            {state.questions.map((question, index) =>
+                <QuestionTest key={index} indexQuestion={index} question={question}/>
+            )}
+        </div>
     )
 }
 
