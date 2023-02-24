@@ -9,7 +9,7 @@ import {getCurrentYear} from "../../utils/getDate";
 import Button from "../Button/Button";
 import useForm from "../../hooks/useForm";
 import {useDaysInMonth} from "../../hooks/useDaysInMonth";
-import useUserAge from "../../hooks/useUserAge";
+import useUserAgeValid from "../../hooks/useUserAgeValid";
 
 export const FormContext = createContext({})
 
@@ -39,7 +39,7 @@ const Form = () => {
 
     const isFormValid = useForm(isFieldsValid)
     const dayInMonth = useDaysInMonth(31, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth)
-    const dateOfBirth = useUserAge(fieldsValue.dayOfBirth, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth, 16)
+    const dateOfBirthError = useUserAgeValid(fieldsValue.dayOfBirth, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth, 18, 80)
 
     return (
         <>
@@ -55,7 +55,7 @@ const Form = () => {
                         />
                     </FormField>
                     <FormField>
-                        <Fieldset legend={"Дата рождения:"} id={"dateOfBirth"} error={dateOfBirth.isUserAgeValid}>
+                        <Fieldset legend={"Дата рождения:"} id={"dateOfBirth"} error={dateOfBirthError}>
                             <Container classes={["flex","row","space-between"]}>
                                 <FormSubField flex={[1, 0, "auto"]}>
                                     <Select
@@ -81,7 +81,7 @@ const Form = () => {
                                             name: "yearOfBirth",
                                             label: "",
                                             placeholder: "РРРР",
-                                            options: getDropDownList(getCurrentYear(), 50, "ГГГГ", 4, true)}}
+                                            options: getDropDownList(getCurrentYear(), 90, "ГГГГ", 4, true)}}
                                     />
                                 </FormSubField>
                             </Container>

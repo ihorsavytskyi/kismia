@@ -1,13 +1,12 @@
 import React from "react";
 import MainContainer from "../../components/Layout/MainContainer/MainContainer";
 import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer";
-import Question from "../../components/Question/Question";
+// import Question from "../../components/Question/Question";
 import Section from "../../components/Section/Section";
 import Text from "../../components/Text/Text";
 import {QuizProvider} from "../../context/QuizContext";
 import headerBg from "../../images/bg.png";
 import "./Quiz.scss"
-import {Transition} from "react-transition-group";
 import Questions from "../../components/Questions/Questions";
 
 // import {motion as m} from "framer-motion";
@@ -24,9 +23,6 @@ const Quiz = () => {
                     <img className="image" src={headerBg} alt="Headline background"/>
                 </HeadlineContainer>
                 <Section classes={["column"]}>
-                    {/*<Transition in={true} timeout={3000} >*/}
-                    {/*    <Question />*/}
-                    {/*</Transition>*/}
                     <Questions />
                     <Text
                         textAlign={"center"}

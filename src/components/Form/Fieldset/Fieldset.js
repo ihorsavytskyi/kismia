@@ -6,7 +6,9 @@ const Fieldset = ({ children, ...props}) => {
     const { setFieldsValid } = useContext(FormContext)
 
     useEffect(() => {
-        setFieldsValid(prev => ({...prev, [props.id]: props.error}))
+        const userAgeIsValid = props.error === ""
+
+        setFieldsValid(prev => ({...prev, [props.id]: userAgeIsValid}))
 
     }, [props.error])
 
@@ -14,7 +16,7 @@ const Fieldset = ({ children, ...props}) => {
         <fieldset >
             <legend className="fieldset-legend">{props.legend}</legend>
             { children }
-            {(!props.error && props.error !== null)  && <span className="error">Ваш возраст не может быть меньше 16 лет</span>}
+            {props.error !==""  && <span className="error">{props.error}</span>}
         </fieldset>
     )
 }
