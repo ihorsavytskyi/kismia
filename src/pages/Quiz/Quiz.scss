@@ -2,29 +2,59 @@
 @use './src/styles/utils/mixins';
 
 .quiz-page {
+
+  //background-color: #242530;
+  //background-image: url('../../images/bg.png');
+  //background-size: 32.7vh auto;
+  //background-position: top;
+  //background-repeat: no-repeat;
+
   .headline {
     height: 32.7vh;
-    margin-bottom: -3.3vh;
+    //margin-bottom: -3.3vh;
+  }
+
+  h2 {
+    margin: 0 0 16px;
+    padding: 0 24px;
+    @include mixins.subtitle();
   }
 
   section {
-    padding: 0 24px;
-
-    h2 {
-      margin: 0 0 16px;
-      @include mixins.subtitle();
-    }
-
-    &.column {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: auto;
-    }
-
-    .question {
-      margin: 0 0 60px;
-    }
+    position: absolute;
+    top: 29vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 48px);
+    overflow: hidden;
   }
+
+  .questions {
+    margin-bottom: 10.4vh;
+  }
+
+  .text {
+    //position: absolute;
+    //bottom: 11.8vh;
+    //left: 50%;
+    //transform: translateX(-50%);
+    //width: calc(100% - 48px)
+  }
+
+
+  //section {
+  //  padding: 0 24px;
+  //
+  //
+  //
+  //  &.column {
+  //    display: flex;
+  //    flex-direction: column;
+  //    justify-content: space-between;
+  //    height: auto;
+  //  }
+  //
+  //
+  //}
 }
 

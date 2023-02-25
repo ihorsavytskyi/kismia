@@ -11,5 +11,10 @@
 #root > div {
   display: grid;
   height: 100%;
-  align-content: space-between;
 }
+
+/*#root > div {*/
+/*  display: grid;*/
+/*  height: 100%;*/
+/*  align-content: space-between;*/
+/*}*/

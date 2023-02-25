@@ -1,7 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import {QuizContext} from "../../context/QuizContext";
 import QuestionTest from "../Question/QuestionTest";
-import {TransitionGroup, CSSTransition} from "react-transition-group";
 
 const Questions = () => {
     const [state, dispatch] = useContext(QuizContext)

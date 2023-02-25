@@ -1,9 +1,9 @@
 import React, {useContext} from "react";
 import "./Button.scss"
-import {FormContext} from "../Form/Form";
+import {FormContext} from "../../context/FormContext";
 const Button = ({ ...props }) => {
 
-    const { isFormValid } = useContext(FormContext)
+    const {isFormValid} = useContext(FormContext)
 
     return (
         <>
@@ -12,7 +12,8 @@ const Button = ({ ...props }) => {
                         <button
                             className="button"
                             type={props.type}
-                            disabled={!isFormValid}>
+                            // disabled={!isFormValid}
+                        >
                             <span className="button-text">{props.text}</span>
                         </button>
                     ) : (

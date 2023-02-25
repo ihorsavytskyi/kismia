@@ -1,16 +1,13 @@
 import React, {useContext, useEffect} from "react";
 import {useInput} from "../../../hooks/useInput";
-import {FormContext} from "../Form";
 import "./Select.scss"
-import data from "../../../data/data";
 import classNames from "classnames";
+import {FormContext} from "../../../context/FormContext";
 
 
 const Select = ({ attr }) => {
 
-    const { isFieldsValid, setFieldsValue, setFieldsValid } = useContext(FormContext)
-    const validationRules = data.validationRules
-
+    const {setFieldsValue, isFieldsValid, setFieldsValid, validationRules} = useContext(FormContext)
     const selectField = useInput('', validationRules[attr.name])
 
     useEffect(() => {
@@ -37,8 +34,10 @@ const Select = ({ attr }) => {
             <select
                 className={
                     classNames("select-field", {
-                        correct: selectField.inputValid && selectField.isDirty && isFieldsValid.dateOfBirth,
-                        incorrect: (!selectField.inputValid && selectField.isDirty) || (!isFieldsValid.dateOfBirth)
+                        // correct: selectField.inputValid && selectField.isDirty && isFieldsValid.dateOfBirth,
+                        // incorrect: !selectField.inputValid && selectField.isDirty
+                        correct: isFieldsValid[attr.name] && selectField.isDirty,
+                        incorrect: !isFieldsValid[attr.name] && selectField.isDirty
                     })
                 }
                 name={attr.name}

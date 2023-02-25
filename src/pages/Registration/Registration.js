@@ -7,11 +7,13 @@ import Form from "../../components/Form/Form";
 import Text from "../../components/Text/Text";
 import headerBg from "../../images/bg.png";
 import "./Registration.scss"
+import {FormProvider} from "../../context/FormContext";
 
 const Registration = () => {
 
+
     return (
-        <>
+        <FormProvider>
             <MainContainer pageName={"registration-page"}>
                 <HeadlineContainer>
                     <img className="image" src={headerBg} alt="Headline background"/>
@@ -23,12 +25,11 @@ const Registration = () => {
                         content={"Быстрая регистрация, чтоби перейти к общению"}/>
                 </Section>
                 <Section classes={["column", "register-form"]}>
-                   <Form />
+                    <Form />
                 </Section>
             </MainContainer>
             <Footer/>
-        </>
-
+        </FormProvider>
     )
 }
 

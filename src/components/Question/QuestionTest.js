@@ -1,7 +1,8 @@
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useContext} from "react";
 import Answer from "../Answer/Answer";
 import {QuizContext} from "../../context/QuizContext";
-import {CSSTransition, Transition} from "react-transition-group";
+import {CSSTransition} from "react-transition-group";
+import "./Question.scss"
 
 const QuestionTest = ({indexQuestion, question}) => {
     const [state, dispatch] = useContext(QuizContext)
@@ -9,7 +10,7 @@ const QuestionTest = ({indexQuestion, question}) => {
     return (
         <CSSTransition
             in={indexQuestion === state.currentQuestionIndex}
-            timeout={1000}
+            timeout={500}
             className="question">
             <div className="question">
                 <h2>{question.question}</h2>

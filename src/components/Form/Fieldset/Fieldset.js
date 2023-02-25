@@ -1,22 +1,37 @@
 import React, {useContext, useEffect} from "react";
 import "./Fieldset.scss"
-import {FormContext} from "../Form";
+import {FormContext} from "../../../context/FormContext";
+import classNames from "classnames";
 
-const Fieldset = ({ children, ...props}) => {
-    const { setFieldsValid } = useContext(FormContext)
+const Fieldset = ({ children, legend, id, dateOfBirth}) => {
+    const {setFieldsValid} = useContext(FormContext)
 
     useEffect(() => {
-        const userAgeIsValid = props.error === ""
+        if(dateOfBirth.isUserAgeValid) {
+            setFieldsValid(prev => ({...prev, [id]: dateOfBirth.isUserAgeValid}))
+            console.log("Valid")
+        } else {
+            console.log("No valid")
+            setFieldsValid(prev => (
 
-        setFieldsValid(prev => ({...prev, [props.id]: userAgeIsValid}))
+                {
+                    ...prev,
+                    [id]: dateOfBirth.isUserAgeValid,
+                    // dayOfBirth: false,
+                    // monthOfBirth: false,
+                    // yearOfBirth: false
+                })
+            )
+        }
 
-    }, [props.error])
+
+    }, [dateOfBirth.isUserAgeValid, dateOfBirth.userAgeValidError])
 
     return (
-        <fieldset >
-            <legend className="fieldset-legend">{props.legend}</legend>
+        <fieldset className={classNames({incorrect: dateOfBirth.isUserAgeValid})}>
+            <legend className="fieldset-legend">{legend}</legend>
             { children }
-            {props.error !==""  && <span className="error">{props.error}</span>}
+            {!dateOfBirth.isUserAgeValid && <span className="error">{dateOfBirth.userAgeValidError}</span>}
         </fieldset>
     )
 }
