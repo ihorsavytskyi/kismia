@@ -13,7 +13,7 @@
   position: relative;
   overflow: hidden;
   transform: translateY(0);
-  transition: 1s all ease-out;
+  transition: 1s all linear;
 
   &::after {
     content: '';
@@ -29,11 +29,11 @@
   }
 
   &.init {
-    transform: translateX(-100vw);
+    transform: translateY(50vh);
   }
 
   &.loaded {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 

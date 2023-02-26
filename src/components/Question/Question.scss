@@ -1,103 +1,74 @@
-.questions .question,
-.questions .question.exit-done,
-.questions .question.exit-done:first-child{
-  display: none;
+.questions {
+  overflow: hidden;
 }
-
-.questions .question:first-child,
-.questions .question.enter-done {
-  display: block;
-}
-
-.questions .question.active,
-.questions .question.exit {
-  display: block;
-}
-
-//h2 {
-//  transition: all 0.5s linear;
-//}
 
 .questions .question {
-  h2 {
-    opacity: 0;
-    transition: all 2s;
-    transform: translateX(120vw);
-  }
+  display: none;
+  overflow: hidden;
+}
 
+.questions .question {
   &.active {
-    //h2 {
-    //  transition: all 1s;
-    //}
-  }
+    animation-duration: 1.5;
+    animation-timing-function: linear;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    display: block;
 
-  &.enter-active {
-    h2 {
-      opacity: 0.5;
+    &.from-left {
+      animation-name: from-left;
     }
-  }
 
-  &.enter-done {
-    h2 {
-      opacity: 1;
-      transform: translateX(0);
+    &.from-right {
+      animation-name: from-right;
     }
-  }
 
-  .exit {
     h2 {
-      opacity: 1;
-      transform: translateX(0);
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-delay: 2s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-fill-mode: none;
+      display: block;
+      animation-name: opacity-headline;
     }
-  }
 
-  &.exit-active {
-    h2 {
-      opacity: 0.5;
-      transform: translateX(120vw);
-    }
-  }
+    button {
 
-  &.exit-done {
-    h2 {
-      opacity: 0;
     }
   }
 }
 
-//.questions .question button {
-//  opacity: 1;
-//  transition: all 0.5s linear;
-//}
-//
-//.questions .question.exit-active .question{
-//  transform: translateX(100vw);
-//  opacity: 0;
-//  display: block;
-//}
-//
-//.questions  .question.enter-active .question{
-//  transform: translateX(-100vw);
-//  opacity: 0;
-//  display: block;
-//}
-//
-//.questions  .question.enter-done .question {
-//  display: block;
-//}
-//
-//.question .button:first-child {
-//
-//}
-//
-//.question .button:nth-child(1) {
-//
-//}
-//
-//.question .button:nth-child(2) {
-//
-//}
-//
-//.question .button:last-child {
-//
-//}
+@keyframes opacity-headline {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes from-left {
+  from {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes from-right {
+  from {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

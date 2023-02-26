@@ -9,7 +9,6 @@ const Select = ({ attr }) => {
 
     const {setFieldsValue, isFieldsValid, setFieldsValid, validationRules, setFieldsRef, fieldsRef} = useContext(FormContext)
     const selectField = useInput('', validationRules[attr.name])
-    const selectFieldRef = useRef(null)
 
     useEffect(() => {
         setFieldsValue(prev => (
@@ -30,17 +29,9 @@ const Select = ({ attr }) => {
 
     }, [selectField.inputValid])
 
-    useEffect(() => {
-        setFieldsRef((prev) => ({
-            ...prev,
-            [attr.name]: selectFieldRef.current
-        }))
-    }, [])
-
     return (
         <label className="select-label">
             <select
-                ref={selectFieldRef}
                 className={
                     classNames("select-field", {
                         // correct: selectField.inputValid && selectField.isDirty && isFieldsValid.dateOfBirth,
@@ -49,6 +40,7 @@ const Select = ({ attr }) => {
                         incorrect: !isFieldsValid[attr.name] && selectField.isDirty
                     })
                 }
+                id={attr.name}
                 name={attr.name}
                 onBlur={e => selectField.onBlur(e)}
                 onChange={e => selectField.onChange(e)}

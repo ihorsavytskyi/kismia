@@ -15,7 +15,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #242530;
+  /*background: #242530;*/
+  background: #1e202d;
   -webkit-overflow-scrolling: touch;
 }
 

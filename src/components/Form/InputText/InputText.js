@@ -11,19 +11,10 @@ const InputText = ({ attr }) => {
     const [isVisiblePass, setVisiblePass] = useState(false)
 
     const inputField = useInput('', validationRules[attr.name])
-    const inputFieldRef = useRef(null)
 
     const toggleVisiblePass = () => {
         setVisiblePass(!isVisiblePass)
     }
-
-    useEffect(() => {
-        setFieldsRef((prev) => ({
-            ...prev,
-            [attr.name]: inputFieldRef.current
-        }))
-
-    }, [])
 
     useEffect(() => {
         setFieldsValue(prev => (
@@ -50,13 +41,13 @@ const InputText = ({ attr }) => {
             <label>
                 <span>{!!attr.label && attr.label}</span>
                 <input
-                    ref={inputFieldRef}
                     className={
                         classNames("input-field", {
                             correct: inputField.inputValid  && inputField.isDirty,
                             incorrect: !inputField.inputValid && inputField.isDirty
                         })}
                     type={isVisiblePass ? "text" : attr.type}
+                    id={attr.name}
                     name={attr.name}
                     onBlur={e => inputField.onBlur(e)}
                     onChange={e => inputField.onChange(e)}

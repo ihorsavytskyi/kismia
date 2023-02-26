@@ -16,7 +16,7 @@ import InputText from "./InputText/InputText";
 import Checkbox from "./Checkbox/Checkbox";
 
 const Form = () => {
-    const {isFieldsValid, isFormValid, fieldsValue, fieldsRef} = useContext(FormContext)
+    const {isFieldsValid, isFormValid, fieldsValue} = useContext(FormContext)
 
     const dayInMonth = useDaysInMonth(31, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth)
     const dateOfBirth = useUserAgeValid(fieldsValue.dayOfBirth, fieldsValue.monthOfBirth, fieldsValue.yearOfBirth, 18, 80)
@@ -29,14 +29,11 @@ const Form = () => {
         } else {
             console.log("Form has errors")
             for(let key in isFieldsValid) {
-                const keyObj = key
-                console.log(typeof isFieldsValid[key])
-                console.log()
 
                 if(!isFieldsValid[key]) {
-                    fieldsRef[key].classList.add("black")
+                    const el = document.getElementById(key)
+                    if(el) el.focus()
                 }
-
                 console.log(key + '-' + isFieldsValid[key])
             }
         }

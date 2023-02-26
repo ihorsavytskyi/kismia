@@ -16,10 +16,7 @@ const Fieldset = ({ children, legend, id, dateOfBirth}) => {
 
                 {
                     ...prev,
-                    [id]: dateOfBirth.isUserAgeValid,
-                    // dayOfBirth: false,
-                    // monthOfBirth: false,
-                    // yearOfBirth: false
+                    [id]: dateOfBirth.isUserAgeValid
                 })
             )
         }

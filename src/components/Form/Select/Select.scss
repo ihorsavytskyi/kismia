@@ -34,7 +34,7 @@ label {
 
 select {
   /*check font size*/
-  font: normal 400 14px/1.14 variables.$roboto;
+  font: normal 400 1.4rem/1.14 variables.$roboto;
   background: variables.$default-input-bg url("dropdown-icon.svg") calc(100% - 15px) 20px/ 8px no-repeat;
   color: variables.$placeholder;
   display: flex;

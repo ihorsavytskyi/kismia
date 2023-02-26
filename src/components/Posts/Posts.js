@@ -16,7 +16,7 @@ const Posts = () => {
                 {listPosts && listPosts.map((post, index) =>
                     <CSSTransition
                         key={post._id}
-                        timeout={100}
+                        timeout={0}
                         classNames={{
                             enter: 'init',
                             enterActive: 'loaded'
