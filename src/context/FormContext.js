@@ -26,13 +26,15 @@ export const FormProvider = ({ children }) => {
     const [validationRules, setValidationRules] = useState({})
     const isFormValid = useForm(isFieldsValid)
 
+    const [fieldsRef, setFieldsRef] = useState({})
+
     useEffect(() => {
         setValidationRules(data.validationRules)
     }, [])
 
     return (
         <FormContext.Provider
-            value={{isFormValid, fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid, validationRules}}>
+            value={{isFormValid, fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid, validationRules, setFieldsRef, fieldsRef}}>
             { children }
         </FormContext.Provider>
     )

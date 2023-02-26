@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useRef} from "react";
 import {useInput} from "../../../hooks/useInput";
 import "./Select.scss"
 import classNames from "classnames";
@@ -7,8 +7,9 @@ import {FormContext} from "../../../context/FormContext";
 
 const Select = ({ attr }) => {
 
-    const {setFieldsValue, isFieldsValid, setFieldsValid, validationRules} = useContext(FormContext)
+    const {setFieldsValue, isFieldsValid, setFieldsValid, validationRules, setFieldsRef, fieldsRef} = useContext(FormContext)
     const selectField = useInput('', validationRules[attr.name])
+    const selectFieldRef = useRef(null)
 
     useEffect(() => {
         setFieldsValue(prev => (
@@ -29,9 +30,17 @@ const Select = ({ attr }) => {
 
     }, [selectField.inputValid])
 
+    useEffect(() => {
+        setFieldsRef((prev) => ({
+            ...prev,
+            [attr.name]: selectFieldRef.current
+        }))
+    }, [])
+
     return (
         <label className="select-label">
             <select
+                ref={selectFieldRef}
                 className={
                     classNames("select-field", {
                         // correct: selectField.inputValid && selectField.isDirty && isFieldsValid.dateOfBirth,

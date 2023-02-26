@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from "react";
+import React, {useEffect, useContext, useState, useRef} from "react";
 import "./InputText.scss"
 import {useInput} from "../../../hooks/useInput";
 import classNames from "classnames";
@@ -7,14 +7,23 @@ import {CSSTransition} from "react-transition-group";
 
 const InputText = ({ attr }) => {
 
-    const {setFieldsValue, setFieldsValid, validationRules} = useContext(FormContext)
+    const {setFieldsValue, setFieldsValid, validationRules, setFieldsRef, fieldsRef} = useContext(FormContext)
     const [isVisiblePass, setVisiblePass] = useState(false)
 
     const inputField = useInput('', validationRules[attr.name])
+    const inputFieldRef = useRef(null)
 
     const toggleVisiblePass = () => {
         setVisiblePass(!isVisiblePass)
     }
+
+    useEffect(() => {
+        setFieldsRef((prev) => ({
+            ...prev,
+            [attr.name]: inputFieldRef.current
+        }))
+
+    }, [])
 
     useEffect(() => {
         setFieldsValue(prev => (
@@ -41,6 +50,7 @@ const InputText = ({ attr }) => {
             <label>
                 <span>{!!attr.label && attr.label}</span>
                 <input
+                    ref={inputFieldRef}
                     className={
                         classNames("input-field", {
                             correct: inputField.inputValid  && inputField.isDirty,

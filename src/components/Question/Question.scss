@@ -14,46 +14,53 @@
   display: block;
 }
 
-h2 {
-  transition: all 0.5s linear;
-}
+//h2 {
+//  transition: all 0.5s linear;
+//}
 
 .questions .question {
+  h2 {
+    opacity: 0;
+    transition: all 2s;
+    transform: translateX(120vw);
+  }
+
   &.active {
-    h2 {
-      opacity: 0
-    }
+    //h2 {
+    //  transition: all 1s;
+    //}
   }
 
   &.enter-active {
     h2 {
       opacity: 0.5;
-      transition: opacity 300ms;
     }
   }
 
   &.enter-done {
     h2 {
-      opacity: 1
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 
   .exit {
     h2 {
-      opacity: 1
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 
   &.exit-active {
     h2 {
       opacity: 0.5;
-      transition: opacity 300ms;
+      transform: translateX(120vw);
     }
   }
 
   &.exit-done {
     h2 {
-      opacity: 0
+      opacity: 0;
     }
   }
 }
