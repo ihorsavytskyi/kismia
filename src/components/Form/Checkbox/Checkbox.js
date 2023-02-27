@@ -1,39 +1,26 @@
-import React, {useEffect, useContext, useState} from "react";
+import React, {useEffect, useContext} from "react";
 import "./Checkbox.scss"
 import { useInput } from "../../../hooks/useInput";
-import classNames from "classnames";
 import parse from "html-react-parser"
 import {FormContext} from "../../../context/FormContext";
 
 const Checkbox = ({ attr }) => {
 
     const {setFieldsValue, setFieldsValid, validationRules} = useContext(FormContext)
-    const [isVisiblePass, setVisiblePass] = useState(false)
-
     const inputField = useInput('', validationRules[attr.name])
 
-    const toggleVisiblePass = () => {
-        setVisiblePass(!isVisiblePass)
-    }
-
     useEffect(() => {
-        setFieldsValue(prev => (
-            {
-                ...prev,
-                [attr.name] : inputField.value
-            }
-        ))
-
+        setFieldsValue(prev => ({
+            ...prev,
+            [attr.name] : inputField.value
+        }))
     }, [inputField.value])
 
     useEffect(() => {
-        setFieldsValid(prev => (
-            {
-                ...prev,
-                [attr.name] : inputField.inputValid
-            }
-        ))
-
+        setFieldsValid(prev => ({
+            ...prev,
+            [attr.name] : inputField.inputValid
+        }))
     }, [inputField.inputValid])
 
     return (

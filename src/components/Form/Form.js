@@ -14,6 +14,7 @@ import useUserAgeValid from "../../hooks/useUserAgeValid";
 import {FormContext} from "../../context/FormContext";
 import InputText from "./InputText/InputText";
 import Checkbox from "./Checkbox/Checkbox";
+import InputPassword from "./InputPassword/InputPassword";
 
 const Form = () => {
     const {isFieldsValid, isFormValid, fieldsValue} = useContext(FormContext)
@@ -32,7 +33,6 @@ const Form = () => {
                     const el = document.getElementById(key)
                     if(el) el.focus()
                 }
-                console.log(key + '-' + isFieldsValid[key])
             }
         }
     }
@@ -82,13 +82,13 @@ const Form = () => {
                 </Fieldset>
             </FormField>
             <FormField>
-                <InputText
+                <InputPassword
                     attr={{
-                    type: "password",
-                    name: "password",
+                    // type: "password",
+                    // name: "password",
                     label: "Придумайте пароль:",
                     placeholder: "Минимум 8 символов",
-                    autoComplete: "off"
+                    // autoComplete: "off"
                 }}/>
             </FormField>
             <FormField>

@@ -1,11 +1,12 @@
 import React, {createContext, useEffect, useState} from "react";
 import useForm from "../hooks/useForm";
 import data from "../data/data";
+import {useSessionStorage} from "../hooks/useSessionStorage";
 export const FormContext = createContext({})
 
 export const FormProvider = ({ children }) => {
 
-    const [fieldsValue, setFieldsValue] = useState(() => ({
+    const [storageValues, setStorageValues] = useSessionStorage({
         name: '',
         dayOfBirth: '',
         monthOfBirth: '',
@@ -13,16 +14,11 @@ export const FormProvider = ({ children }) => {
         password: '',
         email: '',
         consent: null
-    }))
+    }, "SESSION_USER_REGISTRATION_DATE")
+    const [fieldsValue, setFieldsValue] = useState(() => (storageValues))
 
     const [isFieldsValid, setFieldsValid] = useState(() => ({
-        name: '',
-        dayOfBirth: '',
-        monthOfBirth: '',
-        yearOfBirth: '',
-        dateOfBirth: null,
-        password: '',
-        email: ''
+        dateOfBirth: null
     }))
 
     const [validationRules, setValidationRules] = useState({})
@@ -34,7 +30,7 @@ export const FormProvider = ({ children }) => {
 
     return (
         <FormContext.Provider
-            value={{isFormValid, fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid, validationRules}}>
+            value={{isFormValid, fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid, validationRules, storageValues, setStorageValues}}>
             { children }
         </FormContext.Provider>
     )

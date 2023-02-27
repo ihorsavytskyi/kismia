@@ -13,9 +13,9 @@
   width: 100%;
   cursor: pointer;
 
-  @media (max-width: 48rem) {
-    padding: 2.3vh 0 2.5vh;
-  }
+  //@media (max-width: 48rem) {
+  //  padding: 2.3vh 0 2.5vh;
+  //}
 
   &:focus {
     @include mixins.button-pressed();
@@ -35,11 +35,11 @@
   .button-text {
     @include mixins.choose-button();
     position: relative;
-    top: 0.1rem;
+    //top: 0.1rem;
 
-    @media (max-width: 48rem) {
-      top: 0.2vh;
-    }
+    //@media (max-width: 48rem) {
+    //  top: 0.2vh;
+    //}
   }
 
   & + .button {

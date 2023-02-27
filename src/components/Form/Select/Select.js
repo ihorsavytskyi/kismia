@@ -7,13 +7,18 @@ import {FormContext} from "../../../context/FormContext";
 
 const Select = ({ attr }) => {
 
-    const {setFieldsValue, isFieldsValid, setFieldsValid, validationRules} = useContext(FormContext)
-    const selectField = useInput('', validationRules[attr.name])
+    const {setFieldsValue, isFieldsValid, setFieldsValid, validationRules, storageValues, setStorageValues} = useContext(FormContext)
+    const selectField = useInput(storageValues[attr.name], validationRules[attr.name])
 
     useEffect(() => {
         setFieldsValue(prev => ({
             ...prev,
             [attr.name]: selectField.value
+        }))
+
+        setStorageValues(prev => ({
+            ...prev,
+            [attr.name] : selectField.value
         }))
     }, [selectField.value])
 
@@ -30,7 +35,7 @@ const Select = ({ attr }) => {
                 className={
                     classNames("select-field", {
                         correct: selectField.inputValid && selectField.isDirty && isFieldsValid.dateOfBirth,
-                        incorrect: !selectField.inputValid && selectField.isDirty && !isFieldsValid.dateOfBirth && isFieldsValid.dateOfBirth !== null
+                        incorrect: (!selectField.inputValid && selectField.isDirty) || (!selectField.inputValid && selectField.isDirty && !isFieldsValid.dateOfBirth && isFieldsValid.dateOfBirth !== null)
                     })
                 }
                 id={attr.name}

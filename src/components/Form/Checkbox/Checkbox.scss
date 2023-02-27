@@ -41,6 +41,10 @@
     &:hover {
       cursor: pointer;
     }
+
+    &.incorrect::after {
+      border-color: variables.$error-input-color;
+    }
   }
 
   .checkbox-description {

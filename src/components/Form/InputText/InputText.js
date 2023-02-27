@@ -6,20 +6,21 @@ import {FormContext} from "../../../context/FormContext";
 
 const InputText = ({ attr }) => {
 
-    const {setFieldsValue, setFieldsValid, validationRules} = useContext(FormContext)
-    const [isVisiblePass, setVisiblePass] = useState(false)
+    const {setFieldsValue, setFieldsValid, validationRules, storageValues, setStorageValues} = useContext(FormContext)
 
-    const inputField = useInput('', validationRules[attr.name])
-
-    const toggleVisiblePass = () => {
-        setVisiblePass(!isVisiblePass)
-    }
+    const inputField = useInput(storageValues[attr.name], validationRules[attr.name])
 
     useEffect(() => {
         setFieldsValue(prev => ({
             ...prev,
             [attr.name] : inputField.value
         }))
+
+        setStorageValues(prev => ({
+           ...prev,
+           [attr.name] : inputField.value
+        }))
+
     }, [inputField.value])
 
     useEffect(() => {
@@ -39,22 +40,13 @@ const InputText = ({ attr }) => {
                             correct: inputField.inputValid  && inputField.isDirty,
                             incorrect: !inputField.inputValid && inputField.isDirty
                         })}
-                    type={isVisiblePass ? "text" : attr.type}
+                    type={attr.type}
                     id={attr.name}
                     name={attr.name}
                     onBlur={e => inputField.onBlur(e)}
                     onChange={e => inputField.onChange(e)}
                     value={inputField.value}
-                    autoComplete={attr.autoComplete}
                     placeholder={attr.placeholder}/>
-                {attr.type === "password" &&
-                    <span
-                        className={classNames("tip", {
-                            hide: !isVisiblePass,
-                            show: isVisiblePass
-                        })}
-                        onClick={toggleVisiblePass}>
-                    </span>}
                     {(!inputField.inputValid && inputField.isDirty) && <span className="error">{inputField.inputError[0]}</span>}
             </label>
         </div>
