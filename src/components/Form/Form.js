@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useContext, useRef} from "react";
 import Container from "../Container/Container";
 import {FormField, FormSubField} from "./FormField/FormField";
 import Fieldset from "./Fieldset/Fieldset";
@@ -27,9 +27,7 @@ const Form = () => {
         if(isFormValid) {
             formRef.current.submit()
         } else {
-            console.log("Form has errors")
             for(let key in isFieldsValid) {
-
                 if(!isFieldsValid[key]) {
                     const el = document.getElementById(key)
                     if(el) el.focus()
@@ -108,7 +106,7 @@ const Form = () => {
                     attr={{
                     type: "checkbox",
                     name: "consent",
-                    label: "Регистрируясь, я подтверждаю что мне исполнилось 18 лет. Я принимаю условия лицензионного соглашения, политики конфиденциальности, обработки персональных данных."
+                    label: "Регистрируясь, я подтверждаю что мне исполнилось 18 лет. Я принимаю условия <a href=''>лицензионного соглашения</a>, <a href=''>политики конфиденциальности</a>, <a href=''>обработки персональных данных</a>."
                 }}/>
             </FormField>
         </form>

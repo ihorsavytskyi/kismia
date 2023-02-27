@@ -43,9 +43,13 @@
     }
   }
 
-  span {
+  .checkbox-description {
     font: normal 400 0.9rem/1.33 variables.$sans;
-    color: variables.$gray
+    color: variables.$gray;
+
+    a {
+      color: variables.$gray;
+    }
   }
 }
 

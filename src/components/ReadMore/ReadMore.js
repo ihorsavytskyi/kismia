@@ -28,8 +28,6 @@ const ReadMore = ({ children }) => {
                             {isReadMore ?
                                 getOverWrittenString((getShortText(text).concat("..."))) :
                                 getOverWrittenString(text)
-                                // getShortText(text)
-                                //     .concat(text).slice(267)
                             }
                             <span onClick={() => setIsReadMore((isReadMore) => !isReadMore)} className="read-more-toggle">
                                 {isReadMore ? "Читать полностью" : "Свернуть"}

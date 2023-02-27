@@ -3,20 +3,13 @@
 
 .quiz-page {
 
-  //background-color: #242530;
-  //background-image: url('../../images/bg.png');
-  //background-size: 32.7vh auto;
-  //background-position: top;
-  //background-repeat: no-repeat;
-
   .headline {
     height: 32.7vh;
-    //margin-bottom: -3.3vh;
   }
 
   h2 {
-    margin: 0 0 16px;
-    padding: 0 24px;
+    margin: 0 0 1.6rem;
+    padding: 0 2.4rem;
     @include mixins.subtitle();
   }
 
@@ -40,21 +33,5 @@
     //transform: translateX(-50%);
     //width: calc(100% - 48px)
   }
-
-
-  //section {
-  //  padding: 0 24px;
-  //
-  //
-  //
-  //  &.column {
-  //    display: flex;
-  //    flex-direction: column;
-  //    justify-content: space-between;
-  //    height: auto;
-  //  }
-  //
-  //
-  //}
 }
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getUserAge } from "../utils/getDate";
 
 const useUserAgeValid = (day, month, year, minAge, maxAge) => {
-    const [isUserAgeValid, setUserAgeValid] = useState(false)
+    const [isUserAgeValid, setUserAgeValid] = useState(null)
     const [userAgeValidError, setUserAgeValidError]  = useState([])
 
     useEffect(() => {
@@ -14,7 +14,6 @@ const useUserAgeValid = (day, month, year, minAge, maxAge) => {
             } else {
                 setUserAgeValid(true)
             }
-
         }
     }, [day, month, year, minAge, maxAge])
 

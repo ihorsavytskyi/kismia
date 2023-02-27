@@ -1,13 +1,12 @@
-import React, {useEffect, useContext, useState, useRef} from "react";
+import React, {useEffect, useContext, useState} from "react";
 import "./InputText.scss"
 import {useInput} from "../../../hooks/useInput";
 import classNames from "classnames";
 import {FormContext} from "../../../context/FormContext";
-import {CSSTransition} from "react-transition-group";
 
 const InputText = ({ attr }) => {
 
-    const {setFieldsValue, setFieldsValid, validationRules, setFieldsRef, fieldsRef} = useContext(FormContext)
+    const {setFieldsValue, setFieldsValid, validationRules} = useContext(FormContext)
     const [isVisiblePass, setVisiblePass] = useState(false)
 
     const inputField = useInput('', validationRules[attr.name])
@@ -17,23 +16,17 @@ const InputText = ({ attr }) => {
     }
 
     useEffect(() => {
-        setFieldsValue(prev => (
-            {
-                ...prev,
-                [attr.name] : inputField.value
-            }
-        ))
-
+        setFieldsValue(prev => ({
+            ...prev,
+            [attr.name] : inputField.value
+        }))
     }, [inputField.value])
 
     useEffect(() => {
-        setFieldsValid(prev => (
-            {
-                ...prev,
-                [attr.name] : inputField.inputValid
-            }
-        ))
-
+        setFieldsValid(prev => ({
+            ...prev,
+            [attr.name] : inputField.inputValid
+        }))
     }, [inputField.inputValid])
 
     return (

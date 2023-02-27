@@ -14,6 +14,7 @@ export const FormProvider = ({ children }) => {
         email: '',
         consent: null
     }))
+
     const [isFieldsValid, setFieldsValid] = useState(() => ({
         name: '',
         dayOfBirth: '',
@@ -23,10 +24,9 @@ export const FormProvider = ({ children }) => {
         password: '',
         email: ''
     }))
+
     const [validationRules, setValidationRules] = useState({})
     const isFormValid = useForm(isFieldsValid)
-
-    const [fieldsRef, setFieldsRef] = useState({})
 
     useEffect(() => {
         setValidationRules(data.validationRules)
@@ -34,7 +34,7 @@ export const FormProvider = ({ children }) => {
 
     return (
         <FormContext.Provider
-            value={{isFormValid, fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid, validationRules, setFieldsRef, fieldsRef}}>
+            value={{isFormValid, fieldsValue, setFieldsValue, isFieldsValid, setFieldsValid, validationRules}}>
             { children }
         </FormContext.Provider>
     )

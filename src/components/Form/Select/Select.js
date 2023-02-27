@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useContext, useEffect} from "react";
 import {useInput} from "../../../hooks/useInput";
 import "./Select.scss"
 import classNames from "classnames";
@@ -7,26 +7,21 @@ import {FormContext} from "../../../context/FormContext";
 
 const Select = ({ attr }) => {
 
-    const {setFieldsValue, isFieldsValid, setFieldsValid, validationRules, setFieldsRef, fieldsRef} = useContext(FormContext)
+    const {setFieldsValue, isFieldsValid, setFieldsValid, validationRules} = useContext(FormContext)
     const selectField = useInput('', validationRules[attr.name])
 
     useEffect(() => {
-        setFieldsValue(prev => (
-            {
-                ...prev,
-                [attr.name]: selectField.value
-            }
-        ))
+        setFieldsValue(prev => ({
+            ...prev,
+            [attr.name]: selectField.value
+        }))
     }, [selectField.value])
 
     useEffect(() => {
-        setFieldsValid(prev => (
-            {
-                ...prev,
-                [attr.name] : selectField.inputValid
-            }
-        ))
-
+        setFieldsValid(prev => ({
+            ...prev,
+            [attr.name] : selectField.inputValid
+        }))
     }, [selectField.inputValid])
 
     return (
@@ -34,10 +29,8 @@ const Select = ({ attr }) => {
             <select
                 className={
                     classNames("select-field", {
-                        // correct: selectField.inputValid && selectField.isDirty && isFieldsValid.dateOfBirth,
-                        // incorrect: !selectField.inputValid && selectField.isDirty
-                        correct: isFieldsValid[attr.name] && selectField.isDirty,
-                        incorrect: !isFieldsValid[attr.name] && selectField.isDirty
+                        correct: selectField.inputValid && selectField.isDirty && isFieldsValid.dateOfBirth,
+                        incorrect: !selectField.inputValid && selectField.isDirty && !isFieldsValid.dateOfBirth && isFieldsValid.dateOfBirth !== null
                     })
                 }
                 id={attr.name}

@@ -4,14 +4,18 @@
 .button {
   background: linear-gradient(180deg, #FFB45C 0%, #FFA438 100%);
   border: none;
-  border-radius: 10px;
-  padding: 13px 0 14px;
+  border-radius: 1rem;
+  padding: 1.3rem 0 1.4rem;
   outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   cursor: pointer;
+
+  @media (max-width: 48rem) {
+    padding: 2.3vh 0 2.5vh;
+  }
 
   &:focus {
     @include mixins.button-pressed();
@@ -22,24 +26,28 @@
   }
 
   .button-icon {
-    height: 23px;
+    height: 2.3rem;
     width: auto;
     color: variables.$main-bg;
-    margin-right: 14px;
+    margin-right: 1.4rem;
   }
 
   .button-text {
     @include mixins.choose-button();
     position: relative;
-    top: 1px;
+    top: 0.1rem;
+
+    @media (max-width: 48rem) {
+      top: 0.2vh;
+    }
   }
 
   & + .button {
-    margin-top: 14px;
+    margin-top: 1.4rem;
   }
 
   &[type='submit'] {
-    margin: 16px 0 10px;
+    margin: 1.6rem 0 1rem;
 
 
     &[disabled] {

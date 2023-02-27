@@ -2,6 +2,7 @@ import React, {useEffect, useContext, useState} from "react";
 import "./Checkbox.scss"
 import { useInput } from "../../../hooks/useInput";
 import classNames from "classnames";
+import parse from "html-react-parser"
 import {FormContext} from "../../../context/FormContext";
 
 const Checkbox = ({ attr }) => {
@@ -44,7 +45,7 @@ const Checkbox = ({ attr }) => {
                     name={attr.name}
                     onChange={e => inputField.onChange(e)}
                     value={inputField.value}/>
-                <span>{!!attr.label && attr.label}</span>
+                <div className="checkbox-description">{!!attr.label && parse(attr.label)}</div>
             </label>
         </div>
     )

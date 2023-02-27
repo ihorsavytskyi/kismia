@@ -9,23 +9,16 @@ const Fieldset = ({ children, legend, id, dateOfBirth}) => {
     useEffect(() => {
         if(dateOfBirth.isUserAgeValid) {
             setFieldsValid(prev => ({...prev, [id]: dateOfBirth.isUserAgeValid}))
-            console.log("Valid")
         } else {
-            console.log("No valid")
-            setFieldsValid(prev => (
-
-                {
-                    ...prev,
-                    [id]: dateOfBirth.isUserAgeValid
-                })
-            )
+            setFieldsValid(prev => ({
+                ...prev,
+                [id]: dateOfBirth.isUserAgeValid
+            }))
         }
-
-
     }, [dateOfBirth.isUserAgeValid, dateOfBirth.userAgeValidError])
 
     return (
-        <fieldset className={classNames({incorrect: dateOfBirth.isUserAgeValid})}>
+        <fieldset className={classNames({incorrect: !dateOfBirth.isUserAgeValid && dateOfBirth.isUserAgeValid !== null})}>
             <legend className="fieldset-legend">{legend}</legend>
             { children }
             {!dateOfBirth.isUserAgeValid && <span className="error">{dateOfBirth.userAgeValidError}</span>}

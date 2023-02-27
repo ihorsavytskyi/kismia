@@ -4,35 +4,43 @@
 @mixin focus {
   color: variables.$main-bg;
   background: variables.$light-gray;
-  border: 1px solid #FFB45C;
+  border: 0.1rem solid #FFB45C;
   opacity: 1;
 }
 
 @mixin hover {
   background: variables.$white;
-  border: 1px solid rgba(170, 178, 189, 0.5);
+  border: 0.1rem solid rgba(170, 178, 189, 0.5);
 }
 
 @mixin correct {
   color: variables.$main-bg;
-  background: variables.$correct-input-bg url("correct-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
-  border: 1px solid variables.$correct-input-color;
+  background: variables.$correct-input-bg url("correct-icon.svg") calc(100% - 1.5rem) 1rem/2.4rem no-repeat;
+  border: 0.1rem solid variables.$correct-input-color;
 
   @include mixins.input-box-shadow();
+
+  //@media (max-width: 48rem) {
+  //  background: variables.$correct-input-bg url("correct-icon.svg") calc(100% - 1.5rem) 0.9vh/4.2vh no-repeat;
+  //}
 }
 
 @mixin error {
   color: variables.$main-bg;
-  background: variables.$error-input-bg url("incorrect-icon.svg") calc(100% - 15px) 10px/ 24px no-repeat;
-  border: 1px solid variables.$error-input-color;
+  background: variables.$error-input-bg url("incorrect-icon.svg") calc(100% - 1.5rem) 1rem/2.4rem no-repeat;
+  border: 0.1rem solid variables.$error-input-color;
   margin-bottom: 0;
 
   @include mixins.input-box-shadow();
+
+  //@media (max-width: 48rem) {
+  //  background: variables.$error-input-bg url("incorrect-icon.svg") calc(100% - 1.5rem) 0.9vh/4.2vh no-repeat;
+  //}
 }
 
 label {
   display: flex;
-  gap: 6px;
+  gap: 0.6rem;
   box-sizing: border-box;
 
   span {
@@ -41,6 +49,10 @@ label {
     &.error {
       font: normal 400 1.2rem/1.16 variables.$roboto;
       color: variables.$error-input-color;
+
+      //@media (max-width: 48rem) {
+      //  font-size: 2.1vh;
+      //}
     }
   }
 }
@@ -58,12 +70,16 @@ label {
     align-items: center;
     background: variables.$default-input-bg;
     color: variables.$main-bg;
-    border: 1px solid rgba(170, 178, 189, 0.5);
-    box-shadow: inset 1px 1px 5px rgba(208, 210, 217, 0.5);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 8px;
+    border: 0.1rem solid rgba(170, 178, 189, 0.5);
+    box-shadow: inset 0.1rem 0.1rem 0.5rem rgba(208, 210, 217, 0.5);
+    border-radius: 1rem;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 0.8rem;
     outline: 0;
+
+    //@media (max-width: 48rem) {
+    //  font-size: 2.5vh;
+    //}
 
     &::placeholder {
       color: variables.$placeholder;
@@ -103,14 +119,21 @@ label {
   .tip {
     content: '';
     display: block;
-    width: 24px;
-    height: 24px;
-    top: 33px;
-    right: 15px;
+    width: 2.4rem;
+    height: 2.4rem;
+    top: 3.3rem;
+    right: 1.5rem;
     position: absolute;
     z-index: 5;
-    background: transparent url("hide_icon.svg") center/24px no-repeat;
+    background: transparent url("hide_icon.svg") center/2.4rem no-repeat;
     transition: transform 0.2s ease;
+
+    //@media (max-width: 48rem) {
+    //  width: 4.2vh;
+    //  height: 4.2vh;
+    //  top: 4.4vh;
+    //  background: transparent url("hide_icon.svg") center/4.2vh no-repeat;
+    //}
 
     &.show {
       transform: rotate(180deg);
