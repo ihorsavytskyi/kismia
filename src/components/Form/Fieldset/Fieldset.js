@@ -1,7 +1,9 @@
 import React, {useContext, useEffect} from "react";
-import "./Fieldset.scss"
 import {FormContext} from "../../../context/FormContext";
+
 import classNames from "classnames";
+
+import "./Fieldset.scss"
 
 const Fieldset = ({ children, legend, id, dateOfBirth}) => {
     const {setFieldsValid} = useContext(FormContext)

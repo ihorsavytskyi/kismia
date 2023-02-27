@@ -1,7 +1,9 @@
 import React, {createContext, useEffect, useState} from "react";
+
 import useForm from "../hooks/useForm";
-import data from "../data/data";
 import {useSessionStorage} from "../hooks/useSessionStorage";
+
+import data from "../data/data";
 export const FormContext = createContext({})
 
 export const FormProvider = ({ children }) => {

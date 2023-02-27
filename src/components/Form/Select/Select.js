@@ -1,8 +1,11 @@
 import React, {useContext, useEffect} from "react";
-import {useInput} from "../../../hooks/useInput";
-import "./Select.scss"
-import classNames from "classnames";
 import {FormContext} from "../../../context/FormContext";
+
+import {useInput} from "../../../hooks/useInput";
+
+import classNames from "classnames";
+
+import "./Select.scss"
 
 
 const Select = ({ attr }) => {

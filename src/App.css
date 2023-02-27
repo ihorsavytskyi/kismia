@@ -8,10 +8,20 @@
   display: block;
 }
 
-#root > div {
+/*#root > div {*/
+/*  display: grid;*/
+/*  height: 100%;*/
+/*}*/
+
+.layout {
   display: grid;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
 }
+
 
 /*#root > div {*/
 /*  display: grid;*/

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {CSSTransition, SwitchTransition} from "react-transition-group";
 import {getOverWrittenString} from "../../utils/getOverWrittenString";
-import "./ReadMore.scss"
+// import "./ReadMore.scss"
 
 
 const ReadMore = ({ children }) => {
@@ -22,7 +22,7 @@ const ReadMore = ({ children }) => {
             <SwitchTransition mode={"out-in"}>
                 <CSSTransition
                     key={isReadMore}
-                    timeout={500}
+                    timeout={0}
                     className="post-text">
                         <p className="post-text">
                             {isReadMore ?

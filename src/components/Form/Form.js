@@ -1,20 +1,21 @@
 import React, {useContext, useRef} from "react";
+import {FormContext} from "../../context/FormContext";
+
+import {useDaysInMonth} from "../../hooks/useDaysInMonth";
+import useUserAgeValid from "../../hooks/useUserAgeValid";
+
+import getDropDownList from "../../utils/getDropDownList";
+import {getCurrentYear} from "../../utils/getDate";
+
 import Container from "../Container/Container";
 import {FormField, FormSubField} from "./FormField/FormField";
 import Fieldset from "./Fieldset/Fieldset";
 import Select from "./Select/Select";
 import Button from "../Button/Button";
-
-import getDropDownList from "../../utils/getDropDownList";
-import {getCurrentYear} from "../../utils/getDate";
-
-import {useDaysInMonth} from "../../hooks/useDaysInMonth";
-import useUserAgeValid from "../../hooks/useUserAgeValid";
-
-import {FormContext} from "../../context/FormContext";
 import InputText from "./InputText/InputText";
-import Checkbox from "./Checkbox/Checkbox";
 import InputPassword from "./InputPassword/InputPassword";
+
+import Checkbox from "./Checkbox/Checkbox";
 
 const Form = () => {
     const {isFieldsValid, isFormValid, fieldsValue} = useContext(FormContext)

@@ -53,8 +53,8 @@
   box-sizing: border-box;
 
   @media (max-width: 48rem) {
-    width: 6vh;
-    height: 6vh;
+    width: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
+    height: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
   }
 }
 
@@ -69,7 +69,7 @@
   margin-bottom: 0.3rem;
 
   @media (max-width: 48rem) {
-    font-size: 2.1vh;
+    font-size: functions.calcFluidSize(1.2, 1.5, 32, 48, rem);
     margin-bottom: 0.5vh;
   }
 }
@@ -79,7 +79,7 @@
   color: variables.$gray;
 
   @media (max-width: 48rem) {
-    font-size: 2.1vh;
+    font-size: functions.calcFluidSize(1.2, 1.5, 32, 48, rem);
   }
 }
 
@@ -92,7 +92,7 @@
     transition: all 0.5s ease;
 
     @media (max-width: 48rem) {
-      font-size: 2.5vh;
+      font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
     }
   }
 
@@ -104,7 +104,7 @@
     margin-left: 0.5rem;
 
     @media (max-width: 48rem) {
-      font-size: 2.5vh;
+      font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
     }
   }
 }

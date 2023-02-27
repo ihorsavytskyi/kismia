@@ -1,26 +1,27 @@
 @use '../../../styles/utils/variables';
 @use '../../../styles/utils/mixins';
+@use '../../../styles/utils/functions';
 
 @mixin focus {
   color: variables.$main-bg;
-  background: variables.$light-gray url("dropdown-icon.svg") calc(100% - 1.5rem) 2rem/0.8rem no-repeat;
-  border: 0.1rem solid #FFB45C;
-  box-shadow: 0rem 0rem 0.4rem rgba(70, 136, 235, 0.25);
+  background-color: variables.$light-gray;
+  border-color: #FFB45C;
+  box-shadow: 0 0 0.4rem rgba(70, 136, 235, 0.25);
   opacity: 1;
 }
 
 @mixin correct {
   color: variables.$main-bg;
-  background: variables.$correct-input-bg url("dropdown-icon.svg") calc(100% - 1.5rem) 2rem/0.8rem no-repeat;
-  border: 0.1rem solid variables.$correct-input-color;
+  background-color: variables.$correct-input-bg;
+  border-color: variables.$correct-input-color;
 
   @include mixins.input-box-shadow();
 }
 
 @mixin error {
   color: variables.$main-bg;
-  background: variables.$error-input-bg url("dropdown-icon.svg") calc(100% - 1.5rem) 2rem/0.8rem no-repeat;
-  border: 0.1rem solid variables.$error-input-color;
+  background-color: variables.$error-input-bg;
+  border-color: variables.$error-input-color;
   margin-bottom: 0;
 
   @include mixins.input-box-shadow();
@@ -33,11 +34,11 @@ label {
 }
 
 select {
-  /*check font size*/
   font: normal 400 1.4rem/1.14 variables.$roboto;
-  background: variables.$default-input-bg url("dropdown-icon.svg") calc(100% - 1.5rem) 1.7rem/1rem 0.8rem no-repeat;
+  background: variables.$default-input-bg url("dropdown-icon.svg") calc(100% - 1.5rem) 1.9rem/1rem  no-repeat;
   color: variables.$placeholder;
   display: flex;
+  width: 100%;
   align-items: center;
   border: 0.1rem solid rgba(170, 178, 189, 0.5);
   box-shadow: inset 0.1rem 0.1rem 0.5rem rgba(208, 210, 217, 0.5);
@@ -47,10 +48,9 @@ select {
   outline: none;
   appearance: none;
 
-  //@media (max-width: 48rem) {
-  //  font-size: 2.5vh;
-  //  background: variables.$default-input-bg url("dropdown-icon.svg") calc(100% - 1.5rem) 2rem/0.8rem no-repeat;
-  //}
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+  }
 
   &:focus {
     @include focus();
