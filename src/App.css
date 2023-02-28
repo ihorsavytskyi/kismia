@@ -8,11 +8,6 @@
   display: block;
 }
 
-/*#root > div {*/
-/*  display: grid;*/
-/*  height: 100%;*/
-/*}*/
-
 .layout {
   display: grid;
   height: 100%;
@@ -21,10 +16,3 @@
   left: 50%;
   transform: translate(-50%);
 }
-
-
-/*#root > div {*/
-/*  display: grid;*/
-/*  height: 100%;*/
-/*  align-content: space-between;*/
-/*}*/
