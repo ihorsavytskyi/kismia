@@ -1,3 +1,130 @@
+@use './src/styles/utils/variables';
+@use './src/styles/utils/functions';
 
+@mixin title {
+  font: normal 700 2.1rem/1.44 variables.$jost;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+  color: variables.$white;
 
+  @media (max-height: 48rem) {
+    font-size: functions.calcFluidSize(2.1, 2.4, 32, 48, rem);
+  }
+}
 
+@mixin subtitle {
+  font: normal 700 1.6rem/1.19 variables.$roboto;
+  color: variables.$white;
+  text-align: center;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.6, 2, 32, 48, rem);
+  }
+}
+
+@mixin text {
+  font: normal 400 1.4rem/1.14 variables.$roboto;
+  color: variables.$small-text;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+  }
+}
+
+@mixin button {
+  font: normal 500 1.6rem/1.43 variables.$jost;
+  letter-spacing: 0.02em;
+  color: variables.$black;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.6, 2, 32, 48, rem);
+  }
+}
+
+@mixin choose-button {
+  font: normal 500 1.4rem/1.14 variables.$roboto;
+  color: variables.$black;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+  }
+}
+
+@mixin button-pressed {
+  background: #E3983F;
+}
+
+@mixin button-active {
+  background: #C4C4C4;
+  box-shadow: 0 0.2rem 0.8rem rgba(230, 233, 238, 0.55);
+}
+
+@mixin label {
+  font: normal 700 1.4rem/1.14 variables.$roboto;
+  color: variables.$white;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.4, 1.6, 32, 48, rem);
+  }
+}
+
+@mixin error {
+  font: normal 400 1.2rem/1.33 variables.$roboto;
+  color: variables.$error-input-color;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.2, 1.4, 32, 48, rem);
+  }
+}
+
+@mixin input-text-label {
+  display: flex;
+  gap: 0.6rem;
+  box-sizing: border-box;
+  flex-direction: column;
+  position: relative;
+
+  span {
+    @include label();
+    &.error {
+      @include error();
+    }
+  }
+}
+
+@mixin input {
+  font: normal 400 1.4rem/1.14 variables.$roboto;
+  display: flex;
+  align-items: center;
+  background: variables.$default-input-bg;
+  color: variables.$main-bg;
+  border: 0.1rem solid rgba(170, 178, 189, 0.5);
+  box-shadow: inset 0.1rem 0.1rem 0.5rem rgba(208, 210, 217, 0.5);
+  border-radius: 1rem;
+  padding: 1.3rem 1.6rem 1.4rem;
+  margin-bottom: 0.8rem;
+  outline: 0;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.4, 1.6, 32, 48, rem);
+  }
+
+  &::placeholder {
+    color: variables.$placeholder;
+  }
+}
+
+/* effects */
+@mixin input-box-shadow {
+  box-shadow: inset 0.1rem 0.1rem 0.6rem rgba(36, 37, 48, 0.5);
+}
+
+@mixin button-shadow {
+  box-shadow: 0 0.2rem 0.8rem rgba(230, 233, 238, 0.55);
+}
+
+@mixin drop-shadow {
+  box-shadow: 0 0.2rem 0.8rem rgba(151, 151, 151, 0.25);
+}

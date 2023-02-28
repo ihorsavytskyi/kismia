@@ -4,15 +4,42 @@
 .post {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 20px;
-  background: #2F303E;
-  box-shadow: 3px 3px 12px #242530;
-  border-radius: 10px;
+  gap: 1.2rem;
+  padding: 2rem;
+  background-color: #2F303E;
+  box-shadow: .3rem .3rem 1.2rem #242530;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: 1s all linear;
+
+  &::after {
+    content: '';
+    width: 6.7rem;
+    height: 4.6rem;
+    position: absolute;
+    top: 1rem;
+    right: -0.7rem;
+    background-image: url("./post-bg-icon.svg");
+    background-position: left center;
+    background-size: 3.1rem 100%;
+    background-repeat: space;
+  }
+
+  &.init {
+    transform: translateY(50vh);
+  }
+
+  &.loaded {
+    transform: translateY(0);
+  }
 }
 
 .post-header {
   display: flex;
+  gap: 1rem;
 }
 
 .users-avatars {
@@ -20,40 +47,64 @@
 }
 
 .users-avatar-item {
-  width: 32px;
-  height: 32px;
-  border: 2px solid #2F303E;
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
   box-sizing: border-box;
+
+  @media (max-width: 48rem) {
+    width: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
+    height: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
+  }
 }
 
 .users-avatar-item:last-child {
-  position: absolute;
+  position: relative;
+  margin-left: -0.8rem;
 }
 
 .users-names {
-  /*check font size*/
-  font: normal 500 12px/14px variables.$roboto;
+  font: normal 500 1.2rem/1.17 variables.$roboto;
   color: variables.$white;
-  margin-bottom: 3px;
+  margin-bottom: 0.3rem;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.2, 1.5, 32, 48, rem);
+    margin-bottom: 0.5vh;
+  }
 }
 
 .publish-date {
-  font: normal 400 12px/14px variables.$roboto;
+  font: normal 400 1.2rem/1.17 variables.$roboto;
   color: variables.$gray;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.2, 1.5, 32, 48, rem);
+  }
 }
 
 .post-body {
 
   .post-text {
-    font-family: variables.$roboto;
-    font-style: normal;
-    font-size: functions.calcFluidFontSize(10, 16, 320, 480);
-    line-height: 1.36;
-    //font: italic 400 14px/19px variables.$roboto;
+    font: normal 400 1.4rem/1.36 variables.$roboto;
     color: variables.$gray;
     margin: 0;
+    transition: all 0.5s ease;
+
+    @media (max-width: 48rem) {
+      font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+    }
+  }
+
+  .read-more-toggle {
+    font: normal 400 1.4rem/1.36 variables.$roboto;
+    color: variables.$orange;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 0.5rem;
+
+    @media (max-width: 48rem) {
+      font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+    }
   }
 }
-
-

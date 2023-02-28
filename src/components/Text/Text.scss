@@ -1,10 +1,7 @@
-@use './src/styles/utils/variables';
+@use './src/styles/utils/mixins';
 
 .text {
-  /*check font size*/
-  font: normal 500 14px/16px variables.$roboto;
-  color: variables.$small-text;
-  margin-bottom: 3px;
+  @include mixins.text();
   opacity: 0.6;
 
   &.center {

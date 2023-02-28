@@ -1,34 +1,38 @@
-import React, {useContext} from "react";
-import Button from "../Button/Button";
-import {QuizContext} from "../Questions/Questions";
-import {useNavigate} from "react-router-dom";
+import React, {useContext, useEffect} from "react";
+import {QuizContext} from "../../context/QuizContext";
+import {CSSTransition} from "react-transition-group";
+import Answer from "../Answer/Answer";
 
-const Question = ({ question }) => {
+import "./Question.scss"
 
-    const navigate = useNavigate()
-    const { currentQuestion, setCurrentQuestion, userAnswers, setUserAnswers, questions } = useContext(QuizContext)
+const Question = ({indexQuestion, question}) => {
+    const [state, dispatch] = useContext(QuizContext)
 
-    const handleClick = ((value) => {
-        setCurrentQuestion(currentQuestion + 1)
-        setUserAnswers([
-            ...userAnswers,
-            {
-                [question.question]: value
-            }
-        ])
+    const isVisibleQuestion = state.isQuestionVisible
+    const currentQuestion = state.questions[state.currentQuestionIndex]
 
-        if((currentQuestion + 1) === questions.length) navigate("/registration")
-    })
+    useEffect(() => {
+        dispatch({type: "SET_VISIBLE_QUESTIONS"})
+    }, [state.currentQuestionIndex])
 
     return (
-        <div className="question">
-            <h2>{question.question}</h2>
-            <div className="answers">
-                {question.answers.map((answer, i) =>
-                    <Button key={i} text={answer} handleClick={() => handleClick(answer)}/>
-                )}
+        <CSSTransition
+            key={state.currentQuestionIndex}
+            in={isVisibleQuestion}
+            timeout={0}
+            unmountOnExit
+            classNames={{
+                enterDone: 'question-done-enter'
+            }}>
+            <div className="question" data-question-index={state.currentQuestionIndex}>
+                <h2>{currentQuestion.question}</h2>
+                <div className="answers">
+                    {currentQuestion.answers.map((answer, i) =>
+                        <Answer key={i} answer={answer}/>
+                    )}
+                </div>
             </div>
-        </div>
+        </CSSTransition>
     )
 }
 

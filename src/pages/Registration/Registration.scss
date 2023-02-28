@@ -1,0 +1,27 @@
+@use './src/styles/utils/variables';
+@use './src/styles/utils/mixins';
+
+.registration-page {
+  .headline {
+    height: 32.7vh;
+    margin-bottom: -9vh;
+  }
+
+  section {
+    padding: 0 2.4rem;
+
+    &.title {
+      margin: 0 0 1vh;
+
+      .text {
+        margin: 0 auto 1.2rem;
+      }
+    }
+  }
+
+  h1 {
+    @include mixins.title();
+    margin: 0 0 0.4rem;
+  }
+}
+

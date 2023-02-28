@@ -1,16 +1,25 @@
 import React from "react";
 import "./Button.scss"
-const Button = ({...props}) => {
 
-    console.log(props)
+const Button = ({ ...props }) => {
 
     return (
-        <button className="button" onClick={() => props.handleClick(props.text)}>
-            {props.icon &&
-                <img className="button-icon" src={props.icon} alt={props.text}/>
-            }
-            <span className="button-text">{props.text}</span>
-        </button>
+        <>
+            {(!!props.type && props.type === "submit") ? (
+                <button
+                    className="button"
+                    type={props.type}>
+                    <span className="button-text">{props.text}</span>
+                </button>
+            ) : (
+                <button
+                    className="button"
+                    onClick={() => props.handleClick(props.text)}>
+                    {props.icon && <img className="button-icon" src={props.icon} alt={props.text}/>}
+                    <span className="button-text">{props.text}</span>
+                </button>
+            )}
+        </>
     )
 }
 
