@@ -1,16 +1,16 @@
 import React from "react";
-import MainContainer from "../../components/Layout/MainContainer/MainContainer";
-import Footer from "../../components/Layout/Footer/Footer";
-import Posts from "../../components/Posts/Posts";
 import maleIcon from "../../images/icons/m_icon.svg"
 import femaleIcon from "../../images/icons/f_icon.svg"
 import { useData } from "../../context/DataContext";
 import { useNavigate } from "react-router-dom";
+import MainContainer from "../../components/Layout/MainContainer/MainContainer";
+import Footer from "../../components/Layout/Footer/Footer";
+import Posts from "../../components/Posts/Posts";
 import Button from "../../components/Button/Button";
-import "./Welcome.scss";
 import Section from "../../components/Section/Section";
 import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer";
 import headerBg from "../../images/bg.png"
+import "./Welcome.scss";
 
 const Welcome = () => {
 

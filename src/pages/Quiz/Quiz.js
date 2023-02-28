@@ -5,8 +5,8 @@ import Section from "../../components/Section/Section";
 import Text from "../../components/Text/Text";
 import {QuizProvider} from "../../context/QuizContext";
 import headerBg from "../../images/bg.png";
-import "./Quiz.scss"
 import Question from "../../components/Question/Question";
+import "./Quiz.scss"
 
 
 const Quiz = () => {
