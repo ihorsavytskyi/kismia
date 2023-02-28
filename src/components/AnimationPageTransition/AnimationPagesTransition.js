@@ -16,7 +16,6 @@ const AnimationPagesTransition = () => {
 
                 classNames={{
                     enter: 'enter',
-                    // enterActive: 'loading',
                     enterDone: 'loaded',
                     exit: 'hide'
                 }}>
