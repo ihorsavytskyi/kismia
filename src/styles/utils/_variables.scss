@@ -1,5 +1,6 @@
 $roboto: 'Roboto', sans-serif;
 $jost: 'Jost', sans-serif;
+$sans: 'Open Sans', sans-serif;
 
 /* color styles */
 $white: #ffffff;
@@ -12,6 +13,7 @@ $light-gray: #F3F5F7;
 $placeholder: #8A8B95;
 $main-bg: #242530;
 $comment-bg: #2F303E;
+$orange: #FFB45C;
 
 /* button */
 $default-button: linear-gradient(180deg, #FFB45C 0%, #FFA438 100%);
@@ -23,21 +25,3 @@ $error-input-bg: #D0C7C7;
 $correct-input-bg: #CAD0C7;
 $error-input-color: #FF5E5E;
 $correct-input-color: #599F39;
-
-/* effects */
-.button-shadow {
-  background: #C4C4C4;
-  box-shadow: 0px 2px 8px rgba(230, 233, 238, 0.55);
-}
-
-.drop-shadow {
-  background: #C4C4C4;
-  box-shadow: 0px 2px 8px rgba(151, 151, 151, 0.25);
-}
-
-.input {
-  background: #C4C4C4;
-  box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
-}
-
-

@@ -1,44 +1,50 @@
 import React from "react";
-import MainContainer from "../../components/MainContainer/MainContainer";
-import Posts from "../../components/Posts/Posts";
 import maleIcon from "../../images/icons/m_icon.svg"
 import femaleIcon from "../../images/icons/f_icon.svg"
-import { useData } from "../../helpers/DataContext";
+import { useData } from "../../context/DataContext";
 import { useNavigate } from "react-router-dom";
+import MainContainer from "../../components/Layout/MainContainer/MainContainer";
+import Footer from "../../components/Layout/Footer/Footer";
+import Posts from "../../components/Posts/Posts";
 import Button from "../../components/Button/Button";
-import "./Welcome.scss";
 import Section from "../../components/Section/Section";
+import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer";
+import headerBg from "../../images/bg.png"
+import "./Welcome.scss";
 
 const Welcome = () => {
 
     const navigate = useNavigate()
     const { data, setValues } = useData()
 
-    console.log(data)
     const handleClick = (value) => {
-        console.log(value)
         setValues(value => (
             {
                 "gander": value
             }
         ))
-        navigate("/quiz")
+        navigate("/kismia/quiz")
     }
 
     return (
         <>
-            <MainContainer>
-                <h1>Наибольшая база анкет для знакомств</h1>
-                <Section alignment={"column"}>
+            <MainContainer pageName={"welcome-page"}>
+                <HeadlineContainer>
+                    <img className="image" src={headerBg} alt="Headline background"/>
+                </HeadlineContainer>
+                <Section classes={["column", "title"]}>
+                    <h1>Наибольшая база анкет для знакомств</h1>
+                </Section>
+                <Section classes={["column"]}>
                     <Button icon={maleIcon} text={"Я мужчина"} handleClick={handleClick}/>
                     <Button icon={femaleIcon} text={"Я женщина"} handleClick={handleClick}/>
                 </Section>
-                <Section alignment={"column"} gap={20}>
+                <Section classes={["column", "posts"]}>
                     <Posts/>
                 </Section>
 
             </MainContainer>
-            {/*<Footer/>*/}
+            <Footer />
         </>
 
     )

@@ -1,18 +1,33 @@
 @use './src/styles/utils/variables';
+@use './src/styles/utils/mixins';
 
-h1 {
-  font: normal 700 18px/26px variables.$jost;
-  text-align: center;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: variables.$white;
+.welcome-page {
+  .headline {
+    height: 54vh;
+    margin-bottom: -6vh;
+  }
+
+  .title {
+    margin: 0 0 2.1vh
+  }
+
+  .posts {
+    margin: 3.7vh 0 0;
+  }
+
+  h1 {
+    @include mixins.title();
+  }
+
+  .button .button-text {
+    @include mixins.button();
+  }
 }
-
 .container {
   display: flex;
 
   &.column {
     flex-direction: column;
-    gap: 12px;
+    gap: 1.2rem;
   }
 }

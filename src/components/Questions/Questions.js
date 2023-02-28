@@ -1,22 +1,26 @@
-import React, {createContext, useState} from "react";
-import data  from "../../helpers/data"
+import React, {useContext, useEffect} from "react";
+import {QuizContext} from "../../context/QuizContext";
 import Question from "../Question/Question";
+import {TransitionGroup, CSSTransition} from "react-transition-group";
 
-export const QuizContext = createContext([])
 const Questions = () => {
-
-    const questions = data.questions
-    const [currentQuestion, setCurrentQuestion] = useState(0)
-    const [userAnswers, setUserAnswers] = useState([])
+    const [state, dispatch] = useContext(QuizContext)
 
     return (
-        <QuizContext.Provider value={{ currentQuestion, setCurrentQuestion, userAnswers, setUserAnswers, questions }}>
-            <div className="questions">
-                {questions &&
-                    <Question question={questions[currentQuestion]}/>
-                }
-            </div>
-        </QuizContext.Provider>
+        <div className="questions">
+            <TransitionGroup
+            component={null}>
+            {state.questions.map((question, index) =>
+
+                <CSSTransition
+                    key={index}
+                    timeout={5000}
+                    className="item">
+                    <Question key={index} indexQuestion={index} question={question}/>
+                </CSSTransition>
+            )}
+            </TransitionGroup>
+        </div>
     )
 }
 

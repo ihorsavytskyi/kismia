@@ -1,0 +1,63 @@
+@use '../../../styles/utils/variables';
+@use '../../../styles/utils/mixins';
+@use '../../../styles/utils/functions';
+
+@mixin focus {
+  color: variables.$main-bg;
+  background: variables.$light-gray;
+  border-color: #FFB45C;
+  opacity: 1;
+}
+
+@mixin hover {
+  background: variables.$white;
+  border-color: rgba(170, 178, 189, 0.5);
+}
+
+@mixin correct {
+  color: variables.$main-bg;
+  background: variables.$correct-input-bg url("correct-icon.svg") calc(100% - 1.5rem) 0.9rem/2.4rem no-repeat;
+  border-color: variables.$correct-input-color;
+
+  @include mixins.input-box-shadow();
+}
+
+@mixin error {
+  color: variables.$main-bg;
+  background: variables.$error-input-bg url("incorrect-icon.svg") calc(100% - 1.5rem) 0.9rem/2.4rem no-repeat;
+  border-color: variables.$error-input-color;
+  margin-bottom: 0;
+
+  @include mixins.input-box-shadow();
+}
+
+.input-text {
+
+  label {
+    @include mixins.input-text-label();
+  }
+
+  input {
+    @include mixins.input();
+
+    &:focus {
+      @include focus();
+    }
+
+    &.correct {
+      @include correct();
+
+      &:focus {
+        @include focus();
+      }
+    }
+
+    &.incorrect {
+      @include error();
+    }
+
+    &:hover {
+      @include hover();
+    }
+  }
+}

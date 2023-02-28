@@ -1,0 +1,24 @@
+@use '../../../styles/utils/variables';
+@use '../../../styles/utils/mixins';
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  label.select-label {
+    flex-direction: row;
+  }
+
+  span.error {
+    @include mixins.error();
+  }
+}
+
+legend {
+  @include mixins.label();
+  margin-bottom: 0.6rem;
+}
