@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {CSSTransition, SwitchTransition} from "react-transition-group";
-import "./ReadMore.scss"
+import {getOverWrittenString} from "../../utils/getOverWrittenString";
 
 const ReadMore = ({ children }) => {
 
@@ -13,17 +13,20 @@ const ReadMore = ({ children }) => {
 
     if(text.length < 267) {
         return (
-            <p className="post-text">{text}</p>
+            <p className="post-text">{getOverWrittenString(text)}</p>
         )
     } else {
         return (
             <SwitchTransition mode={"out-in"}>
                 <CSSTransition
                     key={isReadMore}
-                    timeout={500}
+                    timeout={0}
                     className="post-text">
                         <p className="post-text">
-                            {isReadMore ? getShortText(text).concat("...") : getShortText(text).concat(text.slice(267))}
+                            {isReadMore ?
+                                getOverWrittenString((getShortText(text).concat("..."))) :
+                                getOverWrittenString(text)
+                            }
                             <span onClick={() => setIsReadMore((isReadMore) => !isReadMore)} className="read-more-toggle">
                                 {isReadMore ? "Читать полностью" : "Свернуть"}
                             </span>

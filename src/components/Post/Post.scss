@@ -4,42 +4,42 @@
 .post {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 20px;
+  gap: 1.2rem;
+  padding: 2rem;
   background-color: #2F303E;
-  box-shadow: 3px 3px 12px #242530;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  box-shadow: .3rem .3rem 1.2rem #242530;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
   transform: translateY(0);
-  transition: 1s all ease-out;
+  transition: 1s all linear;
 
   &::after {
     content: '';
-    width: 67px;
-    height: 46px;
+    width: 6.7rem;
+    height: 4.6rem;
     position: absolute;
-    top: 10px;
-    right: -7px;
+    top: 1rem;
+    right: -0.7rem;
     background-image: url("./post-bg-icon.svg");
     background-position: left center;
-    background-size: 31px 100%;
+    background-size: 3.1rem 100%;
     background-repeat: space;
   }
 
   &.init {
-    transform: translateX(-100vw);
+    transform: translateY(50vh);
   }
 
   &.loaded {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
 .post-header {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .users-avatars {
@@ -47,26 +47,40 @@
 }
 
 .users-avatar-item {
-  width: 6vh;
-  height: 6vh;
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
   box-sizing: border-box;
+
+  @media (max-width: 48rem) {
+    width: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
+    height: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
+  }
 }
 
 .users-avatar-item:last-child {
   position: relative;
-  margin-left: -8px;
+  margin-left: -0.8rem;
 }
 
 .users-names {
   font: normal 500 1.2rem/1.17 variables.$roboto;
   color: variables.$white;
-  margin-bottom: 3px;
+  margin-bottom: 0.3rem;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.2, 1.5, 32, 48, rem);
+    margin-bottom: 0.5vh;
+  }
 }
 
 .publish-date {
   font: normal 400 1.2rem/1.17 variables.$roboto;
   color: variables.$gray;
+
+  @media (max-width: 48rem) {
+    font-size: functions.calcFluidSize(1.2, 1.5, 32, 48, rem);
+  }
 }
 
 .post-body {
@@ -76,6 +90,10 @@
     color: variables.$gray;
     margin: 0;
     transition: all 0.5s ease;
+
+    @media (max-width: 48rem) {
+      font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+    }
   }
 
   .read-more-toggle {
@@ -83,8 +101,10 @@
     color: variables.$orange;
     text-decoration: underline;
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: 0.5rem;
+
+    @media (max-width: 48rem) {
+      font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+    }
   }
 }
-
-

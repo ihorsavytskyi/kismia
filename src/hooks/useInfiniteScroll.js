@@ -19,7 +19,7 @@ const useInfiniteScroll = (data) => {
                 setLastPost(prev => (prev + 1))
                 setFetching(false)
                 setLoading(false)
-            }, 500)
+            }, 200)
         }
     }, [fetching])
 

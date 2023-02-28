@@ -1,20 +1,27 @@
 import React, {useContext, useEffect} from "react";
+import {FormContext} from "../../../context/FormContext";
+import classNames from "classnames";
 import "./Fieldset.scss"
-import {FormContext} from "../Form";
 
-const Fieldset = ({ children, legend, error, id}) => {
-    const { setFieldsValid } = useContext(FormContext)
+const Fieldset = ({ children, legend, id, dateOfBirth}) => {
+    const {setFieldsValid} = useContext(FormContext)
 
     useEffect(() => {
-        setFieldsValid(prev => ({...prev, [id]: error}))
-
-    }, [error])
+        if(dateOfBirth.isUserAgeValid) {
+            setFieldsValid(prev => ({...prev, [id]: dateOfBirth.isUserAgeValid}))
+        } else {
+            setFieldsValid(prev => ({
+                ...prev,
+                [id]: dateOfBirth.isUserAgeValid
+            }))
+        }
+    }, [dateOfBirth.isUserAgeValid, dateOfBirth.userAgeValidError])
 
     return (
-        <fieldset >
+        <fieldset className={classNames({incorrect: !dateOfBirth.isUserAgeValid && dateOfBirth.isUserAgeValid !== null})}>
             <legend className="fieldset-legend">{legend}</legend>
             { children }
-            {(!error && error !== null)  && <span className="error">{error}</span>}
+            {!dateOfBirth.isUserAgeValid && <span className="error">{dateOfBirth.userAgeValidError}</span>}
         </fieldset>
     )
 }

@@ -7,7 +7,11 @@ fieldset {
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.6rem;
+
+  label.select-label {
+    flex-direction: row;
+  }
 
   span.error {
     @include mixins.error();
@@ -16,5 +20,5 @@ fieldset {
 
 legend {
   @include mixins.label();
-  margin-bottom: 6px;
+  margin-bottom: 0.6rem;
 }

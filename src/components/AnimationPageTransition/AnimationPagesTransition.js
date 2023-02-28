@@ -4,16 +4,18 @@ import {CSSTransition, TransitionGroup} from "react-transition-group";
 import Welcome from "../../pages/Welcome/Welcome";
 import Quiz from "../../pages/Quiz/Quiz";
 import Registration from "../../pages/Registration/Registration";
+import "./AnimationPagesTransition.scss"
 const AnimationPagesTransition = () => {
 
     const location = useLocation()
     return (
-        <TransitionGroup>
+        <TransitionGroup className="layout">
             <CSSTransition
                 key = {location.pathname}
-                timeout ={300}
+                timeout ={0}
+
                 classNames={{
-                    enterActive: 'loading',
+                    enter: 'enter',
                     enterDone: 'loaded',
                     exit: 'hide'
                 }}>

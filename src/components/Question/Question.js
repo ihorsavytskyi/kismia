@@ -1,51 +1,38 @@
-import React, {useContext, useEffect, useState} from "react";
-import Button from "../Button/Button";
-import {QuizContext} from "../Questions/Questions";
-import {CSSTransition, TransitionGroup} from "react-transition-group";
+import React, {useContext, useEffect} from "react";
+import {QuizContext} from "../../context/QuizContext";
+import {CSSTransition} from "react-transition-group";
+import Answer from "../Answer/Answer";
 
-const Question = ({ question }) => {
+import "./Question.scss"
 
-    const { currentQuestion, setCurrentQuestion, userAnswers, setUserAnswers} = useContext(QuizContext)
-    const [ answers, setAnswers ] = useState([])
-    const [ isVisibleAnswers, setVisibleAnswers] = useState(false)
+const Question = ({indexQuestion, question}) => {
+    const [state, dispatch] = useContext(QuizContext)
+
+    const isVisibleQuestion = state.isQuestionVisible
+    const currentQuestion = state.questions[state.currentQuestionIndex]
 
     useEffect(() => {
-        setAnswers(question.answers)
-        setVisibleAnswers(!isVisibleAnswers)
-    }, [question])
-
-    const handleClick = ((value) => {
-        setCurrentQuestion(currentQuestion + 1)
-        setUserAnswers([
-            ...userAnswers,
-            {
-                [question.question]: value
-            }
-        ])
-        setVisibleAnswers(!isVisibleAnswers)
-    })
+        dispatch({type: "SET_VISIBLE_QUESTIONS"})
+    }, [state.currentQuestionIndex])
 
     return (
-        <div className="question">
-            <h2>{question.question}</h2>
-            <div className="answers">
-                <TransitionGroup className="question" component={null}>
-                    {answers.map((answer, i) =>
-                        <CSSTransition
-                            key={i}
-                            in={isVisibleAnswers}
-                            timeout={5000}
-                            classNames={{
-                                enterActive: 'loading',
-                                enterDone: 'loaded',
-                                exit: 'hide'
-                            }}>
-                            <Button text={answer} handleClick={() => handleClick(answer)}/>
-                        </CSSTransition>
+        <CSSTransition
+            key={state.currentQuestionIndex}
+            in={isVisibleQuestion}
+            timeout={0}
+            unmountOnExit
+            classNames={{
+                enterDone: 'question-done-enter'
+            }}>
+            <div className="question" data-question-index={state.currentQuestionIndex}>
+                <h2>{currentQuestion.question}</h2>
+                <div className="answers">
+                    {currentQuestion.answers.map((answer, i) =>
+                        <Answer key={i} answer={answer}/>
                     )}
-                </TransitionGroup>
+                </div>
             </div>
-        </div>
+        </CSSTransition>
     )
 }
 

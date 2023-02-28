@@ -2,29 +2,28 @@
 @use './src/styles/utils/mixins';
 
 .quiz-page {
+
   .headline {
     height: 32.7vh;
-    margin-bottom: -3.3vh;
+  }
+
+  h2 {
+    margin: 0 0 1.6rem;
+    padding: 0 2.4rem;
+    @include mixins.subtitle();
   }
 
   section {
-    padding: 0 24px;
+    position: absolute;
+    top: 29vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 48px);
+    overflow: hidden;
+  }
 
-    h2 {
-      margin: 0 0 16px;
-      @include mixins.subtitle();
-    }
-
-    &.column {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: auto;
-    }
-
-    .question {
-      margin: 0 0 60px;
-    }
+  .text {
+    margin-top: 10.4vh;
   }
 }
 

@@ -1,0 +1,69 @@
+@use '../../../styles/utils/variables';
+@use '../../../styles/utils/mixins';
+@use '../../../styles/utils/functions';
+
+.checkbox-item {
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  input.icon-checkbox {
+    width: 13px;
+    height: 13px;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    position: relative;
+    box-sizing: border-box;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #656D78;
+      border-radius: 2px;
+      background: #242530;
+      z-index: 1;
+      visibility: visible;
+      box-sizing: border-box;
+    }
+
+    &:checked::after {
+      background: #242530 url("checked-icon.svg") center / 9px no-repeat;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.incorrect::after {
+      border-color: variables.$error-input-color;
+    }
+  }
+
+  .checkbox-description {
+    font: normal 400 0.9rem/1.33 variables.$sans;
+    color: variables.$gray;
+
+    @media (max-width: 48rem) {
+      font-size: functions.calcFluidSize(0.9, 1.3, 32, 48, rem);
+    }
+
+    a {
+      color: variables.$gray;
+    }
+  }
+}
+
+
+
+
+

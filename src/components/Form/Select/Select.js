@@ -1,35 +1,32 @@
 import React, {useContext, useEffect} from "react";
+import {FormContext} from "../../../context/FormContext";
 import {useInput} from "../../../hooks/useInput";
-import {FormContext} from "../Form";
-import "./Select.scss"
-import data from "../../../data/data";
 import classNames from "classnames";
+import "./Select.scss"
 
 
 const Select = ({ attr }) => {
 
-    const { isFieldsValid, setFieldsValue, setFieldsValid } = useContext(FormContext)
-    const validationRules = data.validationRules
-
-    const selectField = useInput('', validationRules[attr.name])
+    const {setFieldsValue, isFieldsValid, setFieldsValid, validationRules, storageValues, setStorageValues} = useContext(FormContext)
+    const selectField = useInput(storageValues[attr.name], validationRules[attr.name])
 
     useEffect(() => {
-        setFieldsValue(prev => (
-            {
-                ...prev,
-                [attr.name]: selectField.value
-            }
-        ))
+        setFieldsValue(prev => ({
+            ...prev,
+            [attr.name]: selectField.value
+        }))
+
+        setStorageValues(prev => ({
+            ...prev,
+            [attr.name] : selectField.value
+        }))
     }, [selectField.value])
 
     useEffect(() => {
-        setFieldsValid(prev => (
-            {
-                ...prev,
-                [attr.name] : selectField.inputValid
-            }
-        ))
-
+        setFieldsValid(prev => ({
+            ...prev,
+            [attr.name] : selectField.inputValid
+        }))
     }, [selectField.inputValid])
 
     return (
@@ -38,9 +35,10 @@ const Select = ({ attr }) => {
                 className={
                     classNames("select-field", {
                         correct: selectField.inputValid && selectField.isDirty && isFieldsValid.dateOfBirth,
-                        incorrect: (!selectField.inputValid && selectField.isDirty) || (!isFieldsValid.dateOfBirth)
+                        incorrect: (!selectField.inputValid && selectField.isDirty) || (!selectField.inputValid && selectField.isDirty && !isFieldsValid.dateOfBirth && isFieldsValid.dateOfBirth !== null)
                     })
                 }
+                id={attr.name}
                 name={attr.name}
                 onBlur={e => selectField.onBlur(e)}
                 onChange={e => selectField.onChange(e)}
