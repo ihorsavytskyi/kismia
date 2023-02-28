@@ -1,23 +1,25 @@
 import React, {useContext, useEffect} from "react";
 import {QuizContext} from "../../context/QuizContext";
 import QuestionTest from "../Question/QuestionTest";
+import {TransitionGroup, CSSTransition} from "react-transition-group";
 
 const Questions = () => {
     const [state, dispatch] = useContext(QuizContext)
 
-    useEffect(() => {
-        console.log(state.questions)
-        state.questions.map((question, index) => {
-            console.log(question)
-        })
-
-    }, [])
-
     return (
         <div className="questions">
+            <TransitionGroup
+            component={null}>
             {state.questions.map((question, index) =>
-                <QuestionTest key={index} indexQuestion={index} question={question}/>
+
+                <CSSTransition
+                    key={index}
+                    timeout={5000}
+                    className="item">
+                    <QuestionTest key={index} indexQuestion={index} question={question}/>
+                </CSSTransition>
             )}
+            </TransitionGroup>
         </div>
     )
 }

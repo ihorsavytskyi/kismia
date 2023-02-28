@@ -26,7 +26,16 @@ const reducer = (state, action) => {
             currentQuestionIndex: currentQuestionIndex,
             answers: answers,
             userAnswers: [...state.userAnswers, userAnswer],
-            isQuizFinished: isQuizFinished
+            isQuizFinished: isQuizFinished,
+            isQuestionVisible: false
+        }
+    }
+
+    if(action.type === "SET_VISIBLE_QUESTIONS") {
+
+        return {
+            ...state,
+            isQuestionVisible: true
         }
     }
 }

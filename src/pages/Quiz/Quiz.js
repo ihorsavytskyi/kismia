@@ -7,31 +7,29 @@ import Text from "../../components/Text/Text";
 import {QuizProvider} from "../../context/QuizContext";
 import headerBg from "../../images/bg.png";
 import "./Quiz.scss"
-import Questions from "../../components/Questions/Questions";
+// import Questions from "../../components/Questions/Questions";
+// import QuestionTest1 from "../../components/Question/QuestionTest1";
+// import QuizComponent from "../../components/Question/question-5";
+import QuestionTest from "../../components/Question/QuestionTest";
 
-// import {motion as m} from "framer-motion";
+
 const Quiz = () => {
 
     return (
-        // <m.div
-        //     initial={{ opacity: 0 }}
-        //     animate={{ opacity: 1 }}
-        //     transition={{ duration: 0.75 }}>
         <QuizProvider>
             <MainContainer pageName={"quiz-page"}>
                 <HeadlineContainer>
                     <img className="image" src={headerBg} alt="Headline background"/>
                 </HeadlineContainer>
                 <Section classes={["column"]}>
-                    <Questions />
+                    {/*<Questions />*/}
+                    <QuestionTest/>
                     <Text
                         textAlign={"center"}
                         content={"Чтобы идеально подобрать для вас пару, ответьте на несколько вопросов"}/>
                 </Section>
             </MainContainer>
         </QuizProvider>
-
-        // </m.div>
     )
 }
 

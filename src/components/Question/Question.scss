@@ -5,36 +5,61 @@
 .questions .question {
   display: none;
   overflow: hidden;
+
+  &.from-left {
+    transform: translateX(-100%);
+
+    &.active {
+      transform: translateX(0);
+      transition: all 5s linear;
+      display: block;
+    }
+  }
 }
 
 .questions .question {
-  &.active {
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
-    animation-delay: 0.5s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    display: block;
 
-    &.from-left {
-      animation-name: from-left;
-    }
+  &.from-right {
+    transform: translateX(100%);
 
-    &.from-right {
-      animation-name: from-right;
-    }
-
-    h2 {
-      animation-duration: 0.5s;
-      animation-timing-function: linear;
-      animation-delay: 2s;
-      animation-iteration-count: 1;
-      animation-direction: normal;
-      animation-fill-mode: none;
+    &.active {
       display: block;
-      animation-name: opacity-headline;
+      transition: all 5s linear;
+      transform: translateX(0);
     }
+  }
+
+  &.active {
+    //display: block;
+    //transition: all 2s linear;
+    //transform: translateX(0);
+
+    //animation-duration: 1.5s;
+    //animation-timing-function: linear;
+    //animation-delay: 0.5s;
+    //animation-iteration-count: 1;
+    //animation-direction: normal;
+    //animation-fill-mode: none;
+    //display: block;
+    //
+    //&.from-left {
+    //  animation-name: from-left;
+    //}
+    //
+    //&.from-right {
+    //  animation-name: from-right;
+    //}
+
+    //h2 {
+    //  animation-duration: 0.5s;
+    //  animation-timing-function: linear;
+    //  animation-delay: 2s;
+    //  animation-iteration-count: 1;
+    //  animation-direction: normal;
+    //  animation-fill-mode: none;
+    //  display: block;
+    //  animation-name: opacity-headline;
+    //}
 
     button {
 
@@ -42,33 +67,33 @@
   }
 }
 
-@keyframes opacity-headline {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes from-left {
-  from {
-    transform: translateX(-150%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes from-right {
-  from {
-    transform: translateX(150%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
+//@keyframes opacity-headline {
+//  from {
+//    opacity: 0;
+//  }
+//  to {
+//    opacity: 1;
+//  }
+//}
+//
+//@keyframes from-left {
+//  from {
+//    transform: translateX(-150%);
+//    opacity: 0;
+//  }
+//  to {
+//    transform: translateX(0);
+//    opacity: 1;
+//  }
+//}
+//
+//@keyframes from-right {
+//  from {
+//    transform: translateX(150%);
+//    opacity: 0;
+//  }
+//  to {
+//    transform: translateX(0);
+//    opacity: 1;
+//  }
+//}
