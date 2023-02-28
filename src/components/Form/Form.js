@@ -1,12 +1,9 @@
 import React, {useContext, useRef} from "react";
 import {FormContext} from "../../context/FormContext";
-
 import {useDaysInMonth} from "../../hooks/useDaysInMonth";
 import useUserAgeValid from "../../hooks/useUserAgeValid";
-
 import getDropDownList from "../../utils/getDropDownList";
 import {getCurrentYear} from "../../utils/getDate";
-
 import Container from "../Container/Container";
 import {FormField, FormSubField} from "./FormField/FormField";
 import Fieldset from "./Fieldset/Fieldset";
@@ -14,7 +11,6 @@ import Select from "./Select/Select";
 import Button from "../Button/Button";
 import InputText from "./InputText/InputText";
 import InputPassword from "./InputPassword/InputPassword";
-
 import Checkbox from "./Checkbox/Checkbox";
 
 const Form = () => {

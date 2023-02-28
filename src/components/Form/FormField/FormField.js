@@ -1,6 +1,7 @@
 import React from "react";
-import "./FormField.scss"
 import {getSplitString} from "../../../utils/getSplitString";
+import "./FormField.scss"
+
 const FormField = ({ children }) => {
     return (
         <div className="form-field">

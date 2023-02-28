@@ -1,6 +1,6 @@
 import React from "react";
-import "./Section.scss"
 import {getSplitString} from "../../utils/getSplitString";
+import "./Section.scss"
 
 const Section = ({ children, ...props }) => {
 

@@ -1,3 +1,5 @@
+@use '../../styles/utils/variables';
+
 .loader,
 .loader:before,
 .loader:after {
@@ -11,7 +13,7 @@
 
 }
 .loader {
-    color: #ffffff;
+    color: variables.$white;
     font-size: 0.5rem;
     margin: 1rem auto;
     position:relative;

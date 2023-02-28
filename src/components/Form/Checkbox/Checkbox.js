@@ -1,8 +1,8 @@
 import React, {useEffect, useContext} from "react";
-import "./Checkbox.scss"
+import {FormContext} from "../../../context/FormContext";
 import { useInput } from "../../../hooks/useInput";
 import parse from "html-react-parser"
-import {FormContext} from "../../../context/FormContext";
+import "./Checkbox.scss"
 
 const Checkbox = ({ attr }) => {
 

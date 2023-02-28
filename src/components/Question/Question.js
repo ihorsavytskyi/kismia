@@ -1,44 +1,38 @@
 import React, {useContext, useEffect} from "react";
-import Answer from "../Answer/Answer";
 import {QuizContext} from "../../context/QuizContext";
-import {CSSTransition, TransitionGroup} from "react-transition-group";
+import {CSSTransition} from "react-transition-group";
+import Answer from "../Answer/Answer";
 
-const Question = () => {
+import "./Question.scss"
+
+const Question = ({indexQuestion, question}) => {
     const [state, dispatch] = useContext(QuizContext)
 
-    const isQuizFinished = state.isQuizFinished
-    const currentQuestion = !isQuizFinished && state.questions[state.currentQuestionIndex].question
-    const currentQuestionAnswers = !isQuizFinished && state.answers
+    const isVisibleQuestion = state.isQuestionVisible
+    const currentQuestion = state.questions[state.currentQuestionIndex]
 
     useEffect(() => {
-        console.log(state.currentQuestionIndex)
-    }, [state.currentQuestionIndex, state.answers])
+        dispatch({type: "SET_VISIBLE_QUESTIONS"})
+    }, [state.currentQuestionIndex])
 
     return (
-        <>
-            {!isQuizFinished &&
-                <div className="question">
-                    <h2>{currentQuestion}</h2>
-                    <div className="answers">
-                        <TransitionGroup className="question" component={null}>
-                            {currentQuestionAnswers.map((answer, i) =>
-                                <CSSTransition
-                                    key={i}
-                                    in={true}
-                                    timeout={50000}
-                                    classNames={{
-                                        enterActive: 'loading',
-                                        enterDone: 'loaded',
-                                        exit: 'hide'
-                                    }}>
-                                    <Answer answer={answer}/>
-                                </CSSTransition>
-                            )}
-                        </TransitionGroup>
-                    </div>
+        <CSSTransition
+            key={state.currentQuestionIndex}
+            in={isVisibleQuestion}
+            timeout={0}
+            unmountOnExit
+            classNames={{
+                enterDone: 'question-done-enter'
+            }}>
+            <div className="question" data-question-index={state.currentQuestionIndex}>
+                <h2>{currentQuestion.question}</h2>
+                <div className="answers">
+                    {currentQuestion.answers.map((answer, i) =>
+                        <Answer key={i} answer={answer}/>
+                    )}
                 </div>
-            }
-        </>
+            </div>
+        </CSSTransition>
     )
 }
 

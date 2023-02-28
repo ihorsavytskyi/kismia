@@ -1,22 +1,35 @@
 .question {
 
+  h2 {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+  }
+
+  button {
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
   &[data-question-index="0"] {
+    h2 {
+      opacity: 1;
+    }
+
     button {
       transform: translateX(0);
       opacity: 1;
     }
   }
 
-  button {
-    transition: all 0.5s linear;
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
   &.question-done-enter {
+    h2 {
+      opacity: 1;
+    }
+
     @for $i from 1 through 4 {
       button:nth-child(#{$i}) {
-        transition: all 0.5s ease-out;
+        transition: all 0.8s ease-out;
         transition-delay: 0.2s * $i;
         transform: translateX(0);
         opacity: 1;

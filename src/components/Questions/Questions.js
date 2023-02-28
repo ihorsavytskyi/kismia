@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import {QuizContext} from "../../context/QuizContext";
-import QuestionTest from "../Question/QuestionTest";
+import Question from "../Question/Question";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
 
 const Questions = () => {
@@ -16,7 +16,7 @@ const Questions = () => {
                     key={index}
                     timeout={5000}
                     className="item">
-                    <QuestionTest key={index} indexQuestion={index} question={question}/>
+                    <Question key={index} indexQuestion={index} question={question}/>
                 </CSSTransition>
             )}
             </TransitionGroup>

@@ -6,7 +6,7 @@ import Text from "../../components/Text/Text";
 import {QuizProvider} from "../../context/QuizContext";
 import headerBg from "../../images/bg.png";
 import "./Quiz.scss"
-import QuestionTest from "../../components/Question/QuestionTest";
+import Question from "../../components/Question/Question";
 
 
 const Quiz = () => {
@@ -18,7 +18,7 @@ const Quiz = () => {
                     <img className="image" src={headerBg} alt="Headline background"/>
                 </HeadlineContainer>
                 <Section classes={["column"]}>
-                    <QuestionTest />
+                    <Question />
                     <Text
                         textAlign={"center"}
                         content={"Чтобы идеально подобрать для вас пару, ответьте на несколько вопросов"}/>

@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import {CSSTransition, SwitchTransition} from "react-transition-group";
 import {getOverWrittenString} from "../../utils/getOverWrittenString";
-// import "./ReadMore.scss"
-
 
 const ReadMore = ({ children }) => {
 

@@ -1,10 +1,7 @@
 import React, {useContext, useEffect} from "react";
 import {FormContext} from "../../../context/FormContext";
-
 import {useInput} from "../../../hooks/useInput";
-
 import classNames from "classnames";
-
 import "./Select.scss"
 
 

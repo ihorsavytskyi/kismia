@@ -1,8 +1,8 @@
 import React, {useEffect, useContext, useState} from "react";
-import "./InputText.scss"
+import {FormContext} from "../../../context/FormContext";
 import {useInput} from "../../../hooks/useInput";
 import classNames from "classnames";
-import {FormContext} from "../../../context/FormContext";
+import "./InputText.scss"
 
 const InputText = ({ attr }) => {
 
