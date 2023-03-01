@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-const useInfiniteScroll = (data) => {
+const useInfiniteScroll = (data, element) => {
 
     const [listPosts, setListPosts] = useState(data.slice(0,3))
     const [fetching, setFetching] = useState(false);
@@ -25,9 +25,15 @@ const useInfiniteScroll = (data) => {
 
     useEffect(() => {
         const scrollHandler = (e) => {
-            if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 250) {
-                setFetching(true)
-            }
+
+            if(!element?.current) return
+
+            const observer = new IntersectionObserver((entries) => {
+                const entry = entries[0]
+                setFetching(entry.isIntersecting)
+            })
+
+            observer.observe(element.current, {})
         };
 
         window.addEventListener('scroll', scrollHandler);
