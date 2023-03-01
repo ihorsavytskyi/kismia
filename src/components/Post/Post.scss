@@ -47,14 +47,14 @@
 }
 
 .users-avatar-item {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
+  height: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
   border-radius: 50%;
   box-sizing: border-box;
 
-  @media (max-width: 48rem) {
-    width: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
-    height: functions.calcFluidSize(3.2, 5.6, 32, 48, rem);
+  @media (min-width: 481px) {
+    width: 3.2rem;
+    height: 3.2rem;
   }
 }
 
@@ -64,47 +64,47 @@
 }
 
 .users-names {
-  font: normal 500 1.2rem/1.17 variables.$roboto;
+  font: normal 500 functions.calcFluidSize(1.2, 1.5, 32, 48, rem)/1.17 variables.$roboto;
   color: variables.$white;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5vh;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.2, 1.5, 32, 48, rem);
-    margin-bottom: 0.5vh;
+  @media (min-width: 481px) {
+    font: normal 500 1.2rem/1.17 variables.$roboto;
+    margin-bottom: 0.3rem;
   }
 }
 
 .publish-date {
-  font: normal 400 1.2rem/1.17 variables.$roboto;
+  font: normal 400 functions.calcFluidSize(1.2, 1.5, 32, 48, rem)/1.17 variables.$roboto;
   color: variables.$gray;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.2, 1.5, 32, 48, rem);
+  @media (min-width: 481px) {
+    font: normal 400 1.2rem/1.17 variables.$roboto;
   }
 }
 
 .post-body {
 
   .post-text {
-    font: normal 400 1.4rem/1.36 variables.$roboto;
+    font: normal 400 functions.calcFluidSize(1.4, 1.75, 32, 48, rem)/1.36 variables.$roboto;
     color: variables.$gray;
     margin: 0;
     transition: all 0.5s ease;
 
-    @media (max-width: 48rem) {
-      font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+    @media (min-width: 48rem) {
+      font: normal 400 1.4rem/1.36 variables.$roboto;
     }
   }
 
   .read-more-toggle {
-    font: normal 400 1.4rem/1.36 variables.$roboto;
+    font: normal 400 functions.calcFluidSize(1.4, 1.75, 32, 48, rem)/1.36 variables.$roboto;
     color: variables.$orange;
     text-decoration: underline;
     cursor: pointer;
     margin-left: 0.5rem;
 
-    @media (max-width: 48rem) {
-      font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+    @media (min-width: 481px) {
+      font: normal 400 1.4rem/1.36 variables.$roboto;
     }
   }
 }

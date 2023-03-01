@@ -20,15 +20,15 @@ footer {
     align-items: center;
 
     .footer-navigation-item {
-      font: normal 400 1.4rem/1.14 variables.$roboto;
+      font: normal 400 functions.calcFluidSize(1.4, 1.75, 32, 48, rem)/1.14 variables.$roboto;
       color: variables.$white;
       text-align: center;
       padding: 1rem 0;
       width: fit-content;
       text-decoration: none;
 
-      @media (max-width: 48rem) {
-        font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+      @media (min-width: 481px) {
+        font: normal 400 1.4rem/1.14 variables.$roboto;
       }
     }
   }
