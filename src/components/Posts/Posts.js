@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
 import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 import Post from "../Post/Post";
@@ -8,7 +8,8 @@ import data from "../../data/data"
 const Posts = () => {
 
     const posts = data.posts
-    const [listPosts, isLoading] = useInfiniteScroll(posts)
+    let intersectionPointRef = useRef()
+    const [listPosts, isLoading] = useInfiniteScroll(posts, intersectionPointRef)
 
     return (
         <div className="posts">
@@ -28,6 +29,7 @@ const Posts = () => {
                     </CSSTransition>
                 )}
             </TransitionGroup>
+            <span ref={intersectionPointRef} className="intersection-breakpoint"></span>
             {!!isLoading && <Loader/>}
         </div>
     )
