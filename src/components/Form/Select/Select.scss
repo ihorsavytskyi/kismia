@@ -34,7 +34,7 @@ label {
 }
 
 select {
-  font: normal 400 1.4rem/1.14 variables.$roboto;
+  font: normal 400 functions.calcFluidSize(1.4, 1.75, 32, 48, rem)/1.14 variables.$roboto;
   background: variables.$default-input-bg url("dropdown-icon.svg") calc(100% - 1.5rem) 1.9rem/1rem  no-repeat;
   color: variables.$placeholder;
   display: flex;
@@ -48,8 +48,8 @@ select {
   outline: none;
   appearance: none;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+  @media (min-width: 48rem) {
+    font: normal 400 1.4rem/1.14 variables.$roboto;
   }
 
   &:focus {

@@ -20,7 +20,7 @@ const ReadMore = ({ children }) => {
             <SwitchTransition mode={"out-in"}>
                 <CSSTransition
                     key={isReadMore}
-                    timeout={0}
+                    timeout={100}
                     className="post-text">
                         <p className="post-text">
                             {isReadMore ?
