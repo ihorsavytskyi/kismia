@@ -2,53 +2,53 @@
 @use './src/styles/utils/functions';
 
 @mixin title {
-  font: normal 700 2.1rem/1.44 variables.$jost;
+  font: normal 700 functions.calcFluidSize(2.1, 2.4, 32, 48, rem) /1.44 variables.$jost;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin: 0;
   text-align: center;
   color: variables.$white;
 
-  @media (max-height: 48rem) {
-    font-size: functions.calcFluidSize(2.1, 2.4, 32, 48, rem);
+  @media (min-height: 481px) {
+    font: normal 700 2.1rem/1.44 variables.$jost;
   }
 }
 
 @mixin subtitle {
-  font: normal 700 1.6rem/1.19 variables.$roboto;
+  font: normal 700 functions.calcFluidSize(1.6, 2, 32, 48, rem)/1.19 variables.$roboto;
   color: variables.$white;
   text-align: center;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.6, 2, 32, 48, rem);
+  @media (min-width: 481px) {
+    font: normal 700 1.6rem/1.19 variables.$roboto;
   }
 }
 
 @mixin text {
-  font: normal 400 1.4rem/1.14 variables.$roboto;
+  font: normal 400 functions.calcFluidSize(1.4, 1.75, 32, 48, rem)/1.14 variables.$roboto;
   color: variables.$small-text;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+  @media (min-width: 481px) {
+    font: normal 400 1.4rem/1.14 variables.$roboto;
   }
 }
 
 @mixin button {
-  font: normal 500 1.6rem/1.43 variables.$jost;
+  font: normal 500 functions.calcFluidSize(1.6, 2, 32, 48, rem)/1.43 variables.$jost;
   letter-spacing: 0.02em;
   color: variables.$black;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.6, 2, 32, 48, rem);
+  @media (min-width: 481px) {
+    font: normal 500 1.6rem/1.43 variables.$jost;
   }
 }
 
 @mixin choose-button {
-  font: normal 500 1.4rem/1.14 variables.$roboto;
+  font: normal 500 functions.calcFluidSize(1.4, 1.75, 32, 48, rem)/1.14 variables.$roboto;
   color: variables.$black;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.4, 1.75, 32, 48, rem);
+  @media (min-width: 481px) {
+    font: normal 500 1.4rem/1.14 variables.$roboto;
   }
 }
 
@@ -62,20 +62,20 @@
 }
 
 @mixin label {
-  font: normal 700 1.4rem/1.14 variables.$roboto;
+  font: normal 700 functions.calcFluidSize(1.4, 1.6, 32, 48, rem)/1.14 variables.$roboto;
   color: variables.$white;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.4, 1.6, 32, 48, rem);
+  @media (min-width: 481px) {
+    font: normal 700 1.4rem/1.14 variables.$roboto;
   }
 }
 
 @mixin error {
-  font: normal 400 1.2rem/1.33 variables.$roboto;
+  font: normal 400 functions.calcFluidSize(1.2, 1.4, 32, 48, rem)/1.33 variables.$roboto;
   color: variables.$error-input-color;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.2, 1.4, 32, 48, rem);
+  @media (min-width: 481px) {
+    font: normal 400 1.2rem/1.33 variables.$roboto;
   }
 }
 
@@ -95,7 +95,7 @@
 }
 
 @mixin input {
-  font: normal 400 1.4rem/1.14 variables.$roboto;
+  font: normal 400 functions.calcFluidSize(1.4, 1.6, 32, 48, rem)/1.14 variables.$roboto;
   display: flex;
   align-items: center;
   background: variables.$default-input-bg;
@@ -107,8 +107,8 @@
   margin-bottom: 0.8rem;
   outline: 0;
 
-  @media (max-width: 48rem) {
-    font-size: functions.calcFluidSize(1.4, 1.6, 32, 48, rem);
+  @media (min-width: 481px) {
+    font: normal 400 1.4rem/1.14 variables.$roboto;
   }
 
   &::placeholder {
