@@ -2,14 +2,14 @@
 @use './src/styles/utils/functions';
 
 @mixin title {
-  font: normal 700 functions.calcFluidSize(2.1, 2.4, 32, 48, rem) /1.44 variables.$jost;
+  font: normal 700 functions.calcFluidSize(1.8, 2.4, 32, 48, rem) /1.44 variables.$jost;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin: 0;
   text-align: center;
   color: variables.$white;
 
-  @media (min-height: 481px) {
+  @media (min-width: 481px) {
     font: normal 700 2.1rem/1.44 variables.$jost;
   }
 }
