@@ -240,7 +240,7 @@ const data = {
             isEmpty: true,
             minLength: 2,
             maxLength: 80,
-            pattern: "^[a-zA-Z ]*$",
+            pattern: "^[a-zA-ZA-zА-я ]*$",
         },
         dayOfBirth: {
             isEmpty: true,
